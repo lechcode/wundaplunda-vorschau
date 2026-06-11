@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Euer Website-Vorschlag · WUNDAPLUNDA × Lechcode</title>
+<meta name="theme-color" content="#172A3A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23172A3A'/%3E%3Cpath d='M32 14 L50 50 L14 50 Z' fill='%23FBF4E6'/%3E%3Cpath d='M32 30 L40 50 L24 50 Z' fill='%23C75B1F'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+:root{--creme:#FBF4E6;--sand:#F2E6CF;--nacht:#172A3A;--tanne:#2E4636;--ink:#33291F;--soft:#5C5142;--glut:#C75B1F;--honig:#E2A93B;--line:#E4D5B8;--hell:#FFFDF8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito Sans',sans-serif;background:var(--creme);color:var(--ink);line-height:1.65}
+.wrap{max-width:1040px;margin:0 auto;padding:0 clamp(1.1rem,4vw,2rem)}
+section{padding:3.5rem 0}
+h1,h2{font-family:'Fraunces',serif;line-height:1.15}
+.hand{font-family:'Caveat',cursive;color:var(--glut)}
+.kopf{background:var(--nacht);color:var(--creme);padding:4.5rem 0 3.5rem;text-align:center}
+.kopf .hand{color:var(--honig);font-size:clamp(1.5rem,1.2rem+1.5vw,2.1rem)}
+.kopf h1{font-size:clamp(1.9rem,1.4rem+2.6vw,3.1rem);max-width:22ch;margin:0.4rem auto 1rem}
+.kopf p{max-width:54ch;margin:0 auto;color:rgba(251,244,230,.85)}
+.maus{width:90px;margin:0 auto 1rem;display:block}
+h2{font-size:clamp(1.5rem,1.2rem+1.4vw,2.1rem);margin-bottom:.6rem}
+.sub{color:var(--soft);max-width:60ch;margin-bottom:2rem}
+/* Slider */
+.slider{position:relative;border-radius:1.2rem;overflow:hidden;box-shadow:0 24px 60px -24px rgba(51,41,31,.4);user-select:none;border:1px solid var(--line)}
+.slider img{display:block;width:100%;height:auto;pointer-events:none}
+.slider .oben{position:absolute;inset:0;overflow:hidden;width:50%;border-right:3px solid var(--honig)}
+.slider .oben img{width:auto;height:100%;max-width:none}
+.griff{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:var(--honig);display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--nacht);box-shadow:0 6px 18px rgba(0,0,0,.35);pointer-events:none;font-size:1.2rem}
+.slider input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
+.tags{display:flex;justify-content:space-between;font-family:'Caveat',cursive;font-size:1.4rem;color:var(--soft);margin-top:.5rem}
+/* Phones */
+.phones{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+.phone{border:10px solid var(--nacht);border-radius:2.2rem;overflow:hidden;box-shadow:0 24px 50px -22px rgba(51,41,31,.45);background:#fff}
+.phone img{display:block;width:100%}
+.phone-cap{text-align:center;font-family:'Caveat',cursive;font-size:1.45rem;margin-top:.8rem;color:var(--soft)}
+/* Zahlen */
+.zahlen{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.z{background:var(--hell);border:1px solid var(--line);border-radius:1.2rem;padding:1.6rem 1.2rem;text-align:center}
+.z b{font-family:'Fraunces',serif;font-size:clamp(1.6rem,1.2rem+1.6vw,2.3rem);color:var(--glut);display:block;line-height:1.1}
+.z small{color:var(--soft)}
+.tacho{background:var(--tanne);color:var(--creme);border-radius:1.2rem;padding:2rem 2.2rem;margin-top:1.5rem;font-size:clamp(1.1rem,1rem+.7vw,1.4rem);font-family:'Fraunces',serif}
+.tacho b{color:var(--honig)}
+/* Punkte */
+.punkte{display:grid;grid-template-columns:1fr 1fr;gap:1rem 2.5rem;list-style:none}
+.punkte li{padding-left:1.9em;position:relative}
+.punkte li::before{content:"✺";position:absolute;left:0;color:var(--glut);font-size:1.1em}
+/* Pakete */
+.pakete{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.paket{background:var(--hell);border:1px solid var(--line);border-radius:1.2rem;padding:1.8rem 1.5rem}
+.paket.mitte{border:2px solid var(--honig);position:relative}
+.paket h3{font-family:'Fraunces',serif;font-size:1.15rem}
+.paket .preis{font-family:'Fraunces',serif;font-size:1.9rem;color:var(--glut);margin:.3rem 0}
+.paket small{color:var(--soft)}
+.btn{display:inline-block;background:var(--glut);color:#fff;font-weight:700;text-decoration:none;border-radius:99px;padding:.95em 2em}
+.btn:hover{background:#A8481A}
+.btn-ghost{background:transparent;border:2px solid var(--ink);color:var(--ink);margin-left:.7rem}
+.btn-ghost:hover{background:rgba(51,41,31,.06)}
+.fuss{background:var(--nacht);color:rgba(251,244,230,.8);text-align:center;padding:2.5rem 1rem;font-size:.92rem}
+.fuss .hand{color:var(--honig);font-size:1.25rem}
+@media (max-width:760px){.phones,.pakete{grid-template-columns:1fr}.zahlen{grid-template-columns:1fr 1fr}.punkte{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="kopf">
+  <div class="wrap">
+    <img class="maus" src="assets/img/maskottchen.png" alt="">
+    <span class="hand">Hallo liebes Wundaplunda-Team — wir haben euch etwas mitgebracht. 🎁</span>
+    <h1>So könnte eure Website ab nächster Woche aussehen.</h1>
+    <p>Kein Pitch, kein Druck — einfach ein fertiger Vorschlag zum Anschauen. Gebaut mit dem, was ihr schon habt: euren Worten, euren wunderschönen Fotos, eurem Maskottchen.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Vorher / Nachher — zieht den Regler</h2>
+    <p class="sub">Links eure heutige Seite, rechts der neue Vorschlag. Gleiche Inhalte — neues Zuhause.</p>
+    <div class="slider" id="slider">
+      <img src="assets/img/vergleich-nachher-desktop.jpg" width="1440" height="900" alt="Neuer Website-Entwurf am Desktop">
+      <div class="oben" id="oben"><img src="assets/img/vergleich-vorher-desktop.jpg" width="1440" height="900" alt="Bisherige Website am Desktop"></div>
+      <div class="griff" id="griff">⇄</div>
+      <input type="range" min="0" max="100" value="50" id="regler" aria-label="Vorher-Nachher-Vergleich verschieben">
+    </div>
+    <div class="tags"><span>← so ist es heute</span><span>so könnte es sein →</span></div>
+  </div>
+</section>
+
+<section style="background:var(--sand)">
+  <div class="wrap">
+    <h2>Und auf dem Handy?</h2>
+    <p class="sub">Die meisten Familien öffnen eure Seite am Handy — oft abends, wenn die Kinder schlafen. So sehen sie euch heute. Und so ab nächster Woche.</p>
+    <div class="phones">
+      <figure><div class="phone"><img src="assets/img/vergleich-vorher-mobil.jpg" alt="Bisherige Website auf dem Smartphone"></div><figcaption class="phone-cap">heute</figcaption></figure>
+      <figure><div class="phone"><img src="assets/img/vergleich-nachher-mobil.jpg" alt="Neuer Entwurf auf dem Smartphone"></div><figcaption class="phone-cap">der Vorschlag ✨</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Was sich messbar ändert</h2>
+    <p class="sub">Gemessen mit Google Lighthouse (Mobil-Test, gleiche Methode für beide Seiten).</p>
+    <div class="zahlen">
+      <div class="z"><b>4,7× leichter</b><small>3,5 MB → 0,76 MB Seitengewicht</small></div>
+      <div class="z"><b>93 → 16</b><small>Server-Anfragen pro Seitenaufruf</small></div>
+      <div class="z"><b>2,4 s statt 6,2 s</b><small>bis die Seite sichtbar fertig ist</small></div>
+      <div class="z"><b>84 → 100</b><small>Barrierefreiheit (auch für Oma & Opa gut lesbar)</small></div>
+    </div>
+    <div class="tacho">🔥 Und das Beste: Die neue Seite braucht <b>kein Cookie-Banner</b> mehr — keine Klick-weg-Fenster, kein Tracking, Schriften liegen lokal. Das ist nicht nur freundlicher, sondern auch <b>abmahnsicherer</b> (Stichwort Google Fonts).</div>
+  </div>
+</section>
+
+<section style="background:var(--sand)">
+  <div class="wrap">
+    <h2>Was wir euch noch mitgebaut haben</h2>
+    <ul class="punkte">
+      <li><b>Ausverkauft als Stärke:</b> Warteliste, Save-the-Date 2027 und euer Helfer-Aufruf sind jetzt die drei klaren Wege — statt sich den Platz zu streitig zu machen.</li>
+      <li><b>Eure vier Versprechen</b> (wild & frei, kreativ, verbinden, magisch) — als Herzstück mit euren schönsten Fotos.</li>
+      <li><b>„Ein Tag im Wundaplunda"</b> — wer noch nie da war, spürt in 30 Sekunden, wie sich das Lager anfühlt.</li>
+      <li><b>Preise & FAQ aufgeräumt:</b> die widersprüchlichen 2025er/2026er-Angaben eurer alten FAQ sind bereinigt (Stand: 2026er-Block).</li>
+      <li><b>Euer schönster Satz</b> — „Es braucht ein ganzes Dorf…" — endlich groß inszeniert statt versteckt.</li>
+      <li><b>Impressum & Datenschutz</b> als saubere Entwürfe nach aktuellem Recht (DDG statt TMG, ohne toten EU-Streitschlichtungs-Link).</li>
+      <li><b>Schöne WhatsApp-Vorschau:</b> Wenn jemand euren Link teilt, erscheint ein liebevolles Vorschaubild statt grauem Nichts.</li>
+      <li><b>Pflegeleicht:</b> eine einzige, klar kommentierte Datei — Termine & Preise ändern dauert Minuten.</li>
+    </ul>
+    <p style="margin-top:1.5rem"><a class="btn" href="index.html">Euren neuen Website-Vorschlag ansehen →</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Was kostet sowas?</h2>
+    <p class="sub">Ehrliche Festpreise — keine Agentur-Überraschungen. Für euch als Verein rechnen wir gern fair.</p>
+    <div class="pakete">
+      <div class="paket"><h3>Starter</h3><div class="preis">690 €</div><small>Moderne One-Page-Seite (wie dieser Vorschlag), mobil top, Kontakt & Warteliste · + 19 €/Monat Pflege & Hosting</small></div>
+      <div class="paket mitte"><h3>Praxis</h3><div class="preis">1.200 €</div><small>Mehrseitig (Programm, Rückblick, Team als eigene Seiten), SEO-Basis, Google-Profil · + 29 €/Monat</small></div>
+      <div class="paket"><h3>Premium</h3><div class="preis">ab 1.900 €</div><small>+ Ticketshop-Anbindung, Newsletter, Mehrsprachig · + 39 €/Monat</small></div>
+    </div>
+    <p style="margin-top:2rem"><b>Nächster Schritt?</b> 15 Minuten telefonieren — wir zeigen euch alles und ihr sagt uns, was anders soll.<br><br>
+    <a class="btn" href="mailto:hallo@lechcode.de?subject=Wundaplunda%20Website">E-Mail an Lechcode</a><a class="btn btn-ghost" href="https://lechcode.de" target="_blank" rel="noopener">lechcode.de ↗</a></p>
+  </div>
+</section>
+
+<footer class="fuss">
+  <span class="hand">Code mit Seele.</span><br>
+  Unverbindliche Design-Vorschau, erstellt von <b>Lechcode</b> (Schönbach &amp; Storz GbR, Landsberg am Lech) · nichts davon ist veröffentlicht oder indexiert.<br>
+  Eure Inhalte bleiben eure Inhalte — gefällt's euch nicht, löschen wir alles wieder. Versprochen.
+</footer>
+
+<script>
+(function(){
+  var r=document.getElementById('regler'),o=document.getElementById('oben'),g=document.getElementById('griff');
+  function set(v){o.style.width=v+'%';g.style.left=v+'%';}
+  r.addEventListener('input',function(){set(this.value)});
+  set(50);
+})();
+</script>
+</body>
+</html>
