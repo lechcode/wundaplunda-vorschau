@@ -61,6 +61,23 @@ h2{font-size:clamp(1.5rem,1.2rem+1.4vw,2.1rem);margin-bottom:.6rem}
 .fuss{background:var(--nacht);color:rgba(251,244,230,.8);text-align:center;padding:2.5rem 1rem;font-size:.92rem}
 .fuss .hand{color:var(--honig);font-size:1.25rem}
 @media (max-width:760px){.phones,.pakete{grid-template-columns:1fr}.zahlen{grid-template-columns:1fr 1fr}.punkte{grid-template-columns:1fr}}
+  /* Lechcode · Termin-Buchung (cookiefrei) */
+  .lcbook{background:radial-gradient(58vmax 42vmax at 82% -12%,rgba(232,146,63,.22),transparent 60%),radial-gradient(46vmax 40vmax at 6% 120%,rgba(231,185,100,.10),transparent 56%),linear-gradient(180deg,#1d1810,#16130c);color:#f4ecdc;text-align:center;padding:clamp(54px,8vw,94px) clamp(20px,5vw,32px);font-family:"Space Grotesk","Inter",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .lcbook *{box-sizing:border-box;}
+  .lcbook-in{width:min(600px,100%);margin-inline:auto;}
+  .lcbook-eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:ui-monospace,"JetBrains Mono","SF Mono",Menlo,monospace;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#e7b964;margin-bottom:16px;}
+  .lcbook-mark{width:30px;height:30px;flex:none;filter:drop-shadow(0 0 5px rgba(232,146,63,.45));}
+  .lcbook-h{font-family:inherit;font-weight:700;font-size:clamp(27px,4vw,42px);line-height:1.12;letter-spacing:-.02em;color:#fbf5e8;margin:0;}
+  .lcbook-p{font-family:inherit;font-size:clamp(15px,.5vw + 14px,17px);line-height:1.66;color:#cfc3ac;max-width:50ch;margin:16px auto 0;}
+  .lcbook-btn{display:inline-flex;align-items:center;justify-content:center;gap:11px;margin-top:30px;text-decoration:none;cursor:pointer;border:0;background:linear-gradient(180deg,#f0a85e,#e8923f);color:#2a1808;font-family:inherit;font-weight:700;font-size:16.5px;padding:16px 32px;border-radius:999px;min-height:52px;box-shadow:inset 0 1px 0 rgba(255,220,170,.55),0 16px 30px -12px rgba(232,146,63,.6);transition:transform .26s cubic-bezier(.22,.61,.36,1),box-shadow .26s;}
+  .lcbook-btn:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,220,170,.55),0 22px 40px -14px rgba(232,146,63,.72);}
+  .lcbook-btn:active{transform:translateY(0);}
+  .lcbook-btn:focus-visible{outline:none;box-shadow:0 0 0 3px #16130c,0 0 0 6px rgba(232,146,63,.65);}
+  .lcbook-btn svg{width:20px;height:20px;flex:none;}
+  .lcbook-arr{transition:transform .25s cubic-bezier(.22,.61,.36,1);}
+  .lcbook-btn:hover .lcbook-arr{transform:translateX(4px);}
+  .lcbook-note{font-family:inherit;font-size:12.5px;line-height:1.55;color:#9a8e76;max-width:46ch;margin:18px auto 0;}
+  @media (prefers-reduced-motion:reduce){.lcbook-btn,.lcbook-arr{transition:none;}}
 </style>
 </head>
 <body>
@@ -141,6 +158,23 @@ h2{font-size:clamp(1.5rem,1.2rem+1.4vw,2.1rem);margin-bottom:.6rem}
     </div>
     <p style="margin-top:2rem"><b>Nächster Schritt?</b> 15 Minuten telefonieren — wir zeigen euch alles und ihr sagt uns, was anders soll.<br><br>
     <a class="btn" href="mailto:hallo@lechcode.de?subject=Wundaplunda%20Website">E-Mail an Lechcode</a><a class="btn btn-ghost" href="https://lechcode.de" target="_blank" rel="noopener">lechcode.de ↗</a></p>
+  </div>
+</section>
+
+<section class="lcbook" aria-labelledby="lcbook-h">
+  <div class="lcbook-in">
+    <span class="lcbook-eyebrow">
+      <svg class="lcbook-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="22.5" stroke="#e7b964" stroke-width="3.4"/><path d="M15 36 C22 28 29 28 33 34 C37 40 44 40 50 31" stroke="#e7b964" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="44" cy="18.5" r="3.4" fill="#e8923f"/></svg>
+      Lechcode · Landsberg am Lech
+    </span>
+    <h2 class="lcbook-h" id="lcbook-h">Lust auf ein kurzes Gespräch?</h2>
+    <p class="lcbook-p">Wenn ihr mögt, sucht euch hier einfach einen Termin — etwa 30 Minuten, ganz unverbindlich. Wir gehen gemeinsam durch die Seite, ihr fragt, was ihr wollt.</p>
+    <a class="lcbook-btn" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1vusFYCV6O45i109a0J5ruEFtWCT7iFsq5t4Mb2KvQmNhdkMtlddml9dx5V2jButjV2SUGapFg?gv=true" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="3" stroke="#2a1808" stroke-width="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4" stroke="#2a1808" stroke-width="2" stroke-linecap="round"/></svg>
+      Termin aussuchen
+      <span class="lcbook-arr" aria-hidden="true">→</span>
+    </a>
+    <p class="lcbook-note">Öffnet unseren Kalender in einem neuen Tab — ihr sucht euch einfach einen freien Termin aus. Diese Seite bleibt komplett cookiefrei.</p>
   </div>
 </section>
 
