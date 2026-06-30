@@ -1,14 +1,15 @@
 /* Rechtsseiten WUNDAPLUNDA — gemeinsames Stylesheet */
 :root{--creme:#FBF4E6;--nacht:#172A3A;--ink:#33291F;--ink-soft:#5C5142;--glut:#C75B1F;--honig:#E2A93B;--line:#E4D5B8;--hell:#FFFDF8}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Nunito Sans',-apple-system,sans-serif;background:var(--creme);color:var(--ink);line-height:1.7}
+body{font-family:'Nunito',-apple-system,sans-serif;background:var(--creme);color:var(--ink);line-height:1.7}
 .lhead{background:var(--nacht);color:var(--creme);padding:3.5rem 1.5rem 2.5rem}
 .lhead .inner{max-width:760px;margin:0 auto}
 .lhead a.back{color:var(--honig);text-decoration:none;font-weight:700;font-size:.95rem}
-.lhead h1{font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:clamp(1.8rem,1.4rem+2vw,2.6rem);margin-top:.6rem}
+.lhead .llogo{display:block;width:min(70%,260px);height:auto;margin:1.4rem 0 .2rem}
+.lhead h1{font-family:'Nunito',-apple-system,sans-serif;font-weight:900;font-size:clamp(1.8rem,1.4rem+2vw,2.6rem);margin-top:.6rem}
 .entwurf{display:inline-block;font-family:'Caveat',cursive;font-size:1.25rem;background:var(--honig);color:var(--nacht);border-radius:.5em;padding:.05em .8em .15em;transform:rotate(-1.5deg);margin-top:.8rem}
 .sheet{max-width:760px;margin:0 auto;background:var(--hell);border:1px solid var(--line);border-radius:1.2rem;padding:clamp(1.4rem,4vw,3rem);margin-top:-1.2rem;margin-bottom:3rem;position:relative}
-.sheet h2{font-family:'Fraunces',Georgia,serif;font-size:1.25rem;margin:1.8rem 0 .5rem}
+.sheet h2{font-family:'Nunito',-apple-system,sans-serif;font-weight:800;font-size:1.3rem;margin:1.8rem 0 .5rem}
 .sheet h2:first-child{margin-top:0}
 .sheet p,.sheet li{font-size:.98rem;color:var(--ink-soft)}
 .sheet ul{margin:.4rem 0 .4rem 1.3rem}
