@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redaktion · Wundaplunda Programmheft (intern)</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FBF4E6">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+:root{
+  --creme:#FBF4E6; --sand:#F4E9D2; --hell:#FFFDF8;
+  --blau:#195591; --blau-tief:#103F6E; --blau-mittel:#2C6CA4;
+  --koralle:#EE8469; --rot:#E0431F; --gold:#E1971F; --magenta:#D8418F; --gruen:#5E8C57;
+  --ink:#33291F; --ink-soft:#5C5142; --muted:#6F6249; --line:#E7D9BC;
+  --display:'Fraunces',Georgia,serif; --sans:'Nunito Sans',-apple-system,'Segoe UI',sans-serif; --hand:'Caveat',cursive;
+  --radius:.9rem; --shadow:0 10px 30px -16px rgba(51,41,31,.3);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--creme);color:var(--ink);line-height:1.55;font-size:16px}
+h1,h2,h3{font-family:var(--display);line-height:1.15}
+a{color:var(--blau)}
+.wrap{max-width:1180px;margin:0 auto;padding:1.4rem clamp(1rem,3vw,2rem) 3rem}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+header.top{background:var(--hell);border-bottom:3px solid var(--line)}
+.wortmarke{font-family:var(--display);font-weight:900;letter-spacing:.04em}
+.wortmarke span:nth-child(7n+1){color:var(--blau)}.wortmarke span:nth-child(7n+2){color:var(--rot)}.wortmarke span:nth-child(7n+3){color:var(--gold)}.wortmarke span:nth-child(7n+4){color:var(--blau-mittel)}.wortmarke span:nth-child(7n+5){color:var(--koralle)}.wortmarke span:nth-child(7n+6){color:var(--magenta)}.wortmarke span:nth-child(7n+7){color:var(--gruen)}
+.top .wrap{padding-top:1.1rem;padding-bottom:1.1rem}
+.top h1{margin:0;font-size:inherit;font-weight:inherit;line-height:1.1}
+.top .wortmarke{font-size:1.9rem}
+.top .badge-intern{display:inline-block;background:var(--sand);color:var(--ink-soft);font-family:var(--hand);font-size:1.2rem;padding:.05em .7em;border-radius:99px;transform:rotate(-1deg);margin-left:.5rem;vertical-align:middle}
+.top p.sub{color:var(--ink-soft);margin-top:.3rem;max-width:70ch}
+.top p.sub a{font-weight:700}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.4rem}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--hell);border:2px solid var(--line);border-radius:var(--radius);padding:1.1rem 1.2rem;box-shadow:var(--shadow)}
+.panel h2{font-size:1.3rem;color:var(--blau-tief);margin-bottom:.2rem}
+.panel .hint{color:var(--muted);font-size:.9rem;margin-bottom:.8rem}
+
+label{display:block;font-weight:700;font-size:.86rem;color:var(--ink-soft);margin:.7rem 0 .25rem}
+input[type=text],textarea,select{width:100%;border:2px solid var(--line);border-radius:.6rem;padding:.5em .7em;font:inherit;background:#fff;color:var(--ink)}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blau)}
+textarea{min-height:64px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+
+.zgpick{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.3rem}
+.zgpick button{display:inline-flex;align-items:center;gap:.35em;border:2px solid var(--line);background:#fff;border-radius:99px;padding:.3em .7em .3em .5em;cursor:pointer;font-weight:700;font-size:.84rem;color:var(--ink-soft)}
+.zgpick button svg{width:1.3em;height:1.3em}
+.zgpick button[aria-pressed=true]{border-color:var(--gold);background:var(--creme)}
+.zgpick button[aria-pressed=false]{background:var(--creme);color:var(--muted)}
+.zgpick button[aria-pressed=false] svg{opacity:.4;filter:grayscale(.65)}
+
+.btn{font-weight:700;border:2px solid var(--blau);background:var(--blau);color:#fff;border-radius:99px;padding:.5em 1.1em;cursor:pointer;font-size:.92rem}
+.btn:hover{background:var(--blau-tief)}
+.btn.ghost{background:transparent;color:var(--blau)}
+.btn.ghost:hover{background:var(--creme)}
+.btn.rot{border-color:var(--rot);background:var(--rot)}.btn.rot:hover{background:#BE3315}
+.btn.gruen{border-color:var(--gruen);background:var(--gruen)}.btn.gruen:hover{filter:brightness(.92)}
+.actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+
+/* Vorschau-Karte (wie im Programmheft) */
+.prev{margin-top:.7rem}
+.card{background:#fff;border:2px solid var(--line);border-radius:.7rem;padding:.7rem .9rem}
+.card.cancelled{opacity:.6}.card.cancelled h3{text-decoration:line-through}
+.card .ct{display:flex;gap:.6rem;align-items:flex-start}
+.card h3{font-size:1.1rem;flex:1}
+.card .zg-icons{display:flex;gap:.25rem}.card .zg-icons svg{width:1.5rem;height:1.5rem}
+.card .meta{display:flex;flex-wrap:wrap;gap:.25rem .9rem;margin-top:.3rem;font-size:.9rem;color:var(--ink-soft)}
+.card .meta b{color:var(--ink)}
+.card .bdg{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.45rem}
+.bd{font-size:.72rem;font-weight:700;border-radius:99px;padding:.2em .65em}
+.bd.offen{background:#E9F2E6;color:#3C6B33}.bd.begrenzt{background:#FBE9D6;color:#9A5A12}.bd.optional{background:var(--sand);color:var(--ink-soft)}.bd.alter{background:#E7EEF6;color:var(--blau-tief)}.bd.geaendert{background:#FCE9B8;color:#8A5A00}.bd.entfaellt{background:#F6DAD2;color:#A23217}
+.timepill{font-family:var(--display);font-weight:700;color:var(--blau-tief);font-size:.85rem;margin-right:.5rem}
+
+/* Liste aller Punkte */
+.liste{max-height:560px;overflow:auto;border:2px solid var(--line);border-radius:.7rem;background:#fff}
+.daygrp{padding:.3rem .2rem}
+.daygrp > .dh{font-family:var(--display);font-weight:700;color:var(--rot);padding:.4rem .7rem .1rem;position:sticky;top:0;background:#fff}
+.item{display:flex;align-items:center;gap:.5rem;padding:.4rem .7rem;border-bottom:1px solid var(--line);cursor:pointer}
+.item:hover{background:var(--creme)}
+.item.sel{background:#EAF1F8;outline:2px solid var(--blau);outline-offset:-2px;border-radius:.4rem}
+.item .t{font-weight:700;color:var(--blau-tief);font-size:.82rem;min-width:74px}
+.item .ti{flex:1;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .ico svg{width:1.1rem;height:1.1rem;vertical-align:-.2rem}
+.item .x{color:var(--rot);font-weight:800;border:none;background:none;cursor:pointer;font-size:1.1rem;padding:0 .2rem}
+
+.codebox{margin-top:1rem}
+textarea#code{min-height:200px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;white-space:pre;background:#FCF8EE}
+.note{background:#FCF8EE;border:2px dashed var(--gold);border-radius:.7rem;padding:.8rem 1rem;color:var(--ink-soft);font-size:.9rem;margin-top:1rem}
+.note b{color:var(--blau-tief)}
+.ok{color:var(--gruen);font-weight:700}
+.steps{counter-reset:s;margin:.4rem 0 0;padding:0;list-style:none}
+.steps li{counter-increment:s;padding:.15rem 0 .15rem 2rem;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:.1rem;width:1.4rem;height:1.4rem;background:var(--blau);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:800}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-feder" viewBox="0 0 32 32"><g transform="rotate(-8 16 16)"><path d="M22.7 4.6c-5.3.7-10.2 4.3-12.6 9.7-1.8 4-2.1 8.1-1.5 11.6.06.35.5.45.7.16l1.9-2.6c.13-.18.18-.4.13-.62-.5-2.3-.2-4.9.9-7.4 1.7-3.9 4.9-6.7 8.5-7.8.27-.08.3-.1.5-.35l1.1-2.1c.18-.34-.12-.42-.6-.36z" fill="#B85C36"/><path d="M14.6 18.5c.8-1.7 1.4-2.4 2.6-3.6M13.2 22.7c.9-2 1.9-4 3.7-6M12.2 24.9c.6-1.4.7-1.6 1.4-2.9" stroke="#7A3A20" stroke-width="1" stroke-linecap="round" fill="none"/><line x1="9.4" y1="25.4" x2="13.6" y2="14" stroke="#7A3A20" stroke-width="1.2" stroke-linecap="round"/></g></symbol>
+  <symbol id="i-kaefer" viewBox="0 0 32 32"><line x1="13" y1="6.5" x2="11" y2="3.8" stroke="#1a1a1a" stroke-width="1.3" stroke-linecap="round"/><line x1="19" y1="6.5" x2="21" y2="3.8" stroke="#1a1a1a" stroke-width="1.3" stroke-linecap="round"/><circle cx="11" cy="3.6" r="1.1" fill="#1a1a1a"/><circle cx="21" cy="3.6" r="1.1" fill="#1a1a1a"/><path d="M16 7c-3.6 0-6.3 2.5-6.3 6.4 0 5.2 3 9.1 6.3 9.1s6.3-3.9 6.3-9.1C22.3 9.5 19.6 7 16 7z" fill="#E0301E"/><path d="M9.9 11.2C11 8.6 13.3 7 16 7s5 1.6 6.1 4.2c-.9-.5-1.9-.8-3-.8H12.9c-1.1 0-2.1.3-3 .8z" fill="#1a1a1a"/><line x1="16" y1="10.8" x2="16" y2="22.2" stroke="#1a1a1a" stroke-width="1"/><circle cx="12.7" cy="14.3" r="1.15" fill="#1a1a1a"/><circle cx="19.3" cy="14.3" r="1.15" fill="#1a1a1a"/><circle cx="13.4" cy="18.4" r="1" fill="#1a1a1a"/><circle cx="18.6" cy="18.4" r="1" fill="#1a1a1a"/></symbol>
+  <symbol id="i-falter" viewBox="0 0 32 32"><path d="M15.2 16c-1.6-3.4-4-5.6-6.6-5.6-2.2 0-3.7 1.6-3.7 3.8 0 2.6 2 4.7 5 5.2-2.3.5-3.9 2.2-3.9 4.3 0 2 1.5 3.4 3.5 3.4 2.6 0 5-2.3 5.7-5.5z" fill="#D8418F"/><path d="M16.8 16c1.6-3.4 4-5.6 6.6-5.6 2.2 0 3.7 1.6 3.7 3.8 0 2.6-2 4.7-5 5.2 2.3.5 3.9 2.2 3.9 4.3 0 2-1.5 3.4-3.5 3.4-2.6 0-5-2.3-5.7-5.5z" fill="#E85BA3"/><ellipse cx="9.7" cy="14.2" rx="1.7" ry="1.5" fill="#F4C84A"/><ellipse cx="22.3" cy="14.2" rx="1.7" ry="1.5" fill="#F4C84A"/><circle cx="9.5" cy="22.6" r="1.2" fill="#F4C84A"/><circle cx="22.5" cy="22.6" r="1.2" fill="#F4C84A"/><path d="M16 9.5c-.9 0-1.5.8-1.5 2v9c0 1.6.7 3 1.5 3s1.5-1.4 1.5-3v-9c0-1.2-.6-2-1.5-2z" fill="#E1971F"/><line x1="14.8" y1="9.6" x2="12.6" y2="6.4" stroke="#103F6E" stroke-width="1.2" stroke-linecap="round"/><line x1="17.2" y1="9.6" x2="19.4" y2="6.4" stroke="#103F6E" stroke-width="1.2" stroke-linecap="round"/><circle cx="12.4" cy="6.1" r="1" fill="#3E7CB1"/><circle cx="19.6" cy="6.1" r="1" fill="#3E7CB1"/></symbol>
+  <symbol id="i-gruppe" viewBox="0 0 32 32"><circle cx="8.2" cy="11" r="3" fill="#EE8469"/><path d="M3.4 27v-5.4c0-2.6 2.1-4.6 4.8-4.6s4.8 2 4.8 4.6V27z" fill="#EE8469"/><circle cx="23.8" cy="11" r="3" fill="#E06FA0"/><path d="M19 27v-5.4c0-2.6 2.1-4.6 4.8-4.6s4.8 2 4.8 4.6V27z" fill="#E06FA0"/><circle cx="16" cy="9" r="3.4" fill="#195591"/><path d="M10.4 27v-6.1c0-3 2.5-5.3 5.6-5.3s5.6 2.3 5.6 5.3V27z" fill="#2C6CA4"/></symbol>
+  <symbol id="i-person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6" stroke-linecap="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="11" r="2.5"/></symbol>
+</defs></svg>
+
+<header class="top">
+  <div class="wrap">
+    <h1><span class="sr-only">Wundaplunda Programmheft – Redaktion</span><span class="wortmarke" aria-hidden="true"><span>W</span><span>U</span><span>N</span><span>D</span><span>A</span><span>P</span><span>L</span><span>U</span><span>N</span><span>D</span><span>A</span></span><span class="badge-intern">Redaktion · intern</span></h1>
+    <p class="sub">Hier pflegst du das Programm — ohne Code zu schreiben. Punkt anklicken → ändern → <strong>„Code erzeugen"</strong> → den Block in <code>assets/programm-daten.js</code> einsetzen. Damit aktualisieren sich <strong>Tagesplaner und Ausdruck gleichzeitig</strong>. Vorschau: <a href="programmheft.html" target="_blank">programmheft.html</a></p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="grid">
+
+    <!-- Formular -->
+    <section class="panel" aria-label="Programmpunkt bearbeiten">
+      <h2 id="form-titel">Neuer Programmpunkt</h2>
+      <p class="hint">Pflichtfelder: Tag, Zeit, Titel, „Für wen". Alles andere ist optional.</p>
+      <form id="form" autocomplete="off">
+        <div class="two">
+          <div><label for="f-tag">Tag</label>
+            <select id="f-tag"></select></div>
+          <div><label for="f-zeit">Zeit</label>
+            <input type="text" id="f-zeit" placeholder="14:00 – 15:00  oder  ab 20:30"></div>
+        </div>
+        <label for="f-titel">Titel</label>
+        <input type="text" id="f-titel" placeholder="z. B. Bogenbau">
+        <div class="two">
+          <div><label for="f-wer">Leitung / Wer</label>
+            <input type="text" id="f-wer" placeholder="z. B. Laurenz Verweyen"></div>
+          <div><label for="f-wo">Ort</label>
+            <input type="text" id="f-wo" placeholder="z. B. Plundazelt  ·  Wetter: A / B"></div>
+        </div>
+        <label>Für wen <span style="font-weight:400;color:var(--muted)">(eins oder mehrere antippen)</span></label>
+        <div class="zgpick" id="f-wen" role="group" aria-label="Zielgruppe"></div>
+        <div class="two">
+          <div><label for="f-anmeldung">Anmeldung</label>
+            <select id="f-anmeldung">
+              <option value="">— (keine Angabe)</option>
+              <option value="offen">Ohne Anmeldung</option>
+              <option value="begrenzt">Begrenzte Plätze</option>
+            </select></div>
+          <div><label for="f-status">Status</label>
+            <select id="f-status">
+              <option value="">Normal</option>
+              <option value="geaendert">Geändert</option>
+              <option value="entfaellt">Entfällt</option>
+            </select></div>
+        </div>
+        <div class="row" style="margin-top:.7rem">
+          <label style="margin:0"><input type="checkbox" id="f-optional"> Optional</label>
+        </div>
+        <label for="f-hinweis">Kurzer Hinweis (Alter, Bändchen …)</label>
+        <input type="text" id="f-hinweis" placeholder="z. B. ab 8 Jahre">
+        <label for="f-info">Beschreibung (erscheint beim Antippen)</label>
+        <textarea id="f-info" placeholder="Optionaler längerer Text / Info zur Leitung"></textarea>
+
+        <div class="actions">
+          <button type="submit" class="btn gruen" id="btn-save">Punkt speichern</button>
+          <button type="button" class="btn ghost" id="btn-new">Leeren / Neu</button>
+          <span id="save-hint" class="ok" style="align-self:center"></span>
+        </div>
+      </form>
+
+      <div class="prev"><div class="hint">Live-Vorschau:</div><div id="preview"></div></div>
+    </section>
+
+    <!-- Liste + Code -->
+    <section class="panel" aria-label="Alle Programmpunkte">
+      <h2>Alle Programmpunkte <span id="count" style="font-family:var(--sans);font-weight:700;color:var(--muted);font-size:.9rem"></span></h2>
+      <p class="hint">Antippen zum Bearbeiten · ✕ zum Löschen</p>
+      <div class="liste" id="liste"></div>
+
+      <div class="codebox">
+        <div class="row" style="justify-content:space-between">
+          <h2 style="font-size:1.1rem">Code für <code>programm-daten.js</code></h2>
+          <div class="row">
+            <button type="button" class="btn" id="btn-code">Code erzeugen</button>
+            <button type="button" class="btn ghost" id="btn-copy">Kopieren</button>
+          </div>
+        </div>
+        <textarea id="code" readonly placeholder="„Code erzeugen" klicken → hier erscheint der fertige Programm-Block zum Einsetzen."></textarea>
+        <div class="note">
+          <b>So setzt du es ein (einmal eingerichtet, dann immer gleich):</b>
+          <ol class="steps">
+            <li>„Code erzeugen" klicken, dann „Kopieren".</li>
+            <li>Datei <code>assets/programm-daten.js</code> öffnen.</li>
+            <li>Den Block von <code>programm: [</code> bis <code>],</code> markieren und durch das Kopierte ersetzen.</li>
+            <li>Speichern, hochladen — Web &amp; Ausdruck sind sofort aktuell.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="assets/programm-daten.js"></script>
+<script>
+(function(){
+  "use strict";
+  var D = (typeof WUNDA !== "undefined") ? WUNDA : window.WUNDA;
+  if(!D){ document.body.insertAdjacentHTML("beforeend","<p style='padding:2rem'>Daten konnten nicht geladen werden.</p>"); return; }
+  var ICON={feder:"i-feder",kaefer:"i-kaefer",falter:"i-falter",gruppe:"i-gruppe"};
+  var ZG={}; D.zielgruppen.forEach(function(z){ZG[z.key]=z;});
+  // Arbeitskopie
+  var work = JSON.parse(JSON.stringify(D.programm));
+  var sel = -1; // index in work, -1 = neu
+
+  function $(id){return document.getElementById(id);}
+  function esc(s){return (s==null?"":String(s)).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function use(id){return '<svg aria-hidden="true"><use href="#'+id+'"/></svg>';}
+
+  // Tag-Select
+  D.festival.tage.forEach(function(t){ var o=document.createElement("option"); o.value=t.key; o.textContent=t.wochentag+" "+t.datum; $("f-tag").appendChild(o); });
+
+  // Wen-Picker
+  var wenState={};
+  (function(){ var c=$("f-wen"); D.zielgruppen.forEach(function(z){
+    var b=document.createElement("button"); b.type="button"; b.dataset.k=z.key;
+    b.innerHTML=use(ICON[z.icon])+esc(z.label); b.setAttribute("aria-pressed","false");
+    b.addEventListener("click",function(){ wenState[z.key]=!wenState[z.key]; b.setAttribute("aria-pressed",!!wenState[z.key]); livePreview(); });
+    c.appendChild(b);
+  }); })();
+  function setWen(arr){ wenState={}; (arr||[]).forEach(function(k){wenState[k]=true;});
+    Array.prototype.forEach.call($("f-wen").children,function(b){ b.setAttribute("aria-pressed",!!wenState[b.dataset.k]); }); }
+  function getWen(){ return D.zielgruppen.map(function(z){return z.key;}).filter(function(k){return wenState[k];}); }
+
+  function readForm(){
+    var p={ tag:$("f-tag").value, zeit:$("f-zeit").value.trim(), titel:$("f-titel").value.trim(),
+      wer:$("f-wer").value.trim(), wo:$("f-wo").value.trim(), wen:getWen() };
+    if(!p.wen.length) p.wen=["alle"];
+    var anm=$("f-anmeldung").value; if(anm) p.anmeldung=anm;
+    if($("f-optional").checked) p.optional=true;
+    var hin=$("f-hinweis").value.trim(); if(hin) p.hinweis=hin;
+    var info=$("f-info").value.trim(); if(info) p.info=info;
+    var st=$("f-status").value; if(st) p.status=st;
+    return p;
+  }
+  function fillForm(p){
+    $("f-tag").value=p.tag||"mo"; $("f-zeit").value=p.zeit||""; $("f-titel").value=p.titel||"";
+    $("f-wer").value=p.wer||""; $("f-wo").value=p.wo||""; setWen(p.wen||["alle"]);
+    $("f-anmeldung").value=p.anmeldung||""; $("f-optional").checked=!!p.optional;
+    $("f-hinweis").value=p.hinweis||""; $("f-info").value=p.info||""; $("f-status").value=p.status||"";
+  }
+  function clearForm(){ sel=-1; $("form-titel").textContent="Neuer Programmpunkt"; $("btn-save").textContent="Punkt hinzufügen";
+    fillForm({tag:$("f-tag").value||"mo",wen:["alle"]}); renderList(); livePreview(); }
+
+  // Vorschau-Karte
+  function cardHTML(p){
+    var icons=(p.wen||[]).map(function(k){return ZG[k]?'<svg aria-label="'+esc(ZG[k].label)+'"><use href="#'+ICON[ZG[k].icon]+'"/></svg>':"";}).join("");
+    var meta="";
+    if(p.wer) meta+='<span>'+use("i-person")+'<b>'+esc(p.wer)+'</b></span>';
+    if(p.wo) meta+='<span>'+use("i-pin")+esc(p.wo)+'</span>';
+    var bd="";
+    if(p.optional) bd+='<span class="bd optional">Optional</span>';
+    if(p.anmeldung==="offen") bd+='<span class="bd offen">Ohne Anmeldung</span>';
+    if(p.anmeldung==="begrenzt") bd+='<span class="bd begrenzt">Begrenzte Plätze</span>';
+    if(p.hinweis) bd+='<span class="bd alter">'+esc(p.hinweis)+'</span>';
+    if(p.status==="geaendert") bd+='<span class="bd geaendert">Geändert</span>';
+    if(p.status==="entfaellt") bd+='<span class="bd entfaellt">Entfällt</span>';
+    return '<div class="card'+(p.status==="entfaellt"?" cancelled":"")+'">'+
+      '<div class="ct"><span class="timepill">'+esc(p.zeit||"—")+'</span><h3>'+esc(p.titel||"(ohne Titel)")+'</h3><span class="zg-icons">'+icons+'</span></div>'+
+      (meta?'<div class="meta">'+meta+'</div>':"")+
+      (bd?'<div class="bdg">'+bd+'</div>':"")+'</div>';
+  }
+  function livePreview(){ $("preview").innerHTML=cardHTML(readForm()); }
+
+  // Liste
+  function renderList(){
+    var c=$("liste"); c.innerHTML="";
+    D.festival.tage.forEach(function(t){
+      var items=[]; work.forEach(function(p,i){ if(p.tag===t.key) items.push([p,i]); });
+      if(!items.length) return;
+      var g=document.createElement("div"); g.className="daygrp";
+      g.innerHTML='<div class="dh">'+esc(t.wochentag)+' '+esc(t.datum)+'</div>';
+      items.forEach(function(pi){ var p=pi[0], i=pi[1];
+        var row=document.createElement("div"); row.className="item"+(i===sel?" sel":"");
+        row.setAttribute("role","button"); row.tabIndex=0;
+        row.setAttribute("aria-label","Bearbeiten: "+(p.zeit||"")+" "+(p.titel||""));
+        var ic=(p.wen||[]).map(function(k){return ZG[k]?'<span class="ico"><svg><use href="#'+ICON[ZG[k].icon]+'"/></svg></span>':"";}).join("");
+        row.innerHTML='<span class="t">'+esc(p.zeit||"")+'</span><span class="ti">'+esc(p.titel||"")+(p.status==="entfaellt"?" · entfällt":"")+'</span>'+ic+'<button class="x" title="Löschen" aria-label="Löschen">✕</button>';
+        row.addEventListener("click",function(e){ if(e.target.classList.contains("x")){ e.stopPropagation(); work.splice(i,1); if(sel===i){clearForm();} else {if(sel>i)sel--; renderList();} return; }
+          sel=i; $("form-titel").textContent="Punkt bearbeiten"; $("btn-save").textContent="Änderungen speichern"; fillForm(p); renderList(); livePreview(); window.scrollTo({top:0,behavior:"smooth"}); });
+        row.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); row.click(); } });
+        g.appendChild(row);
+      });
+      c.appendChild(g);
+    });
+    $("count").textContent="("+work.length+")";
+  }
+
+  // Speichern
+  $("form").addEventListener("submit",function(e){ e.preventDefault();
+    var p=readForm();
+    if(!p.titel||!p.zeit){ $("save-hint").textContent="Bitte Titel und Zeit angeben."; $("save-hint").style.color="var(--rot)"; return; }
+    if(sel>=0){ work[sel]=p; } else { work.push(p); sel=work.length-1; }
+    $("save-hint").style.color="var(--gruen)"; $("save-hint").textContent="✓ gespeichert (Arbeitskopie)";
+    $("form-titel").textContent="Punkt bearbeiten"; $("btn-save").textContent="Änderungen speichern";
+    renderList(); livePreview();
+    setTimeout(function(){$("save-hint").textContent="";},2500);
+  });
+  $("btn-new").addEventListener("click",clearForm);
+  ["f-tag","f-zeit","f-titel","f-wer","f-wo","f-anmeldung","f-status","f-hinweis","f-info"].forEach(function(id){
+    $(id).addEventListener("input",livePreview); $(id).addEventListener("change",livePreview);
+  });
+  $("f-optional").addEventListener("change",livePreview);
+
+  // Code erzeugen (ganzer programm-Block, gleiches Format wie die Datei)
+  function js(v){ return JSON.stringify(v); }
+  function genCode(){
+    var lines=["  programm: ["];
+    var cur=null;
+    work.forEach(function(p){
+      if(p.tag!==cur){ cur=p.tag; var wd=(D.festival.tage.filter(function(t){return t.key===cur;})[0]||{}).wochentag||cur; lines.push("    // "+wd); }
+      var parts=["tag:"+js(p.tag),"zeit:"+js(p.zeit||""),"titel:"+js(p.titel||"")];
+      parts.push("wer:"+js(p.wer||"")); parts.push("wo:"+js(p.wo||"")); parts.push("wen:"+js(p.wen||["alle"]));
+      if(p.anmeldung) parts.push("anmeldung:"+js(p.anmeldung));
+      if(p.optional) parts.push("optional:true");
+      if(p.hinweis) parts.push("hinweis:"+js(p.hinweis));
+      if(p.info) parts.push("info:"+js(p.info));
+      if(p.status) parts.push("status:"+js(p.status));
+      lines.push("    { "+parts.join(", ")+" },");
+    });
+    lines.push("  ],");
+    return lines.join("\n");
+  }
+  $("btn-code").addEventListener("click",function(){ $("code").value=genCode(); });
+  $("btn-copy").addEventListener("click",function(){
+    if(!$("code").value) $("code").value=genCode();
+    $("code").select();
+    try{ document.execCommand("copy"); }catch(e){}
+    if(navigator.clipboard){ navigator.clipboard.writeText($("code").value).catch(function(){}); }
+    var b=$("btn-copy"); var o=b.textContent; b.textContent="✓ kopiert"; setTimeout(function(){b.textContent=o;},1600);
+  });
+
+  // Init
+  clearForm();
+})();
+</script>
+</body>
+</html>

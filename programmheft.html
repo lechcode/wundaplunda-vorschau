@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programmheft · Wundaplunda 2025 (Demo)</title>
+<meta name="description" content="Der digitale Tagesplaner fürs Wundaplunda: alle Programmpunkte mit Leitung, Ort & Zielgruppe — pro Tag ausdruckbar, in Sekunden aktualisierbar.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FBF4E6">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+:root{
+  /* Wundaplunda-Markenfarben (aus dem Original-Design der Freundin) */
+  --creme:#FBF4E6; --sand:#F4E9D2; --hell:#FFFDF8;
+  --blau:#195591; --blau-tief:#103F6E; --blau-mittel:#2C6CA4;
+  --koralle:#EE8469; --rot:#E0431F; --rot-tief:#B23311;
+  --gold:#E1971F; --gold-hell:#F1B53C;
+  --magenta:#D8418F; --gruen:#5E8C57;
+  --ink:#33291F; --ink-soft:#5C5142; --muted:#6F6249; --line:#E7D9BC;
+  --display:'Fraunces',Georgia,serif; --sans:'Nunito Sans',-apple-system,'Segoe UI',sans-serif; --hand:'Caveat',cursive;
+  --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2.5rem; --s5:4rem;
+  --radius:1.2rem; --radius-s:.7rem;
+  --shadow:0 14px 40px -18px rgba(51,41,31,.30);
+  --shadow-s:0 6px 18px -10px rgba(51,41,31,.28);
+  --ease:cubic-bezier(.22,.8,.3,1);
+  --bar-h:auto; --wrap:1080px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:172px;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--sans);font-size:clamp(1rem, .96rem + .25vw, 1.1rem);line-height:1.6;color:var(--ink);background:var(--creme);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.12;font-weight:700;color:var(--ink)}
+a{color:var(--blau)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(1rem, 4vw, 2rem)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-999px;top:0;background:var(--rot);color:#fff;padding:.7rem 1.2rem;z-index:300;border-radius:0 0 .6rem 0;font-weight:700;text-decoration:none}
+.skip:focus{left:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.cover h1{font-weight:inherit;font-size:inherit;line-height:inherit;margin:0}
+:focus-visible{outline:3px solid var(--blau);outline-offset:2px;border-radius:5px}
+
+/* ---------- Wortmarke (bunt, wie das Original) ---------- */
+.wortmarke{font-family:var(--display);font-weight:900;letter-spacing:.04em;line-height:1;display:inline-flex;flex-wrap:wrap}
+.wortmarke span:nth-child(7n+1){color:var(--blau)}
+.wortmarke span:nth-child(7n+2){color:var(--rot)}
+.wortmarke span:nth-child(7n+3){color:var(--gold)}
+.wortmarke span:nth-child(7n+4){color:var(--blau-mittel)}
+.wortmarke span:nth-child(7n+5){color:var(--koralle)}
+.wortmarke span:nth-child(7n+6){color:var(--magenta)}
+.wortmarke span:nth-child(7n+7){color:var(--gruen)}
+
+/* ---------- Cover ---------- */
+.cover{position:relative;overflow:hidden;background:var(--hell);border-bottom:3px solid var(--line)}
+.cover .wrap{padding-top:clamp(2.2rem,5vw,3.4rem);padding-bottom:clamp(2rem,4vw,3rem);position:relative;z-index:2}
+.cover .kicker{font-family:var(--hand);font-size:clamp(1.4rem,1.1rem+1.3vw,2rem);color:var(--rot);display:block;transform:rotate(-2deg);margin-bottom:.3rem}
+.cover .wortmarke{font-size:clamp(1.5rem, 0.7rem + 4.4vw, 4.8rem);margin:.1rem 0 .5rem;flex-wrap:nowrap;max-width:100%}
+.cover .untertitel{font-family:var(--display);font-weight:600;font-size:clamp(1.15rem,1rem+.7vw,1.6rem);color:var(--blau-tief)}
+.cover .datumzeile{display:flex;flex-wrap:wrap;gap:.5rem .9rem;align-items:center;margin-top:.9rem;font-weight:700;color:var(--ink-soft)}
+.cover .datumzeile .pill{background:var(--creme);border:2px solid var(--line);border-radius:99px;padding:.25em .9em;font-size:.95rem}
+.cover p.intro{max-width:54ch;margin-top:1rem;color:var(--ink-soft);font-size:1.05rem}
+.cover .demo-tag{display:inline-block;margin-top:1rem;background:var(--sand);color:var(--ink-soft);font-family:var(--hand);font-size:1.25rem;padding:.1em .8em;border-radius:99px;transform:rotate(-1deg)}
+/* Konfetti */
+.konfetti{position:absolute;inset:0;z-index:1;pointer-events:none}
+.konfetti polygon{opacity:.95}
+
+/* ---------- Filterleiste (sticky) ---------- */
+.bar{position:sticky;top:0;z-index:120;background:rgba(251,244,230,.96);backdrop-filter:blur(8px);border-bottom:2px solid var(--line);box-shadow:0 6px 18px -14px rgba(51,41,31,.4)}
+.bar .wrap{padding-top:.6rem;padding-bottom:.6rem}
+.bar-row{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.bar-row + .bar-row{margin-top:.5rem}
+.bar-label{font-family:var(--hand);font-size:1.15rem;color:var(--muted);margin-right:.1rem}
+.tabs{display:flex;gap:.35rem;flex-wrap:wrap;overflow-x:auto;scrollbar-width:thin}
+.tab{font-family:var(--sans);font-weight:700;font-size:.92rem;border:2px solid var(--line);background:var(--hell);color:var(--ink-soft);border-radius:99px;padding:.42em .9em;cursor:pointer;white-space:nowrap;transition:transform .15s var(--ease),background .15s,border-color .15s,color .15s;display:inline-flex;flex-direction:column;align-items:center;line-height:1.05}
+.tab b{font-family:var(--display);font-weight:700;font-size:1rem}
+.tab small{font-size:.72rem;color:var(--muted)}
+.tab:hover{transform:translateY(-1px);border-color:var(--koralle)}
+.tab[aria-pressed="true"]{background:var(--blau);border-color:var(--blau);color:#fff}
+.tab[aria-pressed="true"] small{color:rgba(255,255,255,.85)}
+.tab.tab-all[aria-pressed="true"]{background:var(--rot-tief);border-color:var(--rot-tief)}
+.tab.tab-all[aria-pressed="true"] small{color:rgba(255,255,255,.95)}
+.zg-toggles{display:flex;gap:.35rem;flex-wrap:wrap}
+.zg{display:inline-flex;align-items:center;gap:.35em;border:2px solid var(--line);background:var(--hell);border-radius:99px;padding:.32em .8em .32em .55em;cursor:pointer;font-weight:700;font-size:.86rem;color:var(--ink-soft);transition:background .15s,border-color .15s,opacity .15s}
+.zg svg{width:1.35em;height:1.35em;flex:none}
+.zg[aria-pressed="false"]{background:var(--creme);border-color:var(--line);color:var(--muted)}
+.zg[aria-pressed="false"] svg{opacity:.4;filter:grayscale(.65)}
+.zg:hover{border-color:var(--koralle)}
+.zg[aria-pressed="true"]{background:var(--creme);border-color:var(--gold)}
+.bar-actions{margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap}
+.act{display:inline-flex;align-items:center;gap:.4em;font-weight:700;font-size:.88rem;border:2px solid var(--blau);background:var(--blau);color:#fff;border-radius:99px;padding:.45em 1em;cursor:pointer;text-decoration:none;transition:transform .15s var(--ease),background .15s}
+.act:hover{transform:translateY(-1px);background:var(--blau-tief)}
+.act.ghost{background:transparent;color:var(--blau);border-color:var(--line)}
+.act.ghost:hover{background:var(--hell);border-color:var(--blau)}
+.act svg{width:1.1em;height:1.1em}
+
+/* ---------- Programm ---------- */
+main{padding:clamp(1.6rem,4vw,2.8rem) 0 1rem}
+.tagezahl{font-family:var(--hand);color:var(--muted);font-size:1.2rem;margin-bottom:.4rem}
+.day{margin-bottom:clamp(2rem,5vw,3.4rem);scroll-margin-top:180px}
+.day-head{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;border-bottom:3px dotted var(--line);padding-bottom:.5rem;margin-bottom:1.1rem;position:relative}
+.day-head h2{font-size:clamp(1.7rem,1.3rem+1.8vw,2.5rem);color:var(--blau-tief)}
+.day-head .datum{font-family:var(--hand);font-size:clamp(1.5rem,1.2rem+1.4vw,2.1rem);color:var(--rot)}
+.day-head .tagdruck{margin-left:auto;font-size:.84rem;border:2px solid var(--line);background:var(--hell);color:var(--ink-soft);border-radius:99px;padding:.35em .85em;cursor:pointer;font-weight:700;display:inline-flex;align-items:center;gap:.4em}
+.day-head .tagdruck:hover{border-color:var(--blau);color:var(--blau)}
+.day-head .tagdruck svg{width:1em;height:1em}
+
+.slot{display:grid;grid-template-columns:96px 1fr;gap:0 1rem;position:relative}
+.slot + .slot{margin-top:.55rem}
+.slot .zeit{font-family:var(--display);font-weight:700;font-size:.96rem;color:var(--blau-tief);padding-top:.95rem;text-align:right;line-height:1.2}
+.slot .zeit small{display:block;font-family:var(--sans);font-weight:600;color:var(--muted);font-size:.72rem}
+.card{background:var(--hell);border:2px solid var(--line);border-radius:var(--radius-s);padding:.75rem .95rem;box-shadow:var(--shadow-s);transition:border-color .15s,box-shadow .15s,transform .15s}
+.card.has-info{cursor:pointer}
+.card.has-info:hover{border-color:var(--koralle);transform:translateY(-1px)}
+.card-top{display:flex;align-items:flex-start;gap:.6rem;flex-wrap:wrap}
+.card h3{font-size:1.12rem;font-weight:700;flex:1 1 60%;min-width:0}
+.zg-icons{display:flex;gap:.25rem;flex:none}
+.zg-icons svg{width:1.5rem;height:1.5rem}
+.meta{display:flex;flex-wrap:wrap;gap:.3rem .9rem;margin-top:.35rem;font-size:.92rem;color:var(--ink-soft)}
+.meta span{display:inline-flex;align-items:center;gap:.32em}
+.meta svg{width:1em;height:1em;color:var(--muted);flex:none}
+.meta .wer{font-weight:700;color:var(--ink)}
+.badges{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.5rem}
+.badge{font-size:.74rem;font-weight:700;border-radius:99px;padding:.22em .7em;letter-spacing:.01em;display:inline-flex;align-items:center;gap:.3em}
+.badge svg{width:1em;height:1em;flex:none}
+.badge.offen{background:#E9F2E6;color:#3C6B33}
+.badge.begrenzt{background:#FBE9D6;color:#9A5A12}
+.badge.optional{background:var(--sand);color:var(--ink-soft)}
+.badge.alter{background:#E7EEF6;color:var(--blau-tief)}
+.badge.wetter{background:#E4F0F4;color:#1C5A6E}
+.badge.geaendert{background:#FCE9B8;color:#8A5A00}
+.badge.entfaellt{background:#F6DAD2;color:#A23217}
+.badge.mehr{background:transparent;border:1.5px dashed var(--koralle);color:var(--rot-tief);display:inline-flex;align-items:center;gap:.3em}
+.badge.mehr svg{width:.85em;height:.85em;transition:transform .2s}
+.card[aria-expanded="true"] .badge.mehr svg{transform:rotate(180deg)}
+.info-text{margin-top:.6rem;padding-top:.6rem;border-top:1px dashed var(--line);font-size:.95rem;color:var(--ink-soft);display:none}
+.card[aria-expanded="true"] .info-text{display:block}
+/* Mahlzeiten/Pausen dezenter */
+.slot.meal .card{background:var(--creme);border-style:dashed;box-shadow:none}
+.slot.meal h3{color:var(--ink-soft);font-weight:600}
+.card.cancelled{background:#FBF1EB;border-color:#E6C9BC}
+.card.cancelled h3{text-decoration:line-through;color:var(--ink-soft)}
+
+.empty{background:var(--hell);border:2px dashed var(--line);border-radius:var(--radius);padding:1.6rem;text-align:center;color:var(--muted);font-size:1.05rem}
+
+/* ---------- Info-Bereich ---------- */
+.info-wrap{background:var(--hell);border-top:3px solid var(--line);margin-top:2rem;padding:clamp(2rem,5vw,3.4rem) 0}
+.info-wrap h2.titel{font-size:clamp(1.7rem,1.3rem+1.8vw,2.4rem);color:var(--blau-tief);text-align:center;margin-bottom:.3rem}
+.info-wrap .titel-sub{text-align:center;color:var(--muted);font-family:var(--hand);font-size:1.4rem;margin-bottom:1.6rem}
+.acc{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:.6rem}
+details.box{border:2px solid var(--line);border-radius:var(--radius-s);background:var(--creme);overflow:hidden}
+details.box[open]{border-color:var(--gold)}
+summary{cursor:pointer;list-style:none;padding:.95rem 1.1rem;font-family:var(--display);font-weight:700;font-size:1.15rem;color:var(--ink);display:flex;align-items:center;gap:.7rem}
+summary::-webkit-details-marker{display:none}
+summary .ic{width:1.7rem;height:1.7rem;flex:none}
+summary::after{content:"+";margin-left:auto;font-family:var(--sans);font-weight:800;color:var(--koralle);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"–"}
+.box-body{padding:0 1.1rem 1.1rem;color:var(--ink-soft);overflow-x:auto}
+.box-body h4{font-size:1rem;color:var(--blau-tief);margin:1rem 0 .25rem}
+.box-body p{margin:.35rem 0}
+.box-body ul{margin:.4rem 0 .4rem 1.1rem}
+.box-body li{margin:.2rem 0}
+.preistab{width:100%;border-collapse:collapse;margin:.5rem 0;font-size:.95rem;table-layout:fixed}
+.preistab td{padding:.32em .2em;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.preistab tr:not(.grp) td:last-child{width:5.2em;text-align:right;font-weight:700;white-space:nowrap;color:var(--ink)}
+.preistab .grp td{font-weight:700;color:var(--rot);border-bottom:2px solid var(--line);padding-top:.7em;font-family:var(--display);white-space:normal}
+.zeiten{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.7rem;margin:.6rem 0}
+.zeiten .z{background:var(--hell);border:2px solid var(--line);border-radius:var(--radius-s);padding:.7rem .9rem}
+.zeiten .z b{display:block;font-family:var(--display);color:var(--blau-tief);font-size:1.05rem}
+.zeiten .z .uhr{font-weight:700;color:var(--rot)}
+.zeiten .z small{display:block;color:var(--muted);margin-top:.2rem}
+.plan-fig{margin:.6rem 0}
+.plan-fig img{border:3px solid var(--hell);border-radius:var(--radius-s);box-shadow:var(--shadow-s);width:100%}
+.plan-fig figcaption{font-size:.85rem;color:var(--muted);margin-top:.4rem;text-align:center}
+.notruf{background:#F6DAD2;border:2px solid #E6A893;border-radius:var(--radius-s);padding:.8rem 1rem;margin-top:.6rem;font-weight:700;color:#8A2A12}
+
+/* ---------- Footer ---------- */
+footer{background:var(--blau-tief);color:#EAF0F6;padding:clamp(2rem,5vw,3rem) 0;position:relative;overflow:hidden}
+footer .wortmarke{font-size:1.8rem}
+footer .wortmarke span{color:#fff!important;opacity:.95}
+footer .wortmarke span:nth-child(7n+1),footer .wortmarke span:nth-child(7n+3),footer .wortmarke span:nth-child(7n+5){opacity:1}
+footer p{color:#C7D6E6;margin-top:.5rem;font-size:.95rem}
+footer a{color:var(--gold-hell);font-weight:700}
+.lcband{background:var(--creme);border-top:2px solid var(--line);text-align:center;padding:1rem;font-size:.85rem;color:var(--muted)}
+.lcband a{color:var(--blau);font-weight:700}
+
+/* ---------- Responsive ---------- */
+@media (max-width:640px){
+  html{scroll-padding-top:236px}
+  .tabs{flex-wrap:nowrap}
+  .slot{grid-template-columns:64px 1fr;gap:0 .6rem}
+  .slot .zeit{font-size:.8rem;padding-top:.9rem}
+  .day{scroll-margin-top:236px}
+  .bar-actions{margin-left:0;width:100%}
+  .bar-actions .act{flex:1;justify-content:center}
+}
+
+/* ============================================================
+   DRUCK — Pro-Tag-Blatt für die Infowand (jetzt MIT Leitung!)
+   ============================================================ */
+@media print{
+  @page{size:A4 landscape;margin:8mm}
+  html{scroll-padding-top:0}
+  body{background:#fff;font-size:10pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cover,.bar,.info-wrap,footer,.lcband,.skip,.day-head .tagdruck,.badge.mehr,.tagezahl,.info-text,.empty{display:none!important}
+  main{padding:0}
+  .wrap{max-width:none;padding:0}
+  /* jeder Tag startet auf einem frischen Blatt; ein Tag DARF mehrere Blätter füllen */
+  .day{break-before:page;margin:0;padding:0}
+  .day:first-of-type{break-before:auto}
+  /* Wenn EIN Tag gewählt: nur dieser, ohne Vorblatt */
+  body[data-printday] .day{display:none!important}
+  body[data-printday="mo"] .day[data-day="mo"],
+  body[data-printday="di"] .day[data-day="di"],
+  body[data-printday="mi"] .day[data-day="mi"],
+  body[data-printday="do"] .day[data-day="do"],
+  body[data-printday="fr"] .day[data-day="fr"],
+  body[data-printday="sa"] .day[data-day="sa"]{display:block!important;break-before:auto}
+  .print-head{display:flex!important;border-bottom:2.5px solid #195591;margin-bottom:.45rem;padding-bottom:.3rem;align-items:flex-end}
+  .print-head .wortmarke{font-size:1.55rem}
+  .print-head .pdatum{font-size:1.5rem}
+  .day-head{display:none!important}
+  /* zweispaltiger, dichter Tagesplan → ein Tag passt aufs Blatt */
+  .slots{column-count:2;column-gap:7mm}
+  .slot{grid-template-columns:62px 1fr;gap:0 .4rem;break-inside:avoid;-webkit-column-break-inside:avoid;margin:0 0 1.6mm}
+  .slot .zeit{color:#103F6E;padding-top:.25rem;font-size:8.5pt}
+  .slot .zeit small{font-size:7pt}
+  .card{box-shadow:none;border:1.2px solid #D8C9A8;border-radius:6px;padding:.22rem .42rem;background:#fff!important}
+  .card-top{gap:.3rem}
+  .card h3{font-size:10pt;line-height:1.1}
+  .meta{font-size:8pt;margin-top:.1rem;gap:.1rem .6rem}
+  .badges{margin-top:.15rem;gap:.2rem}
+  .badge{font-size:6.8pt;padding:.1em .5em}
+  .slot.meal .card{background:#FBF7EC!important}
+  .zg-icons svg{width:15px;height:15px}
+  .print-legende{display:flex!important}
+  .print-foot{display:flex!important}
+}
+.print-head,.print-legende,.print-foot{display:none}
+.print-head{align-items:center;gap:.6rem;margin-bottom:.3rem;justify-content:space-between}
+.print-head .wortmarke{font-size:1.4rem}
+.print-head .pdatum{font-family:var(--hand);font-size:1.3rem;color:#E0431F}
+.print-legende{gap:1.2rem;flex-wrap:wrap;margin-top:.7rem;padding-top:.5rem;border-top:1.5px solid #D8C9A8;font-size:9.5pt;color:#5C5142}
+.print-legende span{display:inline-flex;align-items:center;gap:.35em}
+.print-legende svg{width:18px;height:18px}
+.print-foot{justify-content:space-between;margin-top:.5rem;font-size:8.5pt;color:#8A7C66}
+.print-foot b{color:#103F6E}
+</style>
+</head>
+<body>
+<a class="skip" href="#programm">Zum Programm springen</a>
+
+<!-- ===== Icon-Definitionen (einmal, unsichtbar) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <symbol id="i-feder" viewBox="0 0 32 32"><g transform="rotate(-8 16 16)">
+    <path d="M22.7 4.6c-5.3.7-10.2 4.3-12.6 9.7-1.8 4-2.1 8.1-1.5 11.6.06.35.5.45.7.16l1.9-2.6c.13-.18.18-.4.13-.62-.5-2.3-.2-4.9.9-7.4 1.7-3.9 4.9-6.7 8.5-7.8.27-.08.3-.1.5-.35l1.1-2.1c.18-.34-.12-.42-.6-.36z" fill="#B85C36"/>
+    <path d="M14.6 18.5c.8-1.7 1.4-2.4 2.6-3.6M13.2 22.7c.9-2 1.9-4 3.7-6M12.2 24.9c.6-1.4.7-1.6 1.4-2.9" stroke="#7A3A20" stroke-width="1" stroke-linecap="round" fill="none"/>
+    <line x1="9.4" y1="25.4" x2="13.6" y2="14" stroke="#7A3A20" stroke-width="1.2" stroke-linecap="round"/></g></symbol>
+  <symbol id="i-kaefer" viewBox="0 0 32 32">
+    <line x1="13" y1="6.5" x2="11" y2="3.8" stroke="#1a1a1a" stroke-width="1.3" stroke-linecap="round"/><line x1="19" y1="6.5" x2="21" y2="3.8" stroke="#1a1a1a" stroke-width="1.3" stroke-linecap="round"/>
+    <circle cx="11" cy="3.6" r="1.1" fill="#1a1a1a"/><circle cx="21" cy="3.6" r="1.1" fill="#1a1a1a"/>
+    <path d="M16 7c-3.6 0-6.3 2.5-6.3 6.4 0 5.2 3 9.1 6.3 9.1s6.3-3.9 6.3-9.1C22.3 9.5 19.6 7 16 7z" fill="#E0301E"/>
+    <path d="M9.9 11.2C11 8.6 13.3 7 16 7s5 1.6 6.1 4.2c-.9-.5-1.9-.8-3-.8H12.9c-1.1 0-2.1.3-3 .8z" fill="#1a1a1a"/>
+    <line x1="16" y1="10.8" x2="16" y2="22.2" stroke="#1a1a1a" stroke-width="1"/>
+    <circle cx="12.7" cy="14.3" r="1.15" fill="#1a1a1a"/><circle cx="19.3" cy="14.3" r="1.15" fill="#1a1a1a"/><circle cx="13.4" cy="18.4" r="1" fill="#1a1a1a"/><circle cx="18.6" cy="18.4" r="1" fill="#1a1a1a"/></symbol>
+  <symbol id="i-falter" viewBox="0 0 32 32">
+    <path d="M15.2 16c-1.6-3.4-4-5.6-6.6-5.6-2.2 0-3.7 1.6-3.7 3.8 0 2.6 2 4.7 5 5.2-2.3.5-3.9 2.2-3.9 4.3 0 2 1.5 3.4 3.5 3.4 2.6 0 5-2.3 5.7-5.5z" fill="#D8418F"/>
+    <path d="M16.8 16c1.6-3.4 4-5.6 6.6-5.6 2.2 0 3.7 1.6 3.7 3.8 0 2.6-2 4.7-5 5.2 2.3.5 3.9 2.2 3.9 4.3 0 2-1.5 3.4-3.5 3.4-2.6 0-5-2.3-5.7-5.5z" fill="#E85BA3"/>
+    <ellipse cx="9.7" cy="14.2" rx="1.7" ry="1.5" fill="#F4C84A"/><ellipse cx="22.3" cy="14.2" rx="1.7" ry="1.5" fill="#F4C84A"/><circle cx="9.5" cy="22.6" r="1.2" fill="#F4C84A"/><circle cx="22.5" cy="22.6" r="1.2" fill="#F4C84A"/>
+    <path d="M16 9.5c-.9 0-1.5.8-1.5 2v9c0 1.6.7 3 1.5 3s1.5-1.4 1.5-3v-9c0-1.2-.6-2-1.5-2z" fill="#E1971F"/>
+    <line x1="14.8" y1="9.6" x2="12.6" y2="6.4" stroke="#103F6E" stroke-width="1.2" stroke-linecap="round"/><line x1="17.2" y1="9.6" x2="19.4" y2="6.4" stroke="#103F6E" stroke-width="1.2" stroke-linecap="round"/>
+    <circle cx="12.4" cy="6.1" r="1" fill="#3E7CB1"/><circle cx="19.6" cy="6.1" r="1" fill="#3E7CB1"/></symbol>
+  <symbol id="i-gruppe" viewBox="0 0 32 32">
+    <circle cx="8.2" cy="11" r="3" fill="#EE8469"/><path d="M3.4 27v-5.4c0-2.6 2.1-4.6 4.8-4.6s4.8 2 4.8 4.6V27z" fill="#EE8469"/>
+    <circle cx="23.8" cy="11" r="3" fill="#E06FA0"/><path d="M19 27v-5.4c0-2.6 2.1-4.6 4.8-4.6s4.8 2 4.8 4.6V27z" fill="#E06FA0"/>
+    <circle cx="16" cy="9" r="3.4" fill="#195591"/><path d="M10.4 27v-6.1c0-3 2.5-5.3 5.6-5.3s5.6 2.3 5.6 5.3V27z" fill="#2C6CA4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="11" r="2.5"/></symbol>
+  <symbol id="i-person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6" stroke-linecap="round"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 9V3h10v6"/><rect x="4" y="9" width="16" height="8" rx="1.5"/><path d="M7 17h10v4H7z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19" stroke-linecap="round"/></symbol>
+</defs></svg>
+
+<!-- ===== Cover ===== -->
+<header class="cover">
+  <svg class="konfetti" viewBox="0 0 1200 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <polygon points="0,18 150,70 0,128" fill="#195591"/>
+    <polygon points="1200,0 1200,120 1060,46" fill="#EE8469"/>
+    <polygon points="1150,150 1200,118 1200,190" fill="#E1971F"/>
+    <polygon points="1100,360 1200,300 1200,380" fill="#E0431F"/>
+    <polygon points="40,360 130,360 70,300" fill="#195591"/>
+    <polygon points="600,8 628,30 600,52" fill="#E1971F" opacity=".5"/>
+  </svg>
+  <div class="wrap">
+    <span class="kicker">Schön, dass du da bist!</span>
+    <h1><span class="sr-only">Wundaplunda – Programmheft &amp; Tagesplaner</span><span class="wortmarke" aria-hidden="true"><span>W</span><span>U</span><span>N</span><span>D</span><span>A</span><span>P</span><span>L</span><span>U</span><span>N</span><span>D</span><span>A</span></span></h1>
+    <div class="untertitel" id="cover-sub">Familien-Sommercamp im Ökodorf Sulzbrunn</div>
+    <div class="datumzeile" id="cover-datum"></div>
+    <p class="intro">Dein digitaler Tagesplaner: alle Programmpunkte mit <strong>Leitung</strong>, <strong>Ort</strong> und <strong>für wen</strong> sie gedacht sind. Tippe einen Punkt für mehr Infos — oder druck dir deinen Tag fürs Zelt aus.</p>
+    <span class="demo-tag" id="demo-tag"></span>
+  </div>
+</header>
+
+<!-- ===== Filterleiste ===== -->
+<nav class="bar" aria-label="Programm filtern">
+  <div class="wrap">
+    <div class="bar-row">
+      <span class="bar-label">Tag</span>
+      <div class="tabs" id="tabs" role="group" aria-label="Tag wählen"></div>
+      <div class="bar-actions">
+        <button class="act ghost" id="btn-print" type="button"><svg><use href="#i-print"/></svg> Drucken</button>
+      </div>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Für wen</span>
+      <div class="zg-toggles" id="zg-toggles" role="group" aria-label="Zielgruppe filtern"></div>
+    </div>
+  </div>
+</nav>
+
+<main id="programm">
+  <div class="wrap">
+    <p class="tagezahl" id="tagezahl"></p>
+    <div id="programm-liste"></div>
+    <div class="empty" id="empty" hidden>Für diese Auswahl gibt es keine Programmpunkte. <button class="act ghost" type="button" id="reset" style="margin-top:.6rem">Filter zurücksetzen</button></div>
+  </div>
+</main>
+
+<!-- ===== Info-Bereich (Geländeplan · Verpflegung · Gut zu wissen) ===== -->
+<section class="info-wrap" id="info" aria-label="Infos rund ums Wundaplunda">
+  <div class="wrap">
+    <h2 class="titel">Alles fürs Wundaplunda</h2>
+    <p class="titel-sub">Geländeplan, Essen & Trinken, gut zu wissen — alles an einem Ort</p>
+    <div class="acc">
+
+      <details class="box" id="box-anreise">
+        <summary><svg class="ic"><use href="#i-pin"/></svg> Ankommen & Orientierung</summary>
+        <div class="box-body">
+          <p>Unser gemeinsames Abenteuer beginnt offiziell ab <strong>11:00 Uhr</strong>. Anreisezeit ist zwischen <strong>11–14 Uhr</strong> — bitte nicht früher anreisen (auch nicht am Vortag).</p>
+          <p><strong>Adresse fürs Navi:</strong> Gemeinschaft Sulzbrunn, Sulzbrunn 1–8, 87477 Sulzberg.</p>
+          <p>Mittagessen gibt's von 12:00–13:30 Uhr. Um <strong>14:00 Uhr</strong> Willkommenskreis, um <strong>15:00 Uhr</strong> Geländeführung. Bei späterer Ankunft kurz Bescheid geben: <a href="mailto:gaeste@seminarhaus-sulzbrunn.de">gaeste@seminarhaus-sulzbrunn.de</a>.</p>
+        </div>
+      </details>
+
+      <details class="box" id="box-gelaende">
+        <summary><svg class="ic"><use href="#i-pin"/></svg> Geländeplan</summary>
+        <div class="box-body">
+          <figure class="plan-fig">
+            <img src="assets/img/gelaendeplan-1500.jpg" width="1500" height="1060" alt="Illustrierter Geländeplan des Wundaplunda-Geländes in Sulzbrunn mit Zeltplätzen, Zirkuszelt, Seminarhaus, Pavillon, Kinderjurte, Küchenpavillon, Feuerstelle, WCs und Parkflächen." loading="lazy">
+            <figcaption>Farbige Markierungen beachten · rosa = Zelt be-/entladen (max 15 Min) · grün = Busse/Camper · rote Flächen = privat</figcaption>
+          </figure>
+          <h4>Wichtige Orte</h4>
+          <ul id="gelaende-liste"><li>Zirkuszelt (Lounge, Kaffeebar, Infoboard) · Plundazelt · Pavillon &amp; Yogaraum · Kinderjurte · Wundazelt · Küchenpavillon · Seminarhaus (Essen, Kiosk) · Feuerstelle · Kasse &amp; Hoflädle</li></ul>
+          <p><strong>Bitte privat lassen:</strong> Bewohner-Parkplatz, Garten, Dorfplatz, Bauwagenplatz, Kreisbeet.</p>
+        </div>
+      </details>
+
+      <details class="box" id="box-verpflegung">
+        <summary><svg class="ic"><use href="#i-falter"/></svg> Essen &amp; Trinken</summary>
+        <div class="box-body" id="verpflegung-body">
+          <div class="zeiten" id="essenszeiten"></div>
+          <p>Alles <strong>Bio, vegetarisch/vegan</strong> — teils aus eigenem Anbau. Zahlung bar oder per PayPal (QR-Code) an der Essensausgabe. Bitte ausreichend Bargeld für die Woche mitbringen und pünktlich zum Essen kommen.</p>
+          <div id="preise-mount"></div>
+        </div>
+      </details>
+
+      <details class="box" id="box-packen">
+        <summary><svg class="ic"><use href="#i-gruppe"/></svg> Packliste &amp; Mitbringen</summary>
+        <div class="box-body">
+          <ul>
+            <li>Gummistiefel &amp; Regensachen · Sonnenschutz, ggf. Sonnensegel</li>
+            <li>Eigene Tasse für Kaffee/Bar · Geschirr, Besteck, Trockentuch · Trinkflasche</li>
+            <li>Bargeld (Essen/Kiosk/Bar) · ökologische Seife &amp; Shampoo</li>
+            <li>Erste-Hilfe-Set &amp; Zeckenzange · Taschenlampe · eigenes Schnitzmesser</li>
+            <li>Yogamatte, Decken, Hängematte · Sitzkissen · Sandspielzeug &amp; Musikinstrumente</li>
+            <li>Naturmaterialien (Federn, Muscheln, Schwemmholz, schöne Stoffe…) zum Basteln</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="box" id="box-sicher">
+        <summary><svg class="ic"><use href="#i-kaefer"/></svg> Gut zu wissen &amp; Notfälle</summary>
+        <div class="box-body">
+          <h4>Aufsichtspflicht</h4>
+          <p>Es gibt keine Kinderbetreuung — Eltern haften für ihre Kinder. Schließt euch zusammen und wechselt euch ab. Die Clanzeit hilft beim Kennenlernen.</p>
+          <h4>Bei Sturm &amp; Gewitter</h4>
+          <p>Wir informieren rechtzeitig. Unterschlupf ist die Turnhalle im Seminarhaus.</p>
+          <h4>Krankheit</h4>
+          <p>Bei Magen-Darm oder Ansteckungsgefahr bitte zu Hause bleiben bzw. heimfahren — im Camp verbreitet sich ein Virus schnell.</p>
+          <h4>Programmänderungen</h4>
+          <p>Werden beim Morgenkreis, an der Infotafel und im Telegram-Kanal kommuniziert.</p>
+          <div class="notruf">Notruf: Feuerwehr/Rettung 112 · Polizei 110<br>Krankenhaus Kempten, Robert-Weixler-Str. 50, Tel. 0831 530-0</div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="wortmarke" aria-label="Wundaplunda"><span>W</span><span>U</span><span>N</span><span>D</span><span>A</span><span>P</span><span>L</span><span>U</span><span>N</span><span>D</span><span>A</span></span>
+    <p id="foot-info"></p>
+    <p>Fragen zu Anreise, Buchung oder Frühstück? <a href="mailto:gaeste@seminarhaus-sulzbrunn.de">gaeste@seminarhaus-sulzbrunn.de</a></p>
+  </div>
+</footer>
+<div class="lcband">
+  Digitales Programmheft als Vorschau gebaut von <a href="https://lechcode.de" target="_blank" rel="noopener">lechcode</a> · Landsberg am Lech — eine Quelle für Web &amp; Ausdruck, cookiefrei.
+</div>
+
+<script src="assets/programm-daten.js"></script>
+<script>
+(function(){
+  "use strict";
+  var D = (typeof WUNDA !== "undefined") ? WUNDA : window.WUNDA;
+  if(!D){ return; }
+  var ICON = {feder:"i-feder",kaefer:"i-kaefer",falter:"i-falter",gruppe:"i-gruppe"};
+  var ZG = {}; D.zielgruppen.forEach(function(z){ ZG[z.key]=z; });
+  var state = { tag:"alle", wen:{} };
+  D.zielgruppen.forEach(function(z){ state.wen[z.key]=true; });
+
+  function el(tag, cls, html){ var e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
+  function svgUse(id){ return '<svg aria-hidden="true"><use href="#'+id+'"/></svg>'; }
+  function esc(s){ return (s==null?"":String(s)).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  function isMeal(p){ return /essen|frühstück|fruehstueck|pause|kiosk/i.test(p.titel); }
+
+  /* ---- Cover ---- */
+  (function(){
+    document.getElementById("cover-sub").textContent = D.festival.untertitel || "";
+    var dz = document.getElementById("cover-datum");
+    var t = D.festival.tage;
+    var spanne = t.length ? (t[0].datum + "–" + t[t.length-1].datum + (D.festival.jahr?(" "+D.festival.jahr):"")) : "";
+    dz.appendChild(el("span","pill", spanne));
+    if(D.festival.ort) dz.appendChild(el("span","pill", esc(D.festival.ort)));
+    document.getElementById("demo-tag").textContent = D.festival.hinweis_jahr || "";
+    document.getElementById("foot-info").textContent = (D.festival.name||"") + " · " + (D.festival.adresse||"");
+  })();
+
+  /* ---- Tag-Tabs ---- */
+  function buildTabs(){
+    var c = document.getElementById("tabs");
+    c.innerHTML = "";
+    var all = el("button","tab tab-all"); all.type="button"; all.dataset.tag="alle";
+    all.innerHTML='<b>Alle</b><small>Tage</small>'; c.appendChild(all);
+    D.festival.tage.forEach(function(t){
+      var b = el("button","tab"); b.type="button"; b.dataset.tag=t.key;
+      b.innerHTML='<b>'+esc(t.wochentag.slice(0,2))+'</b><small>'+esc(t.datum)+'</small>';
+      b.setAttribute("aria-label", t.wochentag+" "+t.datum);
+      c.appendChild(b);
+    });
+    c.addEventListener("click", function(e){ var b=e.target.closest(".tab"); if(!b)return; state.tag=b.dataset.tag; syncTabs(); render(); var m=document.getElementById("programm"); });
+    syncTabs();
+  }
+  function syncTabs(){ document.querySelectorAll("#tabs .tab").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.tag===state.tag); }); }
+
+  /* ---- Zielgruppen-Toggles ---- */
+  function buildZG(){
+    var c = document.getElementById("zg-toggles"); c.innerHTML="";
+    // "Alle" ist kein filterbarer Zustand (gilt für jeden) → kein Toggle dafür
+    D.zielgruppen.forEach(function(z){
+      if(z.key==="alle") return;
+      var b = el("button","zg"); b.type="button"; b.dataset.wen=z.key;
+      b.innerHTML = svgUse(ICON[z.icon]) + esc(z.label);
+      b.setAttribute("aria-pressed","true");
+      c.appendChild(b);
+    });
+    c.addEventListener("click", function(e){ var b=e.target.closest(".zg"); if(!b)return;
+      var k=b.dataset.wen; state.wen[k]=!state.wen[k];
+      // wenn alle echten Gruppen aus sind, wieder alle an
+      var echte=D.zielgruppen.filter(function(z){return z.key!=="alle";});
+      if(echte.every(function(z){return !state.wen[z.key];})){ echte.forEach(function(z){state.wen[z.key]=true;}); }
+      syncZG(); render();
+    });
+    syncZG();
+  }
+  function syncZG(){ document.querySelectorAll("#zg-toggles .zg").forEach(function(b){ b.setAttribute("aria-pressed", !!state.wen[b.dataset.wen]); }); }
+  function allWenOn(){ return D.zielgruppen.every(function(z){return state.wen[z.key];}); }
+
+  /* ---- Programm rendern ---- */
+  function matchWen(p){
+    if(allWenOn()) return true;
+    var w = p.wen||["alle"];
+    if(w.indexOf("alle")>=0) return true; // "Alle"-Punkte immer zeigen
+    return w.some(function(k){ return state.wen[k]; });
+  }
+  function zeitParts(z){ // "14:00–15:00" -> {a:"14:00", b:"15:00"}
+    z=(z||"").replace(/\s/g,"");
+    if(/^ab\d/i.test(z)) return {a:"ab "+z.slice(2), b:""};
+    var m=z.split(/[–-]/);
+    return {a:m[0]||z, b:m[1]||""};
+  }
+
+  function card(p){
+    var meal = isMeal(p);
+    var slot = el("div","slot"+(meal?" meal":""));
+    var zp = zeitParts(p.zeit);
+    var zt = el("div","zeit"); zt.innerHTML = esc(zp.a) + (zp.b?'<small>– '+esc(zp.b)+'</small>':"");
+    slot.appendChild(zt);
+
+    var hasInfo = !!(p.info && p.info.trim());
+    var card = el("div","card"+(hasInfo?" has-info":"")+(p.status==="entfaellt"?" cancelled":""));
+    if(hasInfo){ card.setAttribute("role","button"); card.tabIndex=0; card.setAttribute("aria-expanded","false"); }
+
+    // top: titel + zielgruppen-icons
+    var top = el("div","card-top");
+    top.appendChild(el("h3",null,esc(p.titel)));
+    var zg = el("div","zg-icons");
+    (p.wen||[]).forEach(function(k){ if(ZG[k]) zg.innerHTML += '<svg role="img" aria-label="'+esc(ZG[k].label)+'"><use href="#'+ICON[ZG[k].icon]+'"/></svg>'; });
+    top.appendChild(zg);
+    card.appendChild(top);
+
+    // meta: wer / wo
+    var meta = el("div","meta");
+    if(p.wer) meta.innerHTML += '<span class="wer">'+svgUse("i-person")+esc(p.wer)+'</span>';
+    if(p.wo){
+      var wetter = /\s\/\s/.test(p.wo);
+      meta.innerHTML += '<span>'+svgUse("i-pin")+esc(p.wo)+'</span>';
+    }
+    if(p.wer||p.wo) card.appendChild(meta);
+
+    // badges
+    var badges = el("div","badges");
+    if(p.optional) badges.innerHTML += '<span class="badge optional">Optional</span>';
+    if(p.anmeldung==="offen") badges.innerHTML += '<span class="badge offen">Ohne Anmeldung</span>';
+    if(p.anmeldung==="begrenzt") badges.innerHTML += '<span class="badge begrenzt">Begrenzte Plätze</span>';
+    if(p.hinweis) badges.innerHTML += '<span class="badge alter">'+esc(p.hinweis)+'</span>';
+    if(/\s\/\s/.test(p.wo||"")) badges.innerHTML += '<span class="badge wetter">'+svgUse("i-sun")+'Wetter-Alternative</span>';
+    if(p.status==="geaendert") badges.innerHTML += '<span class="badge geaendert">Geändert</span>';
+    if(p.status==="entfaellt") badges.innerHTML += '<span class="badge entfaellt">Entfällt</span>';
+    if(hasInfo) badges.innerHTML += '<span class="badge mehr">Mehr Infos '+svgUse("i-chev")+'</span>';
+    if(badges.children.length) card.appendChild(badges);
+
+    if(hasInfo){
+      card.appendChild(el("div","info-text",esc(p.info)));
+      var toggle=function(){ var x=card.getAttribute("aria-expanded")==="true"; card.setAttribute("aria-expanded",!x); };
+      card.addEventListener("click",toggle);
+      card.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); toggle(); } });
+    }
+    slot.appendChild(card);
+    return slot;
+  }
+
+  function daySection(t){
+    var sec = el("section","day"); sec.dataset.day=t.key; sec.id="tag-"+t.key;
+    var head = el("div","day-head");
+    head.innerHTML = '<h2>'+esc(t.wochentag)+'</h2><span class="datum">'+esc(t.datum)+'</span>';
+    var pd = el("button","tagdruck"); pd.type="button"; pd.dataset.print=t.key;
+    pd.innerHTML = svgUse("i-print")+'Diesen Tag drucken';
+    pd.addEventListener("click", function(e){ e.stopPropagation(); printDay(t.key); });
+    head.appendChild(pd);
+    sec.appendChild(head);
+
+    // Druckkopf (nur im Druck sichtbar)
+    var ph = el("div","print-head");
+    ph.innerHTML = '<span class="wortmarke"><span>W</span><span>U</span><span>N</span><span>D</span><span>A</span><span>P</span><span>L</span><span>U</span><span>N</span><span>D</span><span>A</span></span>'
+      + '<span class="pdatum">'+esc(t.wochentag)+', '+esc(t.datum)+(D.festival.jahr?(" "+D.festival.jahr):"")+'</span>';
+    sec.appendChild(ph);
+
+    var items = D.programm.filter(function(p){ return p.tag===t.key && matchWen(p); });
+    if(!items.length){ sec.appendChild(el("p","empty","— keine passenden Punkte —")); }
+    var slots = el("div","slots");
+    items.forEach(function(p){ slots.appendChild(card(p)); });
+    sec.appendChild(slots);
+
+    // Druck-Legende
+    var lg = el("div","print-legende");
+    D.zielgruppen.forEach(function(z){ lg.innerHTML += '<span>'+svgUse(ICON[z.icon])+esc(z.label)+'</span>'; });
+    sec.appendChild(lg);
+    // Druck-Fuß (Stand-Zeitstempel + Live-Hinweis)
+    var pf = el("div","print-foot");
+    pf.innerHTML = '<span class="stand">Stand: —</span><span>Aktuelle Version &amp; Änderungen: <b>wundaplunda.de/programm</b></span>';
+    sec.appendChild(pf);
+    return sec;
+  }
+
+  function render(){
+    var c = document.getElementById("programm-liste"); c.innerHTML="";
+    var tage = state.tag==="alle" ? D.festival.tage : D.festival.tage.filter(function(t){return t.key===state.tag;});
+    var total=0;
+    tage.forEach(function(t){
+      var sec = daySection(t);
+      var n = D.programm.filter(function(p){ return p.tag===t.key && matchWen(p); }).length;
+      total += n;
+      c.appendChild(sec);
+    });
+    var tz = document.getElementById("tagezahl");
+    var label = state.tag==="alle" ? "Alle Tage" : (function(){var x=D.festival.tage.filter(function(t){return t.key===state.tag;})[0];return x?x.wochentag+" "+x.datum:"";})();
+    tz.textContent = label + " · " + total + " Programmpunkt" + (total===1?"":"e") + (allWenOn()?"":" (gefiltert)");
+    document.getElementById("empty").hidden = total>0;
+  }
+
+  /* ---- Drucken ---- */
+  function stamp(){
+    var d=new Date(), p=function(n){return (n<10?"0":"")+n;};
+    var s="Stand: "+p(d.getDate())+"."+p(d.getMonth()+1)+"."+d.getFullYear()+", "+p(d.getHours())+":"+p(d.getMinutes())+" Uhr";
+    Array.prototype.forEach.call(document.querySelectorAll(".print-foot .stand"),function(e){ e.textContent=s; });
+  }
+  // Vor dem Druck IMMER alle Tage & alle Zielgruppen rendern (Bildschirm-Filter
+  // gehört nicht aufs Infowand-Blatt). Danach den Bildschirm-Zustand zurücksetzen.
+  var printSaved=null;
+  function enterPrint(){
+    printSaved={tag:state.tag, wen:{}};
+    D.zielgruppen.forEach(function(z){ printSaved.wen[z.key]=state.wen[z.key]; });
+    state.tag="alle"; D.zielgruppen.forEach(function(z){ state.wen[z.key]=true; });
+    render(); stamp();
+  }
+  function exitPrint(){
+    document.body.removeAttribute("data-printday");
+    if(printSaved){ state.tag=printSaved.tag; state.wen=printSaved.wen; printSaved=null; syncTabs(); syncZG(); render(); }
+  }
+  function printDay(key){ document.body.setAttribute("data-printday", key); window.print(); }
+  window.addEventListener("beforeprint", enterPrint);
+  window.addEventListener("afterprint", exitPrint);
+  document.getElementById("btn-print").addEventListener("click", function(){
+    document.body.removeAttribute("data-printday"); // alle Tage, je Blatt
+    window.print();
+  });
+
+  /* ---- Verpflegung (Essenszeiten + Preise) ---- */
+  (function(){
+    var v=D.verpflegung||{};
+    var ez=document.getElementById("essenszeiten");
+    (v.essenszeiten||[]).forEach(function(z){
+      var d=el("div","z"); d.innerHTML='<b>'+esc(z.mahlzeit)+'</b><span class="uhr">'+esc(z.zeit)+'</span><small>'+esc(z.hinweis||"")+'</small>'; ez.appendChild(d);
+    });
+    var mount=document.getElementById("preise-mount");
+    function table(title, rows){
+      if(!rows||!rows.length) return;
+      var tbl=el("table","preistab"); var html="";
+      var lastGrp=null;
+      rows.forEach(function(r){
+        if(r.gruppe && r.gruppe!==lastGrp){ html+='<tr class="grp"><td colspan="2">'+esc(r.gruppe)+'</td></tr>'; lastGrp=r.gruppe; }
+        html+='<tr><td>'+esc(r.name)+'</td><td>'+esc(r.preis)+'</td></tr>';
+      });
+      tbl.innerHTML=html;
+      var h=el("h4",null,title); mount.appendChild(h); mount.appendChild(tbl);
+    }
+    table("Preise Verpflegung", v.preise_essen);
+    table("Getränke", v.getraenke);
+    if(v.laedle){ mount.appendChild(el("h4",null,"Hoflädle / Laura's Lädle")); mount.appendChild(el("p",null,esc(v.laedle))); }
+    if(v.snacks){ mount.appendChild(el("h4",null,"Snacks, Waffeln & Kiosk")); mount.appendChild(el("p",null,esc(v.snacks))); }
+  })();
+
+  /* ---- Gelände-Liste ---- */
+  (function(){
+    var g=D.gelaende||{}; if(g.bereiche && g.bereiche.length){
+      var ul=document.getElementById("gelaende-liste"); ul.innerHTML="";
+      g.bereiche.forEach(function(b){ ul.appendChild(el("li",null,'<strong>'+esc(b.name)+'</strong>'+(b.hinweis?" — "+esc(b.hinweis):""))); });
+    }
+  })();
+
+  document.getElementById("reset").addEventListener("click",function(){ state.tag="alle"; D.zielgruppen.forEach(function(z){state.wen[z.key]=true;}); syncTabs(); syncZG(); render(); });
+
+  buildTabs(); buildZG(); render();
+
+  /* ---- QR-Direktdruck: programmheft.html?druck=di ---- */
+  (function(){
+    var m=/[?&]druck=([a-z]{2})/i.exec(location.search);
+    if(m){ var key=m[1].toLowerCase();
+      if(D.festival.tage.some(function(t){return t.key===key;})){
+        state.tag=key; syncTabs(); render();
+        document.body.setAttribute("data-printday", key);
+        stamp();
+        setTimeout(function(){ window.print(); }, 400);
+      }
+    }
+  })();
+})();
+</script>
+</body>
+</html>
