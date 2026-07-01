@@ -65,6 +65,11 @@ footer .foot-logo{width:min(80%,330px);height:auto}
 .cover .datumzeile .pill{background:var(--creme);border:2px solid var(--line);border-radius:99px;padding:.25em .9em;font-size:.95rem}
 .cover p.intro{max-width:54ch;margin-top:1rem;color:var(--ink-soft);font-size:1.05rem}
 .cover .demo-tag{display:inline-block;margin-top:1rem;background:var(--sand);color:var(--ink-soft);font-family:var(--hand);font-size:1.25rem;padding:.1em .8em;border-radius:99px;transform:rotate(-1deg)}
+.seitentabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.3rem}
+.seitentabs a{display:inline-flex;align-items:center;font-weight:700;font-size:.95rem;text-decoration:none;color:var(--blau-tief);background:var(--hell);border:2px solid var(--line);border-radius:99px;padding:.5em 1.1em;transition:transform .15s var(--ease),background .15s,border-color .15s,color .15s}
+.seitentabs a:hover{transform:translateY(-1px);border-color:var(--blau);background:var(--creme)}
+.seitentabs a:first-child{background:var(--blau);border-color:var(--blau);color:#fff}
+.seitentabs a:first-child:hover{background:var(--blau-tief)}
 /* Konfetti */
 .konfetti{position:absolute;inset:0;z-index:1;pointer-events:none}
 .konfetti polygon{opacity:.95}
@@ -234,23 +239,34 @@ footer a{color:var(--gold-hell);font-weight:700}
   .print-head .print-logo{height:1.55rem;width:auto}
   .print-head .pdatum{font-size:1.5rem}
   .day-head{display:none!important}
-  /* zweispaltiger, dichter Tagesplan → ein Tag passt aufs Blatt */
-  .slots{column-count:2;column-gap:7mm}
-  .slot{grid-template-columns:62px 1fr;gap:0 .4rem;break-inside:avoid;-webkit-column-break-inside:avoid;margin:0 0 1.6mm}
-  .slot .zeit{color:#103F6E;padding-top:.25rem;font-size:8.5pt}
-  .slot .zeit small{font-size:7pt}
-  .card{box-shadow:none;border:1.2px solid #D8C9A8;border-radius:6px;padding:.22rem .42rem;background:#fff!important}
-  .card-top{gap:.3rem}
-  .card h3{font-size:10pt;line-height:1.1}
-  .meta{font-size:8pt;margin-top:.1rem;gap:.1rem .6rem}
+  /* Aushang 1: großer, gut lesbarer Tagesplan (ein Tag darf mehrere Blätter füllen) */
+  .slots{column-count:2;column-gap:8mm}
+  .slot{grid-template-columns:78px 1fr;gap:0 .5rem;break-inside:avoid;-webkit-column-break-inside:avoid;margin:0 0 2.6mm}
+  .slot .zeit{color:#103F6E;padding-top:.3rem;font-size:11pt;font-weight:700}
+  .slot .zeit small{font-size:9pt}
+  .card{box-shadow:none;border:1.4px solid #D8C9A8;border-radius:7px;padding:.4rem .6rem;background:#fff!important}
+  .card-top{gap:.35rem}
+  .card h3{font-size:13.5pt;line-height:1.12}
+  .meta{font-size:10.5pt;margin-top:.15rem;gap:.15rem .7rem}
   .badges{margin-top:.15rem;gap:.2rem}
-  .badge{font-size:6.8pt;padding:.1em .5em}
+  .badge{font-size:8pt;padding:.1em .5em}
   .slot.meal .card{background:#FBF7EC!important}
-  .zg-icons svg{width:15px;height:15px}
+  .zg-icons svg{width:18px;height:18px}
   .print-legende{display:flex!important}
   .print-foot{display:flex!important}
+  /* Aushang 2: Workshop-Beschreibungskacheln (eigenes Blatt pro Tag) */
+  .print-kacheln{display:block!important;break-before:page}
+  .pk-head{display:flex;align-items:center;gap:.6rem;border-bottom:2.5px solid #195591;margin-bottom:4mm;padding-bottom:2mm}
+  .pk-head .print-logo{height:1.6rem;width:auto}
+  .pk-head .pdatum{font-family:var(--hand);font-size:1.5rem;color:#E0431F}
+  .pk-grid{column-count:2;column-gap:8mm}
+  .pk-card{break-inside:avoid;-webkit-column-break-inside:avoid;border:1.5px solid #D8C9A8;border-radius:8px;padding:3mm 4mm;margin:0 0 4mm;background:#fff!important}
+  .pk-card h3{font-size:14pt;line-height:1.12;color:#103F6E;margin-bottom:1mm}
+  .pk-card .pk-meta{font-size:10pt;font-weight:700;color:#5C5142;margin-bottom:1.6mm}
+  .pk-card .pk-desc{font-size:10.5pt;line-height:1.32}
+  .pk-card .pk-note{font-size:9.5pt;font-weight:700;color:#8A5A00;margin-top:1.6mm}
 }
-.print-head,.print-legende,.print-foot{display:none}
+.print-head,.print-legende,.print-foot,.print-kacheln{display:none}
 .print-head{align-items:center;gap:.6rem;margin-bottom:.3rem;justify-content:space-between}
 .print-head .wortmarke{font-size:1.4rem}
 .print-head .pdatum{font-family:var(--hand);font-size:1.3rem;color:#E0431F}
@@ -313,6 +329,13 @@ footer a{color:var(--gold-hell);font-weight:700}
     <div class="datumzeile" id="cover-datum"></div>
     <p class="intro">Dein digitaler Tagesplaner: alle Programmpunkte mit <strong>Leitung</strong>, <strong>Ort</strong> und <strong>für wen</strong> sie gedacht sind. Tippe einen Punkt für mehr Infos — oder druck dir deinen Tag fürs Zelt aus.</p>
     <span class="demo-tag" id="demo-tag"></span>
+    <nav class="seitentabs" aria-label="Seitenbereiche">
+      <a href="#programm">Programm</a>
+      <a href="#box-verpflegung" data-open="box-verpflegung">Essen &amp; Trinken</a>
+      <a href="#box-gelaende" data-open="box-gelaende">Geländeplan</a>
+      <a href="#box-packen" data-open="box-packen">Packliste</a>
+      <a href="#box-sicher" data-open="box-sicher">Gut zu wissen</a>
+    </nav>
   </div>
 </header>
 
@@ -438,6 +461,15 @@ footer a{color:var(--gold-hell);font-weight:700}
   function svgUse(id){ return '<svg aria-hidden="true"><use href="#'+id+'"/></svg>'; }
   function esc(s){ return (s==null?"":String(s)).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
   function isMeal(p){ return /essen|frühstück|fruehstueck|pause|kiosk/i.test(p.titel); }
+  // Punkte, die KEINE Druck-Beschreibungskachel brauchen (selbsterklärend/Routine)
+  var SKIP_PRINTCARD = {"Morgenkreis mit dem Wundaplunda Team":1,"Clanzeit":1,"Probe Clanzeit":1,"Anreise & Ankommen":1,"Abreise / Ende des Camps":1,"Abschlussrunde":1,"Open Space":1,"Kuchen Pappelkinder & Hoflädle":1};
+  function printCardInfo(p){
+    if(isMeal(p) || SKIP_PRINTCARD[p.titel]) return null;
+    var kat = (D.katalog && D.katalog[p.titel]) || null;
+    var desc = (kat && kat.beschreibung) ? kat.beschreibung : (p.info && p.info.trim() ? p.info.trim() : "");
+    if(!desc) return null;
+    return { desc:desc, wer:(kat && kat.wer)?kat.wer:p.wer, mitbringen:(kat && kat.mitbringen)?kat.mitbringen:p.mitbringen };
+  }
 
   /* ---- Cover ---- */
   (function(){
@@ -521,6 +553,8 @@ footer a{color:var(--gold-hell);font-weight:700}
     else if(p.info && p.info.trim()) infoParts.push(p.info.trim());
     var hinweise = [];
     if(p.hinweis) hinweise.push(p.hinweis.trim().replace(/\.?$/,".") );
+    var mitbringen = (kat && kat.mitbringen) ? kat.mitbringen : p.mitbringen;
+    if(mitbringen) hinweise.push("Mitbringen: "+mitbringen.replace(/\.?$/,".") );
     if(woParts.length>1) hinweise.push("Bei schlechtem Wetter / als Alternative: "+woParts.slice(1).join(" / ").trim()+".");
     if(p.optional) hinweise.push("Optionales Angebot – die Teilnahme ist freiwillig.");
     if(p.anmeldung==="offen") hinweise.push("Ohne Anmeldung – einfach vorbeikommen.");
@@ -591,6 +625,29 @@ footer a{color:var(--gold-hell);font-weight:700}
     var pf = el("div","print-foot");
     pf.innerHTML = '<span class="stand">Stand: —</span><span>Aktuelle Version &amp; Änderungen: <b>wundaplunda.de/programm</b></span>';
     sec.appendChild(pf);
+
+    // Druck-Aushang 2: Workshop-/Info-Kacheln (nur erklärungsbedürftige Punkte)
+    var pkItems = items.map(function(p){ return { p:p, inf:printCardInfo(p) }; }).filter(function(x){ return x.inf; });
+    if(pkItems.length){
+      var pk = el("div","print-kacheln");
+      var pkh = el("div","pk-head");
+      pkh.innerHTML = '<img class="print-logo" src="assets/img/wortmarke.png" alt="WUNDAPLUNDA"><span class="pdatum">'+esc(t.wochentag)+', '+esc(t.datum)+(D.festival.jahr?(" "+D.festival.jahr):"")+' — Workshops &amp; Infos</span>';
+      pk.appendChild(pkh);
+      var grid = el("div","pk-grid");
+      pkItems.forEach(function(x){
+        var p=x.p, inf=x.inf, wo=(p.wo||"").split(/\s\/\s/)[0].trim();
+        var c=el("div","pk-card");
+        var html='<h3>'+esc(p.titel)+'</h3><p class="pk-meta">'+esc(p.zeit)+(inf.wer?(' · '+esc(inf.wer)):'')+(wo?(' · '+esc(wo)):'')+'</p><p class="pk-desc">'+esc(inf.desc)+'</p>';
+        var notes=[];
+        if(p.anmeldung==="begrenzt") notes.push("Begrenzte Plätze");
+        if(inf.mitbringen) notes.push("Mitbringen: "+inf.mitbringen);
+        if(p.hinweis) notes.push(p.hinweis);
+        if(notes.length) html+='<p class="pk-note">'+esc(notes.join(" · "))+'</p>';
+        c.innerHTML=html; grid.appendChild(c);
+      });
+      pk.appendChild(grid);
+      sec.appendChild(pk);
+    }
     return sec;
   }
 
@@ -635,6 +692,14 @@ footer a{color:var(--gold-hell);font-weight:700}
   document.getElementById("btn-print").addEventListener("click", function(){
     document.body.removeAttribute("data-printday"); // alle Tage, je Blatt
     window.print();
+  });
+
+  /* ---- Seiten-Tabs: klappt die Ziel-Infobox auf und springt hin ---- */
+  document.querySelectorAll(".seitentabs a[data-open]").forEach(function(a){
+    a.addEventListener("click", function(){
+      var box = document.getElementById(a.dataset.open);
+      if(box && box.tagName === "DETAILS"){ box.open = true; }
+    });
   });
 
   /* ---- Verpflegung (Essenszeiten + Preise) ---- */

@@ -19,6 +19,7 @@
      anmeldung  "offen"  (ohne Anmeldung)  |  "begrenzt"  (Plätze begrenzt)
      optional   true   → als "optional" beschrieben
      hinweis    kurzer Zusatz (Alter, Bändchen, Ort-Notiz …)
+     mitbringen was Teilnehmende mitbringen sollen (z. B. "eigenes Schnitzmesser")
      info       längerer Text / Beschreibung — erscheint beim Aufklappen
      status     "geaendert"  oder  "entfaellt"
 
@@ -279,7 +280,8 @@ const WUNDA = {
     "Bogenbau": {
       wer: "Laurenz (Wildnispädagoge)",
       foto: "bogenbau.png",
-      beschreibung: "Wie entsteht aus einem Stück Holz ein Bogen? Mit Schnitzmesser und Geduld gestalten wir kleine funktionsfähige Bögen und entdecken, wie Form, Spannung und Funktion vom Holz abhängen. Bitte eigenes Schnitzmesser mitbringen."
+      mitbringen: "eigenes Schnitzmesser",
+      beschreibung: "Wie entsteht aus einem Stück Holz ein Bogen? Mit Schnitzmesser und Geduld gestalten wir kleine funktionsfähige Bögen und entdecken, wie Form, Spannung und Funktion vom Holz abhängen."
     },
     "Baumklettern": {
       wer: "Stefan (Baumkletterer & Erlebnispädagoge)",
@@ -323,7 +325,9 @@ const WUNDA = {
     "Schnitzen (Schnitzführerschein)": {
       wer: "Andreas Eckl (Natur-, Umwelt- & Erlebnispädagoge)",
       foto: "schnitzen.png",
-      beschreibung: "Im Outdoor-Schnitzkurs lernt ihr den sicheren Umgang mit dem Taschen- oder Kinderschnitzmesser und schnitzt eigene kleine Kreationen aus Frischholz. Zum Abschluss gibt's den „Messerführer:innenschein“. Messer können vor Ort ausgeliehen werden."
+      mitbringen: "Schnitzmesser (kann vor Ort ausgeliehen werden), wetterfeste Kleidung, geschlossene Schuhe, lange Hose",
+      hinweis: "Kinder ab 8 Jahren, jüngere nur mit Begleitperson · max. 16 Kinder",
+      beschreibung: "Im Outdoor-Schnitzkurs lernt ihr den sicheren Umgang mit dem Taschen- oder Kinderschnitzmesser und schnitzt eigene kleine Kreationen aus Frischholz. Zum Abschluss gibt's den „Messerführer:innenschein“."
     },
     "Contact Kids": {
       wer: "Natalie Zeitler",
