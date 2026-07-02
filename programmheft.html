@@ -260,7 +260,9 @@ footer a{color:var(--gold-hell);font-weight:700}
   .pk-head .print-logo{height:1.6rem;width:auto}
   .pk-head .pdatum{font-family:var(--hand);font-size:1.5rem;color:#E0431F}
   .pk-grid{column-count:2;column-gap:8mm}
-  .pk-card{break-inside:avoid;-webkit-column-break-inside:avoid;border:1.5px solid #D8C9A8;border-radius:8px;padding:3mm 4mm;margin:0 0 4mm;background:#fff!important}
+  .pk-card{break-inside:avoid;-webkit-column-break-inside:avoid;border:1.5px solid #D8C9A8;border-radius:8px;padding:3mm 4mm;margin:0 0 4mm;background:#fff!important;display:flex;gap:4mm;align-items:flex-start}
+  .pk-text{flex:1;min-width:0}
+  .pk-foto{width:30mm;height:30mm;flex:none;object-fit:cover;border-radius:6px;border:1px solid #D8C9A8}
   .pk-card h3{font-size:14pt;line-height:1.12;color:#103F6E;margin-bottom:1mm}
   .pk-card .pk-meta{font-size:10pt;font-weight:700;color:#5C5142;margin-bottom:1.6mm}
   .pk-card .pk-desc{font-size:10.5pt;line-height:1.32}
@@ -468,7 +470,7 @@ footer a{color:var(--gold-hell);font-weight:700}
     var kat = (D.katalog && D.katalog[p.titel]) || null;
     var desc = (kat && kat.beschreibung) ? kat.beschreibung : (p.info && p.info.trim() ? p.info.trim() : "");
     if(!desc) return null;
-    return { desc:desc, wer:(kat && kat.wer)?kat.wer:p.wer, mitbringen:(kat && kat.mitbringen)?kat.mitbringen:p.mitbringen };
+    return { desc:desc, wer:(kat && kat.wer)?kat.wer:p.wer, mitbringen:(kat && kat.mitbringen)?kat.mitbringen:p.mitbringen, foto:(kat && kat.foto)?kat.foto:null };
   }
 
   /* ---- Cover ---- */
@@ -636,14 +638,15 @@ footer a{color:var(--gold-hell);font-weight:700}
       var grid = el("div","pk-grid");
       pkItems.forEach(function(x){
         var p=x.p, inf=x.inf, wo=(p.wo||"").split(/\s\/\s/)[0].trim();
-        var c=el("div","pk-card");
-        var html='<h3>'+esc(p.titel)+'</h3><p class="pk-meta">'+esc(p.zeit)+(inf.wer?(' · '+esc(inf.wer)):'')+(wo?(' · '+esc(wo)):'')+'</p><p class="pk-desc">'+esc(inf.desc)+'</p>';
+        var c=el("div","pk-card"+(inf.foto?" has-foto":""));
+        var txt='<h3>'+esc(p.titel)+'</h3><p class="pk-meta">'+esc(p.zeit)+(inf.wer?(' · '+esc(inf.wer)):'')+(wo?(' · '+esc(wo)):'')+'</p><p class="pk-desc">'+esc(inf.desc)+'</p>';
         var notes=[];
         if(p.anmeldung==="begrenzt") notes.push("Begrenzte Plätze");
         if(inf.mitbringen) notes.push("Mitbringen: "+inf.mitbringen);
         if(p.hinweis) notes.push(p.hinweis);
-        if(notes.length) html+='<p class="pk-note">'+esc(notes.join(" · "))+'</p>';
-        c.innerHTML=html; grid.appendChild(c);
+        if(notes.length) txt+='<p class="pk-note">'+esc(notes.join(" · "))+'</p>';
+        c.innerHTML = '<div class="pk-text">'+txt+'</div>' + (inf.foto?('<img class="pk-foto" src="assets/img/programm/'+inf.foto+'" alt="">'):'');
+        grid.appendChild(c);
       });
       pk.appendChild(grid);
       sec.appendChild(pk);
