@@ -258,9 +258,9 @@ details[open] summary::after{content:"–"}
 
 /* ---------- Ansicht-Umschalter (Programm / Infos A–Z) ---------- */
 .viewnav{background:var(--blau-tief);box-shadow:0 6px 18px -14px rgba(0,0,0,.6)}
-.viewnav .wrap{display:flex;gap:.4rem;padding-top:.5rem;padding-bottom:.5rem}
-.viewnav button{flex:0 0 auto;display:inline-flex;align-items:center;gap:.45em;font-family:var(--display);font-weight:700;font-size:1rem;border:none;background:transparent;color:#CFE0F0;border-radius:99px;padding:.5em 1.2em;cursor:pointer;transition:background .15s,color .15s}
-.viewnav button svg{width:1.2em;height:1.2em}
+.viewnav .wrap{display:flex;gap:.4rem;padding-top:.5rem;padding-bottom:.5rem;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.viewnav button{flex:0 0 auto;display:inline-flex;align-items:center;gap:.4em;font-family:var(--display);font-weight:700;font-size:.98rem;white-space:nowrap;border:none;background:transparent;color:#CFE0F0;border-radius:99px;padding:.5em 1em;cursor:pointer;transition:background .15s,color .15s}
+.viewnav button svg{width:1.15em;height:1.15em;flex:none}
 .viewnav button:hover{background:rgba(255,255,255,.12);color:#fff}
 .viewnav button[aria-selected="true"]{background:var(--creme);color:var(--blau-tief)}
 body.view-infos .bar,body.view-infos #programm{display:none}
@@ -442,20 +442,24 @@ footer h4{color:#fff;font-size:1.05rem;margin-bottom:.3rem;font-family:var(--dis
     <p class="intro">Dein Tagesplaner für die Wundaplunda-Woche: Hier findest du <strong>alle Infos übersichtlich an einem Ort</strong> — jeden Tag mit Programm, Leitung, Ort und für wen es gedacht ist. Du kannst alles <strong>online abrufen</strong> oder dir den Tagesplan einfach <strong>selbst ausdrucken</strong>.</p>
     <span class="demo-tag" id="demo-tag"></span>
     <nav class="seitentabs" aria-label="Seitenbereiche">
-      <a href="#programm" data-goto="programm">Programm</a>
-      <a href="#view-infos" data-goto="infos" data-info="verpflegung">Essen &amp; Trinken</a>
-      <a href="#view-infos" data-goto="infos" data-info="gelaende">Geländeplan</a>
-      <a href="#view-infos" data-goto="infos" data-info="packen">Packliste</a>
-      <a href="#view-infos" data-goto="infos" data-info="sicher">Gut zu wissen</a>
+      <a href="#programm" data-nav="programm">Programm</a>
+      <a href="#view-infos" data-nav="verpflegung">Essen &amp; Trinken</a>
+      <a href="#view-infos" data-nav="gelaende">Geländeplan</a>
+      <a href="#view-infos" data-nav="packen">Packliste</a>
+      <a href="#view-infos" data-nav="sicher">Gut zu wissen</a>
     </nav>
   </div>
 </header>
 
-<!-- ===== Ansicht-Umschalter: Programm / Alle Infos A–Z ===== -->
-<nav class="viewnav" aria-label="Ansicht wählen">
+<!-- ===== Navigationsleiste: Programm + Info-Bereiche ===== -->
+<nav class="viewnav" aria-label="Bereich wählen">
   <div class="wrap" role="tablist">
-    <button type="button" data-view="programm" role="tab" aria-selected="true"><svg><use href="#i-clock"/></svg> Programm</button>
-    <button type="button" data-view="infos" role="tab" aria-selected="false"><svg><use href="#i-pin"/></svg> Alle Infos A–Z</button>
+    <button type="button" data-nav="programm" role="tab" aria-selected="true"><svg><use href="#i-clock"/></svg> Programm</button>
+    <button type="button" data-nav="anreise" role="tab" aria-selected="false"><svg><use href="#i-pin"/></svg> Ankommen</button>
+    <button type="button" data-nav="gelaende" role="tab" aria-selected="false"><svg><use href="#i-pin"/></svg> Geländeplan</button>
+    <button type="button" data-nav="verpflegung" role="tab" aria-selected="false"><svg><use href="#i-falter"/></svg> Essen &amp; Trinken</button>
+    <button type="button" data-nav="packen" role="tab" aria-selected="false"><svg><use href="#i-gruppe"/></svg> Packliste</button>
+    <button type="button" data-nav="sicher" role="tab" aria-selected="false"><svg><use href="#i-kaefer"/></svg> Gut zu wissen</button>
   </div>
 </nav>
 
@@ -506,15 +510,7 @@ footer h4{color:#fff;font-size:1.05rem;margin-bottom:.3rem;font-family:var(--dis
   <img class="info-deko" src="assets/img/deko/deko-voegel.png" alt="" aria-hidden="true" loading="lazy">
   <div class="wrap">
     <h2 class="titel">Alle Infos fürs Wundaplunda</h2>
-    <p class="titel-sub">Wähle einen Bereich — jeder lässt sich einzeln ausdrucken &amp; aushängen</p>
-
-    <div class="info-tabs" id="info-tabs" role="tablist" aria-label="Info-Bereiche">
-      <button type="button" data-info="anreise" role="tab" aria-selected="true"><svg><use href="#i-pin"/></svg>Ankommen</button>
-      <button type="button" data-info="gelaende" role="tab" aria-selected="false"><svg><use href="#i-pin"/></svg>Geländeplan</button>
-      <button type="button" data-info="verpflegung" role="tab" aria-selected="false"><svg><use href="#i-falter"/></svg>Essen &amp; Trinken</button>
-      <button type="button" data-info="packen" role="tab" aria-selected="false"><svg><use href="#i-gruppe"/></svg>Packliste</button>
-      <button type="button" data-info="sicher" role="tab" aria-selected="false"><svg><use href="#i-kaefer"/></svg>Gut zu wissen</button>
-    </div>
+    <p class="titel-sub">Jeder Bereich lässt sich einzeln ausdrucken &amp; aushängen</p>
 
     <section class="info-panel" id="panel-anreise" role="tabpanel">
       <div class="info-panel-head"><h3><svg><use href="#i-pin"/></svg> Ankommen &amp; Orientierung</h3><button class="act ghost" type="button" data-print-info="anreise"><svg><use href="#i-print"/></svg> Drucken</button></div>
@@ -968,34 +964,25 @@ footer h4{color:#fff;font-size:1.05rem;margin-bottom:.3rem;font-family:var(--dis
     window.print();
   });
 
-  /* ---- Ansicht-Umschalter (Programm / Infos A–Z) ---- */
-  function setView(v){
-    var infos = (v==="infos");
-    document.body.classList.toggle("view-infos", infos);
-    document.body.classList.toggle("view-programm", !infos);
-    document.querySelectorAll(".viewnav button").forEach(function(b){ b.setAttribute("aria-selected", b.dataset.view===v); });
+  /* ---- Navigationsleiste: Programm + Info-Bereiche in einer Leiste ---- */
+  function setInfoTab(id){
+    document.querySelectorAll(".info-panel").forEach(function(p){ p.hidden = (p.id !== "panel-"+id); });
+  }
+  function setNav(key){
+    var programm = (key==="programm");
+    document.body.classList.toggle("view-programm", programm);
+    document.body.classList.toggle("view-infos", !programm);
+    if(!programm) setInfoTab(key);
+    document.querySelectorAll(".viewnav button").forEach(function(b){ b.setAttribute("aria-selected", b.dataset.nav===key); });
     window.scrollTo({top:0, behavior:"smooth"});
   }
   document.querySelectorAll(".viewnav button").forEach(function(b){
-    b.addEventListener("click", function(){ setView(b.dataset.view); });
+    b.addEventListener("click", function(){ setNav(b.dataset.nav); });
   });
 
-  /* ---- Info-Reiter umschalten ---- */
-  function setInfoTab(id){
-    document.querySelectorAll(".info-panel").forEach(function(p){ p.hidden = (p.id !== "panel-"+id); });
-    document.querySelectorAll("#info-tabs button").forEach(function(b){ b.setAttribute("aria-selected", b.dataset.info===id); });
-  }
-  document.querySelectorAll("#info-tabs button").forEach(function(b){
-    b.addEventListener("click", function(){ setInfoTab(b.dataset.info); });
-  });
-
-  /* ---- Cover-Tabs: Ansicht wählen (+ ggf. Info-Reiter) ---- */
-  document.querySelectorAll(".seitentabs a[data-goto]").forEach(function(a){
-    a.addEventListener("click", function(e){
-      e.preventDefault();
-      setView(a.dataset.goto);
-      if(a.dataset.info) setInfoTab(a.dataset.info);
-    });
+  /* ---- Cover-Tabs: springen in denselben Bereich ---- */
+  document.querySelectorAll(".seitentabs a[data-nav]").forEach(function(a){
+    a.addEventListener("click", function(e){ e.preventDefault(); setNav(a.dataset.nav); });
   });
 
   /* ---- Info-Bereich drucken (nur der gewählte Reiter) ---- */
