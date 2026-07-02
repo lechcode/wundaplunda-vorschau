@@ -489,8 +489,9 @@ footer a{color:var(--gold-hell);font-weight:700}
     var spanne = t.length ? (t[0].datum + "–" + t[t.length-1].datum + (D.festival.jahr?(" "+D.festival.jahr):"")) : "";
     dz.appendChild(el("span","pill", spanne));
     if(D.festival.ort) dz.appendChild(el("span","pill", esc(D.festival.ort)));
+    if(D.festival.stand) dz.appendChild(el("span","pill","Stand: "+esc(D.festival.stand)));
     document.getElementById("demo-tag").textContent = D.festival.hinweis_jahr || "";
-    document.getElementById("foot-info").textContent = (D.festival.name||"") + " · " + (D.festival.adresse||"");
+    document.getElementById("foot-info").textContent = (D.festival.name||"") + " · " + (D.festival.adresse||"") + (D.festival.stand?(" · Programm-Stand: "+D.festival.stand):"");
   })();
 
   /* ---- Tag-Tabs ---- */
@@ -681,7 +682,8 @@ footer a{color:var(--gold-hell);font-weight:700}
   /* ---- Drucken ---- */
   function stamp(){
     var d=new Date(), p=function(n){return (n<10?"0":"")+n;};
-    var s="Stand: "+p(d.getDate())+"."+p(d.getMonth()+1)+"."+d.getFullYear()+", "+p(d.getHours())+":"+p(d.getMinutes())+" Uhr";
+    var t=p(d.getDate())+"."+p(d.getMonth()+1)+"."+d.getFullYear()+", "+p(d.getHours())+":"+p(d.getMinutes())+" Uhr";
+    var s=(D.festival&&D.festival.stand) ? ("Programm-Stand: "+D.festival.stand+" · gedruckt "+t) : ("Stand: "+t);
     Array.prototype.forEach.call(document.querySelectorAll(".print-foot .stand"),function(e){ e.textContent=s; });
   }
   // Vor dem Druck IMMER alle Tage & alle Zielgruppen rendern (Bildschirm-Filter
