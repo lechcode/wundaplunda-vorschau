@@ -769,7 +769,8 @@ footer h4{color:#fff;font-size:1.05rem;margin-bottom:.3rem;font-family:var(--dis
   var ICON = {feder:"i-feder",kaefer:"i-kaefer",falter:"i-falter",gruppe:"i-gruppe"};
   var ZG = {}; D.zielgruppen.forEach(function(z){ ZG[z.key]=z; });
   // Zielgruppen-Filter als POSITIVE Auswahl: leere Menge = "Alle" (zeigt alles).
-  // Eine Gruppe wählen = nur passende Punkte (+ Familien-/Alle-Punkte) zeigen.
+  // Eine Gruppe wählen = STRIKT nur Punkte für genau diese Gruppe (keine Familien-/Alle-Punkte).
+  // "Nur Erwachsene" = nur Punkte für Erwachsene ohne jede Kinderbeteiligung.
   var state = { tag:"alle", wen:new Set() };
 
   function el(tag, cls, html){ var e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
@@ -835,7 +836,8 @@ footer h4{color:#fff;font-size:1.05rem;margin-bottom:.3rem;font-family:var(--dis
     D.zielgruppen.forEach(function(z){
       if(z.key==="alle") return;
       var b = el("button","zg"); b.type="button"; b.dataset.wen=z.key;
-      b.innerHTML = svgUse(ICON[z.icon]) + esc(z.label);
+      var lbl = (z.key==="erwachsene") ? "Nur Erwachsene" : z.label;
+      b.innerHTML = svgUse(ICON[z.icon]) + esc(lbl);
       c.appendChild(b);
     });
     c.addEventListener("click", function(e){ var b=e.target.closest(".zg"); if(!b)return;
@@ -856,12 +858,19 @@ footer h4{color:#fff;font-size:1.05rem;margin-bottom:.3rem;font-family:var(--dis
   }
   function allWenOn(){ return state.wen.size===0; }
 
-  /* ---- Programm rendern ---- */
+  /* ---- Programm rendern (STRIKTER Filter) ---- */
   function matchWen(p){
     if(state.wen.size===0) return true;           // "Alle" → alles zeigen
     var w = p.wen||["alle"];
-    if(w.indexOf("alle")>=0) return true;         // Familien-/Alle-Punkte immer zeigen
-    return w.some(function(k){ return state.wen.has(k); });
+    // Punkt passt, wenn er für MINDESTENS eine gewählte Gruppe (strikt) gedacht ist
+    return Array.from(state.wen).some(function(k){
+      if(k==="erwachsene"){
+        // "Nur Erwachsene": enthält erwachsene UND keine Kindergruppe (und nicht "alle")
+        return w.indexOf("erwachsene")>=0 && w.indexOf("kinder_0_4")<0 && w.indexOf("kinder_ab_5")<0 && w.indexOf("alle")<0;
+      }
+      // Kindergruppe: der Punkt ist genau für diese Gruppe ausgeschrieben
+      return w.indexOf(k)>=0;
+    });
   }
   function zeitParts(z){ // "14:00–15:00" -> {a:"14:00", b:"15:00"}
     z=(z||"").replace(/\s/g,"");
