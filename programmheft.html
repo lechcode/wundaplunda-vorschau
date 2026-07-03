@@ -195,12 +195,11 @@ main{padding:clamp(1.6rem,4vw,2.8rem) 0 1rem}
 .modal-overlay.open .modal{transform:none}
 .modal-close{position:absolute;top:.6rem;right:.6rem;z-index:2;width:2.3rem;height:2.3rem;border-radius:99px;border:none;background:rgba(255,255,255,.92);color:var(--ink);font-size:1.6rem;line-height:1;cursor:pointer;box-shadow:var(--shadow-s);display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s}
 .modal-close:hover{background:#fff;color:var(--rot)}
-.modal-media{position:relative;background:var(--sand);border-radius:var(--radius) var(--radius) 0 0;overflow:hidden;line-height:0}
+/* kleines, rundes Profilbild statt breitem Banner (klein = scharf) */
+.modal-media{display:flex;justify-content:center;padding:1.5rem 1rem .1rem;background:transparent}
 .modal-media[hidden]{display:none}
-.modal-media #dm-foto{width:100%;height:clamp(210px,42vh,320px);object-fit:cover;display:block}
-/* WUNDAPLUNDA-Logo dezent ins Foto überlappend */
-.modal-logo{position:absolute;left:.9rem;bottom:.7rem;width:clamp(120px,32%,185px);height:auto;filter:drop-shadow(0 1px 5px rgba(0,0,0,.6));pointer-events:none}
-.modal-logo[hidden]{display:none}
+.modal-media #dm-foto{width:122px;height:122px;border-radius:50%;object-fit:cover;display:block;box-shadow:var(--shadow-s);border:3px solid var(--hell);outline:1px solid var(--line)}
+.modal-logo{display:none}
 .modal-body{padding:clamp(1.1rem,3vw,1.9rem)}
 .modal-time{font-family:var(--display);font-weight:700;color:var(--rot);font-size:1.02rem;margin-bottom:.1rem}
 .modal-body h3{font-size:clamp(1.4rem,1.1rem+1.2vw,1.95rem);color:var(--blau-tief);line-height:1.15;margin-bottom:.65rem}
