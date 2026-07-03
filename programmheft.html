@@ -60,8 +60,13 @@ footer .foot-logo{width:min(80%,330px);height:auto}
 .cover-deko{position:absolute;z-index:1;pointer-events:none;user-select:none}
 .deko-hund{top:.4rem;right:2.5%;width:clamp(140px,18vw,240px)}
 .deko-voegel-cover{bottom:.6rem;right:3%;width:clamp(120px,15vw,205px)}
+/* Mobil-Tier: im Textfluss neben dem Logo (nur auf kleinen Screens) */
+.deko-mobile{display:none}
 @media(max-width:900px){.deko-voegel-cover{display:none}}
-@media(max-width:760px){.cover-deko{display:none}}
+@media(max-width:760px){
+  .cover-deko{display:none}
+  .deko-mobile{display:block;float:right;width:clamp(104px,30vw,150px);margin:.1rem 0 .5rem .9rem;shape-outside:circle(50%)}
+}
 .cover .wrap{padding-top:clamp(2.2rem,5vw,3.4rem);padding-bottom:clamp(2rem,4vw,3rem);position:relative;z-index:2}
 .cover .kicker{font-family:var(--hand);font-size:clamp(1.4rem,1.1rem+1.3vw,2rem);color:var(--rot);display:block;transform:rotate(-2deg);margin-bottom:.3rem}
 .cover .wortmarke{font-size:clamp(1.5rem, 0.7rem + 4.4vw, 4.8rem);margin:.1rem 0 .5rem;flex-wrap:nowrap;max-width:100%}
@@ -433,6 +438,7 @@ footer h4{color:#fff;font-size:1.05rem;margin-bottom:.3rem;font-family:var(--dis
   <div class="wrap">
     <span class="kicker">Schön, dass du da bist!</span>
     <h1><span class="sr-only">Wundaplunda – Programmheft &amp; Tagesplaner</span><img class="cover-logo" src="assets/img/wortmarke.png" alt="WUNDAPLUNDA" width="1368" height="154"></h1>
+    <img class="deko-mobile" src="assets/img/deko/deko-hund-ballon.png" alt="" aria-hidden="true" loading="lazy">
     <div class="untertitel" id="cover-sub">Familien-Sommercamp im Ökodorf Sulzbrunn</div>
     <div class="datumzeile" id="cover-datum"></div>
     <p class="intro">Dein Tagesplaner für die Wundaplunda-Woche: Hier findest du <strong>alle Infos übersichtlich an einem Ort</strong> — jeden Tag mit Programm, Leitung, Ort und für wen es gedacht ist. Du kannst alles <strong>online abrufen</strong> oder dir den Tagesplan einfach <strong>selbst ausdrucken</strong>.</p>
