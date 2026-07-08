@@ -58,9 +58,10 @@ footer .foot-logo{width:min(80%,330px);height:auto}
 /* ---------- Cover ---------- */
 .cover{position:relative;overflow:hidden;background:var(--hell);border-bottom:3px solid var(--line)}
 .cover-deko{position:absolute;z-index:1;pointer-events:none;user-select:none}
-/* kleine Szene dezent rechts im Header (nur Desktop; mobil aus = kurzer Header) */
+/* kleine Szene dezent rechts im Header (Desktop) */
 .cover-szene{top:50%;right:2.5%;transform:translateY(-50%);width:clamp(130px,16vw,215px)}
-@media(max-width:820px){ .cover-szene{display:none} }
+/* mobil: kein Platz rechts neben dem Schriftzug -> in den Fluss unter den Text, zentriert & kleiner */
+@media(max-width:820px){ .cover-szene{position:static;transform:none;display:block;margin:.4rem auto 0;width:clamp(120px,38vw,175px)} }
 .cover .wrap{padding-top:clamp(1.8rem,4vw,3rem);padding-bottom:clamp(1.4rem,3vw,2.2rem);position:relative;z-index:2}
 .cover .cover-traeger{margin-top:.5rem;color:var(--muted);font-size:.95rem}
 .cover .cover-traeger a{color:var(--blau);font-weight:700}
@@ -483,12 +484,12 @@ footer h4{color:#fff;font-size:1.05rem;margin-bottom:.3rem;font-family:var(--dis
     <circle cx="40" cy="360" r="5" fill="#D8418F" opacity=".4"/>
     <circle cx="600" cy="24" r="5" fill="#E1971F" opacity=".35"/>
   </svg>
-  <img class="cover-deko cover-szene" src="assets/img/deko/deko-szene.png" alt="" aria-hidden="true" loading="lazy">
   <div class="wrap">
     <h1><span class="sr-only">Wundaplunda – Programmheft &amp; Tagesplaner</span><img class="cover-logo" src="assets/img/wortmarke.png" alt="WUNDAPLUNDA" width="1368" height="154"></h1>
     <div class="untertitel">Sommererlebnis für Groß und Klein</div>
     <p class="cover-traeger">Eine Veranstaltung des <a href="https://sulzbrunn.org/gemeinschaft/der-verein/" target="_blank" rel="noopener">Fördervereins Gemeinschaft Sulzbrunn e.&nbsp;V.</a></p>
   </div>
+  <img class="cover-deko cover-szene" src="assets/img/deko/deko-szene.png" alt="" aria-hidden="true" loading="lazy">
 </header>
 
 <!-- ===== Navigationsleiste: Willkommen / Programm / Alle Infos ===== -->
