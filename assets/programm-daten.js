@@ -265,7 +265,7 @@ const WUNDA = {
     "Lisa liest Geschichte": {
       wer: "Lisa Suitner",
       foto: "abendgeschichten.png",
-      insta: "@lisa.suitner",
+      web: "lisasuitner.wpcomstaging.com", insta: "@lisa.suitner",
       beschreibung: "Schnapp dir dein Kuscheltier, mach's dir gemütlich und lass den Tag mit einem Lächeln ausklingen. Lisa – Clownin, Musikerin und Geschichtenerzählerin aus Vorarlberg – bringt ihre liebsten Geschichten samt Humor und Musik mit."
     },
     "Männerkreis": {
