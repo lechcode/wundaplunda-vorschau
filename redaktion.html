@@ -785,12 +785,16 @@ dialog#key-dialog::backdrop{background:rgba(16,29,41,.45)}
     row.addEventListener("keydown",function(e){ if(e.target!==row) return; if(e.key==="Enter"||e.key===" "){ e.preventDefault(); row.click(); } });
     return row;
   }
+  // Startzeit in Minuten für die Listen-Sortierung ("Ganztags"/ohne Zeit ans Ende)
+  function startMinR(z){ z=(z||"").trim(); if(/ganztags/i.test(z)) return 100000; var m=z.match(/(\d{1,2}):(\d{2})/); return m?(parseInt(m[1],10)*60+parseInt(m[2],10)):99999; }
   function renderList(){
     var c=$("liste"); c.innerHTML="";
     var hk=heuteKey();
     ((data.festival||{}).tage||[]).forEach(function(t){
       var items=[]; work.forEach(function(p,i){ if(p.tag===t.key) items.push([p,i]); });
       if(!items.length) return;
+      // Anzeige nach Startzeit sortieren; Original-Index (pi[1]) bleibt am Klick-Handler.
+      items.sort(function(a,b){ var d=startMinR(a[0].zeit)-startMinR(b[0].zeit); return d!==0?d:a[1]-b[1]; });
       var g=document.createElement("div"); g.className="daygrp"; g.id="grp-"+t.key;
       g.innerHTML='<div class="dh">'+esc(t.wochentag)+' '+esc(t.datum)+(t.key===hk?'<span class="hbadge">heute</span>':"")+'</div>';
       items.forEach(function(pi){ g.appendChild(rowFor(pi[0],pi[1])); });
