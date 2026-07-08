@@ -1023,6 +1023,13 @@ footer h4{color:#fff;font-size:1.05rem;margin-bottom:.3rem;font-family:var(--dis
     var m=z.split(/[–-]/);
     return {a:m[0]||z, b:m[1]||""};
   }
+  // Startzeit in Minuten (für die Sortierung); "Ganztags"/ohne Zeit ans Ende.
+  function startMin(z){
+    z=(z||"").trim();
+    if(/ganztags/i.test(z)) return 100000;
+    var m=z.match(/(\d{1,2}):(\d{2})/);
+    return m ? (parseInt(m[1],10)*60+parseInt(m[2],10)) : 99999;
+  }
 
   // Gemeinsame Detail-Daten (für Karte, Pop-up & Druck)
   function detail(p){
@@ -1171,6 +1178,11 @@ footer h4{color:#fff;font-size:1.05rem;margin-bottom:.3rem;font-family:var(--dis
     sec.appendChild(ph);
 
     var items = D.programm.filter(function(p){ return p.tag===t.key && matchWen(p); });
+    // Immer nach Startzeit sortieren -> neue Punkte rutschen an die richtige Stelle statt ans Ende.
+    // Stabil (Index als Tiebreaker), damit Parallelkurse mit gleicher Startzeit beieinander bleiben.
+    items = items.map(function(p,i){ return {p:p,i:i}; })
+                 .sort(function(a,b){ var d=startMin(a.p.zeit)-startMin(b.p.zeit); return d!==0?d:a.i-b.i; })
+                 .map(function(x){ return x.p; });
     if(!items.length){ sec.appendChild(el("p","empty","— keine passenden Punkte —")); }
     // Parallelkurse: gleiche Startzeit, mehrere echte Programmpunkte (keine Mahlzeiten)
     var byStart={};
