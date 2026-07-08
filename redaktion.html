@@ -261,8 +261,11 @@ dialog#key-dialog::backdrop{background:rgba(16,29,41,.45)}
         <label for="f-info">Beschreibung (erscheint beim Antippen)</label>
         <textarea id="f-info" placeholder="Optionaler längerer Text / Info zur Leitung"></textarea>
 
-        <label for="f-link">Link zur Leitung (Website / Instagram / Social Media)</label>
-        <input type="text" id="f-link" placeholder="z. B. instagram.com/… oder https://…">
+        <label for="f-web">Website der Leitung (optional)</label>
+        <input type="text" id="f-web" placeholder="z. B. www.beispiel.de oder https://…">
+
+        <label for="f-insta">Instagram der Leitung (optional)</label>
+        <input type="text" id="f-insta" placeholder="z. B. @name oder instagram.com/name">
 
         <div class="actions">
           <button type="submit" class="btn gruen" id="btn-save">Punkt hinzufügen</button>
@@ -334,7 +337,7 @@ dialog#key-dialog::backdrop{background:rgba(16,29,41,.45)}
   var GH = { owner:"lechcode", repo:"wundaplunda-vorschau", branch:"main",
              path:"assets/programm-daten.js", apiVersion:"2022-11-28" };
   var TOKEN_KEY="wunda-schluessel", DRAFT_KEY="wunda-entwurf", HELP_KEY="wunda-hilfe-gesehen";
-  var KNOWN=["tag","zeit","titel","wer","wo","wen","anmeldung","optional","hinweis","info","status","link"];
+  var KNOWN=["tag","zeit","titel","wer","wo","wen","anmeldung","optional","hinweis","info","status","web","insta"];
   var ICON={feder:"i-feder",kaefer:"i-kaefer",falter:"i-falter",gruppe:"i-gruppe"};
 
   /* ============ Kleine Helfer ============ */
@@ -660,7 +663,8 @@ dialog#key-dialog::backdrop{background:rgba(16,29,41,.45)}
     if($("f-optional").checked) p.optional=true;
     var hin=$("f-hinweis").value.trim(); if(hin) p.hinweis=hin;
     var info=$("f-info").value.trim(); if(info) p.info=info;
-    var lnk=$("f-link").value.trim(); if(lnk) p.link=lnk;
+    var web=$("f-web").value.trim(); if(web) p.web=web;
+    var insta=$("f-insta").value.trim(); if(insta) p.insta=insta;
     var st=$("f-status").value; if(st) p.status=st;
     return p;
   }
@@ -669,7 +673,8 @@ dialog#key-dialog::backdrop{background:rgba(16,29,41,.45)}
     $("f-tag").value=(p&&p.tag)||$("f-tag").value||"mo"; $("f-zeit").value=(p&&p.zeit)||""; $("f-titel").value=(p&&p.titel)||"";
     $("f-wer").value=(p&&p.wer)||""; $("f-wo").value=(p&&p.wo)||""; setWen((p&&p.wen)||["alle"]);
     $("f-anmeldung").value=(p&&p.anmeldung)||""; $("f-optional").checked=!!(p&&p.optional);
-    $("f-hinweis").value=(p&&p.hinweis)||""; $("f-info").value=(p&&p.info)||""; $("f-link").value=(p&&p.link)||""; $("f-status").value=(p&&p.status)||"";
+    $("f-hinweis").value=(p&&p.hinweis)||""; $("f-info").value=(p&&p.info)||"";
+    $("f-web").value=(p&&p.web)||""; $("f-insta").value=(p&&p.insta)||""; $("f-status").value=(p&&p.status)||"";
     $("tip-geaendert").style.display="none";
   }
   function clearForm(){
