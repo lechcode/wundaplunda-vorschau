@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "08.07.2026, 13:41 Uhr",
+    stand: "08.07.2026, 13:44 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -159,8 +159,6 @@ const WUNDA = {
     { tag:"sa", zeit:"14:30 – 15:00", titel:"Clan Show", wer:"", wo:"Zirkuszelt", wen:["alle"] },
     { tag:"sa", zeit:"15:00 – 16:00", titel:"Gemeinsame Abschlusszeremonie", wer:"", wo:"Feuerstelle", wen:["alle"] },
     { tag:"sa", zeit:"16:00", titel:"Abreise / Ende des Camps", wer:"", wo:"", wen:["alle"] },
-    // Montag
-    { tag:"mo", zeit:"10:00-11:00", titel:"Test", wer:"Testeer", wo:"Test Zelt", wen:["erwachsene","alle"], info:"dsvsfdgsgdfg", web:"https://wairua-spirit.de/", insta:"https://www.instagram.com/wundaplunda/", foto:"test-mrc0bz3i.jpg" },
   ],
 
   katalog: {
