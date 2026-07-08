@@ -30,12 +30,13 @@
 
 const WUNDA = {
   festival: {
-    name: "Wundaplunda", jahr: 2026,
+    name: "Wundaplunda",
+    jahr: 2026,
     untertitel: "Familien-Sommercamp im Ökodorf Sulzbrunn",
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "",
+    stand: "08.07.2026, 13:41 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -43,7 +44,7 @@ const WUNDA = {
       { key:"do", wochentag:"Donnerstag", datum:"06.08." },
       { key:"fr", wochentag:"Freitag", datum:"07.08." },
       { key:"sa", wochentag:"Samstag", datum:"08.08." },
-    ]
+    ],
   },
 
   zielgruppen: [
@@ -53,9 +54,9 @@ const WUNDA = {
     { key:"alle", label:"Alle", icon:"gruppe" },
   ],
 
-  // --- ALLE PROGRAMMPUNKTE (Zeitplan 2026, eine Zeile = ein Punkt) ---
+  // --- ALLE PROGRAMMPUNKTE (eine Zeile = ein Punkt) ---
   programm: [
-    // Montag 03.08.
+    // Montag
     { tag:"mo", zeit:"11:00 – 14:00", titel:"Anreise & Ankommen", wer:"", wo:"", wen:["alle"] },
     { tag:"mo", zeit:"12:15 – 13:45", titel:"Mittagessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
     { tag:"mo", zeit:"13:30 – 16:00", titel:"Waffeln / Kaffee", wer:"", wo:"Bar", wen:["alle"] },
@@ -69,7 +70,7 @@ const WUNDA = {
     { tag:"mo", zeit:"19:30 – 20:30", titel:"Jodruf Sulzbrunn", wer:"", wo:"Wundazelt", wen:["alle"] },
     { tag:"mo", zeit:"ab 20:30", titel:"Lagerfeuerabend", wer:"", wo:"Feuerstelle", wen:["alle"] },
     { tag:"mo", zeit:"Ganztags", titel:"Waldrallye · Spielewagen · Flying Fox", wer:"", wo:"", wen:["alle"] },
-    // Dienstag 04.08.
+    // Dienstag
     { tag:"di", zeit:"07:30 – 08:15", titel:"Yoga", wer:"", wo:"Zirkuszelt", wen:["erwachsene"] },
     { tag:"di", zeit:"07:45 – 09:00", titel:"Frühstück", wer:"", wo:"Seminarhaus", wen:["alle"], hinweis:"Nur vorgebucht" },
     { tag:"di", zeit:"09:20 – 09:40", titel:"Morgenkreis mit dem Wundaplunda Team", wer:"Wundaplunda Team", wo:"Zirkuszelt", wen:["alle"] },
@@ -88,7 +89,7 @@ const WUNDA = {
     { tag:"di", zeit:"19:00 – 20:30", titel:"Männerkreis", wer:"Oliver", wo:"Yogaraum", wen:["erwachsene"] },
     { tag:"di", zeit:"20:00", titel:"Trommeln auf dem Dorfplatz", wer:"", wo:"Dorfplatz", wen:["alle"] },
     { tag:"di", zeit:"ab 21:00", titel:"Feuershow & Akrobatik mit Trommelbegleitung", wer:"", wo:"Dorfplatz", wen:["alle"] },
-    // Mittwoch 05.08.
+    // Mittwoch
     { tag:"mi", zeit:"07:30 – 08:15", titel:"Yoga am Morgen", wer:"Anna Elisabeth", wo:"Yogaraum", wen:["erwachsene"] },
     { tag:"mi", zeit:"07:30 – 08:15", titel:"Morgen-Workout – Kraftvoll in den Tag", wer:"Matthias Zech", wo:"Zirkuszelt", wen:["erwachsene"] },
     { tag:"mi", zeit:"07:45 – 09:00", titel:"Frühstück", wer:"", wo:"Seminarhaus", wen:["alle"], hinweis:"Nur vorgebucht" },
@@ -107,7 +108,7 @@ const WUNDA = {
     { tag:"mi", zeit:"17:45 – 19:15", titel:"Abendessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
     { tag:"mi", zeit:"19:30 – 20:30", titel:"Tribubu", wer:"", wo:"Zirkuszelt", wen:["alle"] },
     { tag:"mi", zeit:"Ganztags", titel:"Waldrallye · Spielewagen · Flying Fox", wer:"", wo:"", wen:["alle"] },
-    // Donnerstag 06.08.
+    // Donnerstag
     { tag:"do", zeit:"07:30 – 08:15", titel:"Yoga", wer:"", wo:"Zirkuszelt", wen:["erwachsene"] },
     { tag:"do", zeit:"07:45 – 09:00", titel:"Frühstück", wer:"", wo:"Seminarhaus", wen:["alle"], hinweis:"Nur vorgebucht" },
     { tag:"do", zeit:"09:20 – 09:40", titel:"Morgenkreis mit dem Wundaplunda Team", wer:"Wundaplunda Team", wo:"Zirkuszelt", wen:["alle"] },
@@ -127,7 +128,7 @@ const WUNDA = {
     { tag:"do", zeit:"19:00 – 20:30", titel:"Männerkreis", wer:"Oliver", wo:"Yogaraum", wen:["erwachsene"] },
     { tag:"do", zeit:"ab 20:30", titel:"Lagerfeuerabend", wer:"", wo:"Feuerstelle", wen:["kinder_ab_5","erwachsene"], hinweis:"Instrumente mitbringen" },
     { tag:"do", zeit:"Ganztags", titel:"Waldrallye · Spielewagen · Flying Fox", wer:"", wo:"", wen:["alle"] },
-    // Freitag 07.08.
+    // Freitag
     { tag:"fr", zeit:"07:30 – 08:15", titel:"Yoga am Morgen", wer:"Anna Elisabeth", wo:"Yogaraum", wen:["erwachsene"] },
     { tag:"fr", zeit:"07:45 – 09:00", titel:"Frühstück", wer:"", wo:"Seminarhaus", wen:["alle"], hinweis:"Nur vorgebucht" },
     { tag:"fr", zeit:"09:20 – 09:40", titel:"Morgenkreis mit dem Wundaplunda Team", wer:"Wundaplunda Team", wo:"Zirkuszelt", wen:["alle"] },
@@ -145,7 +146,7 @@ const WUNDA = {
     { tag:"fr", zeit:"17:45 – 19:15", titel:"Abendessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
     { tag:"fr", zeit:"19:30 – 20:30", titel:"Funkenflug Band", wer:"", wo:"Zirkuszelt", wen:["alle"] },
     { tag:"fr", zeit:"Ganztags", titel:"Waldrallye · Spielewagen · Flying Fox", wer:"", wo:"", wen:["alle"] },
-    // Samstag 08.08.
+    // Samstag
     { tag:"sa", zeit:"07:30 – 08:15", titel:"Yoga", wer:"", wo:"Zirkuszelt", wen:["erwachsene"] },
     { tag:"sa", zeit:"07:45 – 09:00", titel:"Frühstück", wer:"", wo:"Seminarhaus", wen:["alle"], hinweis:"Nur vorgebucht" },
     { tag:"sa", zeit:"09:20 – 09:40", titel:"Morgenkreis mit dem Wundaplunda Team", wer:"Wundaplunda Team", wo:"Zirkuszelt", wen:["alle"] },
@@ -158,189 +159,196 @@ const WUNDA = {
     { tag:"sa", zeit:"14:30 – 15:00", titel:"Clan Show", wer:"", wo:"Zirkuszelt", wen:["alle"] },
     { tag:"sa", zeit:"15:00 – 16:00", titel:"Gemeinsame Abschlusszeremonie", wer:"", wo:"Feuerstelle", wen:["alle"] },
     { tag:"sa", zeit:"16:00", titel:"Abreise / Ende des Camps", wer:"", wo:"", wen:["alle"] },
+    // Montag
+    { tag:"mo", zeit:"10:00-11:00", titel:"Test", wer:"Testeer", wo:"Test Zelt", wen:["erwachsene","alle"], info:"dsvsfdgsgdfg", web:"https://wairua-spirit.de/", insta:"https://www.instagram.com/wundaplunda/", foto:"test-mrc0bz3i.jpg" },
   ],
 
-  /* --- KATALOG 2026 (aus wundaplunda.de/programm-2026): Leitung, Foto & Beschreibung,
-         nach Programmpunkt-Titel zugeordnet. Fotos liegen in assets/img/programm/. --- */
   katalog: {
     "Geländeführung": {
       wer: "Oliver, Carmen & Fabienne (Gemeinschaft Sulzbrunn)",
       foto: "gelaendefuehrung.png",
-      beschreibung: "Bei der Tour über das rund 15,5 Hektar große Gelände zeigen euch Sulzbrunn-Bewohner:innen Wald, Wiesen und die zehn Gebäude des kleinen Dorfs – inklusive der Geschichte rund um die Sulzbrunner Jodquelle (Kurbetrieb seit 1852)."
+      beschreibung: "Bei der Tour über das rund 15,5 Hektar große Gelände zeigen euch Sulzbrunn-Bewohner:innen Wald, Wiesen und die zehn Gebäude des kleinen Dorfs – inklusive der Geschichte rund um die Sulzbrunner Jodquelle (Kurbetrieb seit 1852).",
     },
-    "Seifenblasen": {
+    Seifenblasen: {
       foto: "riesenseifenblasen.png",
-      beschreibung: "Hier machen wir die größten Blasen aller Zeiten! Sie steigen hoch in den Himmel und schimmern in allen Farben. Komm vorbei und probier es aus – wer schafft die größte Blase?"
+      beschreibung: "Hier machen wir die größten Blasen aller Zeiten! Sie steigen hoch in den Himmel und schimmern in allen Farben. Komm vorbei und probier es aus – wer schafft die größte Blase?",
     },
     "Impro Show Kids": {
       wer: "EingangAusgang Impro-Theater",
       foto: "improtheater.png",
-      beschreibung: "Kommt mit auf eine fantastische Heldenreise! Beim Improvisations-Theater bestimmt ihr, das Publikum, was passiert – eure Ideen verwandeln sich live auf der Bühne in eine einzigartige Geschichte. Keine Vorstellung ist wie die andere."
+      beschreibung: "Kommt mit auf eine fantastische Heldenreise! Beim Improvisations-Theater bestimmt ihr, das Publikum, was passiert – eure Ideen verwandeln sich live auf der Bühne in eine einzigartige Geschichte. Keine Vorstellung ist wie die andere.",
     },
     "Kinderkreis mit Clown Malab": {
       foto: "kinderkreis.png",
-      beschreibung: "Während die Großen ihren Frauen- und Männerkreis haben, schaffen wir für die Kinder einen eigenen Raum zum Ankommen: Wir finden heraus, worauf ihr euch am meisten freut, und lernen erste neue Freund:innen kennen. Dieses Jahr mit Überraschungsgast mit roter Nase – Clown Malab!"
+      beschreibung: "Während die Großen ihren Frauen- und Männerkreis haben, schaffen wir für die Kinder einen eigenen Raum zum Ankommen: Wir finden heraus, worauf ihr euch am meisten freut, und lernen erste neue Freund:innen kennen. Dieses Jahr mit Überraschungsgast mit roter Nase – Clown Malab!",
     },
     "Jodruf Sulzbrunn": {
       wer: "Rolf & Margaretha (Gemeinschaft Sulzbrunn)",
       foto: "jodruf.jpg",
-      beschreibung: "Rolf und Margaretha laden zum gemeinsamen Singen: mit Akkordeon, Gitarren, Schlagwerk und ihren Stimmen erklingen Lieder aus aller Welt. Ob Singen, Zuhören oder Tanzen – alle sind willkommen."
+      beschreibung: "Rolf und Margaretha laden zum gemeinsamen Singen: mit Akkordeon, Gitarren, Schlagwerk und ihren Stimmen erklingen Lieder aus aller Welt. Ob Singen, Zuhören oder Tanzen – alle sind willkommen.",
     },
     "Singen – Jodruf Sulzbrunn": {
       wer: "Rolf & Margaretha (Gemeinschaft Sulzbrunn)",
       foto: "jodruf.jpg",
-      beschreibung: "Gemeinsames Singen mit Rolf und Margaretha: Lieder aus aller Welt mit Akkordeon, Gitarren und Schlagwerk, die Lust machen mitzuschwingen. Ob Singen, Zuhören oder Tanzen – jede:r ist willkommen."
+      beschreibung: "Gemeinsames Singen mit Rolf und Margaretha: Lieder aus aller Welt mit Akkordeon, Gitarren und Schlagwerk, die Lust machen mitzuschwingen. Ob Singen, Zuhören oder Tanzen – jede:r ist willkommen.",
     },
     "Trommeln auf dem Dorfplatz": {
       wer: "Alex & Trommelgruppe (Allikée)",
       foto: "allikee.png",
       web: "kakilambe.de",
-      beschreibung: "„Allikée“ heißt so viel wie „Auf geht's!“ – westafrikanische Trommelmusik, gewürzt mit europäischen und lateinamerikanischen Einflüssen. Mal traditionell, mal modern, immer mit Freude und Groove."
+      beschreibung: "„Allikée“ heißt so viel wie „Auf geht's!“ – westafrikanische Trommelmusik, gewürzt mit europäischen und lateinamerikanischen Einflüssen. Mal traditionell, mal modern, immer mit Freude und Groove.",
     },
-    "Lagerfeuerabend": {
+    Lagerfeuerabend: {
       foto: "lagerfeuerabende.png",
-      beschreibung: "Wenn die Nacht hereinbricht, versammeln wir uns am knisternden Feuer. Mitgebrachte Instrumente – Trommel, Gitarre, Rassel – sind herzlich willkommen. Gemeinsam singen, musizieren und erzählen wir Geschichten unter dem Sternenhimmel."
+      beschreibung: "Wenn die Nacht hereinbricht, versammeln wir uns am knisternden Feuer. Mitgebrachte Instrumente – Trommel, Gitarre, Rassel – sind herzlich willkommen. Gemeinsam singen, musizieren und erzählen wir Geschichten unter dem Sternenhimmel.",
     },
     "Waldrallye · Spielewagen · Flying Fox": {
       foto: "waldrallye.jpg",
-      beschreibung: "Ganztägige Entdecker-Angebote: Auf der Waldrallye zieht ihr mit Entdeckerrucksäcken (Hase, Eule, Fuchs …) los und löst spannende Aufgaben in der Natur. Dazu der Spielewagen des Kreisjugendrings mit vielen Fahrzeugen und Spielen – und die Flying Fox für ein kleines Abenteuer mit Schwung."
+      beschreibung: "Ganztägige Entdecker-Angebote: Auf der Waldrallye zieht ihr mit Entdeckerrucksäcken (Hase, Eule, Fuchs …) los und löst spannende Aufgaben in der Natur. Dazu der Spielewagen des Kreisjugendrings mit vielen Fahrzeugen und Spielen – und die Flying Fox für ein kleines Abenteuer mit Schwung.",
     },
-    "Yoga": {
+    Yoga: {
       wer: "Amelie Zech (Stimmtherapeutin & Yogalehrerin)",
       foto: "yoga.png",
-      web: "akademie-rueckenwind.de", insta: "@akademie_rueckenwind",
-      beschreibung: "Beim Yoga am Morgen mobilisieren wir den ganzen Körper, entspannen und lassen die Gedanken los – kraftvoll und entspannt in den Wundaplunda-Tag mit Amelie Zech."
+      web: "akademie-rueckenwind.de",
+      insta: "@akademie_rueckenwind",
+      beschreibung: "Beim Yoga am Morgen mobilisieren wir den ganzen Körper, entspannen und lassen die Gedanken los – kraftvoll und entspannt in den Wundaplunda-Tag mit Amelie Zech.",
     },
     "Morgenkreis mit dem Wundaplunda Team": {
       wer: "Wundaplunda Team",
       foto: "morgenkreis.png",
-      beschreibung: "Der Lagerruf holt die Letzten aus den Federn und bringt uns alle zusammen. Jeden Morgen begrüßen wir den neuen Tag, besprechen, was uns erwartet, und singen die ersten Lieder."
+      beschreibung: "Der Lagerruf holt die Letzten aus den Federn und bringt uns alle zusammen. Jeden Morgen begrüßen wir den neuen Tag, besprechen, was uns erwartet, und singen die ersten Lieder.",
     },
-    "Clanzeit": {
+    Clanzeit: {
       foto: "clanzeit.png",
-      beschreibung: "Findet euren Clan für die Woche! In kleiner Gemeinschaft verbringt ihr Zeit miteinander, tauscht euch aus und kommt in Verbindung – mit ein paar überraschenden Impulsen vom Team. So entsteht Vertrautheit und ganz viel Miteinander."
+      beschreibung: "Findet euren Clan für die Woche! In kleiner Gemeinschaft verbringt ihr Zeit miteinander, tauscht euch aus und kommt in Verbindung – mit ein paar überraschenden Impulsen vom Team. So entsteht Vertrautheit und ganz viel Miteinander.",
     },
     "Probe Clanzeit": {
       foto: "clanzeit.png",
-      beschreibung: "Generalprobe für die Clan-Show: Zeit, in eurem Clan die letzten Ideen zu proben und euch gemeinsam auf den großen Auftritt am Nachmittag vorzubereiten."
+      beschreibung: "Generalprobe für die Clan-Show: Zeit, in eurem Clan die letzten Ideen zu proben und euch gemeinsam auf den großen Auftritt am Nachmittag vorzubereiten.",
     },
     "Pois basteln": {
       wer: "Barbara & Patty",
       foto: "poi.png",
-      web: "barbaraburstall.com", insta: "@patyk.liebe",
-      beschreibung: "Wir basteln Pois aus Upcycling-Materialien. Die an Schnüren geschwungenen Bälle aus der Māori-Kultur Neuseelands machen Spaß und fördern Beweglichkeit, Koordination und Kraft. Nachmittags gibt es den passenden Workshop dazu."
+      web: "barbaraburstall.com",
+      insta: "@patyk.liebe",
+      beschreibung: "Wir basteln Pois aus Upcycling-Materialien. Die an Schnüren geschwungenen Bälle aus der Māori-Kultur Neuseelands machen Spaß und fördern Beweglichkeit, Koordination und Kraft. Nachmittags gibt es den passenden Workshop dazu.",
     },
     "Poi-Workshop": {
       wer: "Susanne & Patty",
       foto: "poi.png",
       insta: "@patyk.liebe",
-      beschreibung: "Passend zu den selbstgebastelten Pois schwingen wir die an Schnüren geführten Bälle und üben Beweglichkeit, Koordination und Kraft – Spiel und Bewegung aus der Māori-Kultur Neuseelands."
+      beschreibung: "Passend zu den selbstgebastelten Pois schwingen wir die an Schnüren geführten Bälle und üben Beweglichkeit, Koordination und Kraft – Spiel und Bewegung aus der Māori-Kultur Neuseelands.",
     },
     "Wir entdecken den Wald": {
       wer: "Kristina Wolf (Pilzfreunde Altusried e.V.)",
       foto: "walderlebnis.png",
       insta: "@mykorrhina",
-      beschreibung: "Bei dieser familiengerechten Waldexkursion erleben Kinder und Erwachsene den Wald mit allen Sinnen. Spielerisch entdecken wir, welche Baumarten heimisch sind und warum der Wald für Mensch, Tier und Klima so wichtig ist – mit Lupen, Waldbingo und Entdeckerkarten."
+      beschreibung: "Bei dieser familiengerechten Waldexkursion erleben Kinder und Erwachsene den Wald mit allen Sinnen. Spielerisch entdecken wir, welche Baumarten heimisch sind und warum der Wald für Mensch, Tier und Klima so wichtig ist – mit Lupen, Waldbingo und Entdeckerkarten.",
     },
     "Knotenkunde & Tarpaufbau": {
       wer: "Laurenz (Wildnispädagoge)",
       foto: "knoten.png",
-      beschreibung: "Wie entsteht aus einer Plane und ein paar Seilen ein wetterfester Unterschlupf? Wir lernen die Grundlagen des Tarpbaus und der Knotenkunde, üben verschiedene Knoten und bauen unterschiedliche Tarp-Konstruktionen auf. Praktisches Wissen für Outdoor und Bushcraft."
+      beschreibung: "Wie entsteht aus einer Plane und ein paar Seilen ein wetterfester Unterschlupf? Wir lernen die Grundlagen des Tarpbaus und der Knotenkunde, üben verschiedene Knoten und bauen unterschiedliche Tarp-Konstruktionen auf. Praktisches Wissen für Outdoor und Bushcraft.",
     },
     "Kuchen Pappelkinder & Hoflädle": {
       foto: "markt.png",
       web: "natuerlich-miteinander.net",
-      beschreibung: "Kaffee, Kuchen und ein kleiner, feiner Wundaplunda-Markt mit liebevoll ausgewähltem Kunsthandwerk aus Sulzbrunn: Honig, Bienenwachskerzen, Weidenkörbe, Getöpfertes, Schmuck und mehr. Mit Kinderschminken und Kuchen der Pappelkinder (Verein Füreinander Miteinander e.V.)."
+      beschreibung: "Kaffee, Kuchen und ein kleiner, feiner Wundaplunda-Markt mit liebevoll ausgewähltem Kunsthandwerk aus Sulzbrunn: Honig, Bienenwachskerzen, Weidenkörbe, Getöpfertes, Schmuck und mehr. Mit Kinderschminken und Kuchen der Pappelkinder (Verein Füreinander Miteinander e.V.).",
     },
-    "Frauenkreis": {
+    Frauenkreis: {
       wer: "Fabienne (Gemeinschaft Sulzbrunn)",
       foto: "frauenkreis.png",
-      beschreibung: "Wir legen bewusst die vielen Alltagsrollen ab – Mutter, Partnerin, Tochter – und kommen zur Essenz des Frauseins. Durch Körperübungen, Austausch, Singen und Energiearbeit verbinden wir uns miteinander und mit uns selbst. Ein Raum für dich – komm so, wie du bist."
+      beschreibung: "Wir legen bewusst die vielen Alltagsrollen ab – Mutter, Partnerin, Tochter – und kommen zur Essenz des Frauseins. Durch Körperübungen, Austausch, Singen und Energiearbeit verbinden wir uns miteinander und mit uns selbst. Ein Raum für dich – komm so, wie du bist.",
     },
     "Kinderband 'Die leicht verschwitzten Zwerge'": {
       foto: "zwergig.png",
       insta: "@leichtverschwitztundzwergig",
-      beschreibung: "Mitreißende Musik, strahlende Kinderaugen und ganz viel gute Laune: Das Rockquartett „Leicht Verschwitzt Und Zwergig“ spielt tanzbare (Kinder-)Lieder für alle – egal ob mit Maxi-Cosi, Retro-Rennrad oder neuer Hüfte."
+      beschreibung: "Mitreißende Musik, strahlende Kinderaugen und ganz viel gute Laune: Das Rockquartett „Leicht Verschwitzt Und Zwergig“ spielt tanzbare (Kinder-)Lieder für alle – egal ob mit Maxi-Cosi, Retro-Rennrad oder neuer Hüfte.",
     },
     "Lisa liest Geschichte": {
       wer: "Lisa Suitner",
       foto: "abendgeschichten.png",
-      web: "lisasuitner.wpcomstaging.com", insta: "@lisa.suitner",
-      beschreibung: "Schnapp dir dein Kuscheltier, mach's dir gemütlich und lass den Tag mit einem Lächeln ausklingen. Lisa – Clownin, Musikerin und Geschichtenerzählerin aus Vorarlberg – bringt ihre liebsten Geschichten samt Humor und Musik mit."
+      web: "lisasuitner.wpcomstaging.com",
+      insta: "@lisa.suitner",
+      beschreibung: "Schnapp dir dein Kuscheltier, mach's dir gemütlich und lass den Tag mit einem Lächeln ausklingen. Lisa – Clownin, Musikerin und Geschichtenerzählerin aus Vorarlberg – bringt ihre liebsten Geschichten samt Humor und Musik mit.",
     },
     "Männerkreis": {
       wer: "Oliver (Gemeinschaft Sulzbrunn)",
       foto: "maennerkreis.png",
-      beschreibung: "Im geschützten Raum tauschen wir uns über Themen aus, die uns als Mann der heutigen Zeit bewegen oder herausfordern. Wild, sanft und authentisch – ein Raum, in dem wir uns hören, begegnen und berühren."
+      beschreibung: "Im geschützten Raum tauschen wir uns über Themen aus, die uns als Mann der heutigen Zeit bewegen oder herausfordern. Wild, sanft und authentisch – ein Raum, in dem wir uns hören, begegnen und berühren.",
     },
     "Feuershow & Akrobatik mit Trommelbegleitung": {
       wer: "Artistik Calimbaro",
       foto: "feuer-akrobatikshow.jpg",
-      web: "artistik-calimbaro.de", insta: "@artistik_calimbaro",
-      beschreibung: "Artistik Calimbaro ist seit 2019 fester Bestandteil des Wundaplunda. Freut euch auf die bezaubernde Feuer-Akrobatikshow von Florian & Susanne – Leidenschaft, Energie und pure Magie in der Nacht, begleitet von der Trommelgruppe."
+      web: "artistik-calimbaro.de",
+      insta: "@artistik_calimbaro",
+      beschreibung: "Artistik Calimbaro ist seit 2019 fester Bestandteil des Wundaplunda. Freut euch auf die bezaubernde Feuer-Akrobatikshow von Florian & Susanne – Leidenschaft, Energie und pure Magie in der Nacht, begleitet von der Trommelgruppe.",
     },
     "Schlangen & Zauberei filzen mit Fee": {
       wer: "Fee",
       foto: "filzen.jpg",
       insta: "@fees_musikgaertchen",
-      beschreibung: "Im Nassfilz-Workshop entstehen bunte Filzkugeln mit funkelndem Muggelstein im Inneren und eine charmante Filzschlange – zwei Projekte zum Mitnehmen. Keine Vorkenntnisse nötig, alle Materialien werden gestellt."
+      beschreibung: "Im Nassfilz-Workshop entstehen bunte Filzkugeln mit funkelndem Muggelstein im Inneren und eine charmante Filzschlange – zwei Projekte zum Mitnehmen. Keine Vorkenntnisse nötig, alle Materialien werden gestellt.",
     },
     "Wahrnehmungs- / Sinnesübungen in der Natur": {
       wer: "Lena (Wildnispädagogin)",
       foto: "wahrnehmung.png",
       web: "wild-und-weiter.de",
-      beschreibung: "Wie können bewusste Wahrnehmung und intuitive Zugänge unser Erleben in der Natur vertiefen? Durch Übungen und Spiele aus der Wildnispädagogik schärfen wir die Sinne, stärken die Aufmerksamkeit für feine Signale und erleben unsere Intuition. Nur für Erwachsene."
+      beschreibung: "Wie können bewusste Wahrnehmung und intuitive Zugänge unser Erleben in der Natur vertiefen? Durch Übungen und Spiele aus der Wildnispädagogik schärfen wir die Sinne, stärken die Aufmerksamkeit für feine Signale und erleben unsere Intuition. Nur für Erwachsene.",
     },
-    "Bogenbau": {
+    Bogenbau: {
       wer: "Laurenz (Wildnispädagoge)",
       foto: "bogenbau.png",
       web: "wild-und-weiter.de",
       mitbringen: "eigenes Schnitzmesser",
-      beschreibung: "Wie entsteht aus einem Stück Holz ein Bogen? Mit Schnitzmesser und Geduld gestalten wir kleine funktionsfähige Bögen und entdecken, wie Form, Spannung und Funktion vom Holz abhängen."
+      beschreibung: "Wie entsteht aus einem Stück Holz ein Bogen? Mit Schnitzmesser und Geduld gestalten wir kleine funktionsfähige Bögen und entdecken, wie Form, Spannung und Funktion vom Holz abhängen.",
     },
-    "Baumklettern": {
+    Baumklettern: {
       wer: "Stefan (Baumkletterer & Erlebnispädagoge)",
       foto: "baumklettern.png",
       web: "new-institut.com/ueber-uns/team/stefan-lipp",
-      beschreibung: "Hoch hinaus, Äste unter den Händen und die Welt von oben sehen: Baumklettern ist Abenteuer pur. Jedes Kind, das möchte, darf sicher und begleitet von Stefan in die Baumwipfel."
+      beschreibung: "Hoch hinaus, Äste unter den Händen und die Welt von oben sehen: Baumklettern ist Abenteuer pur. Jedes Kind, das möchte, darf sicher und begleitet von Stefan in die Baumwipfel.",
     },
     "Eltern-Kind-Akrobatik": {
       wer: "Susanne (Artistik Calimbaro)",
       foto: "eltern-kind-akrobatik.png",
-      beschreibung: "Gemeinsam lachen, balancieren und Vertrauen stärken: In spielerischen Übungen lernen Groß und Klein einfache akrobatische Elemente – ob fliegende Kinder oder tragende Eltern. Keine Vorkenntnisse nötig, für Kinder von 3–6 Jahren."
+      beschreibung: "Gemeinsam lachen, balancieren und Vertrauen stärken: In spielerischen Übungen lernen Groß und Klein einfache akrobatische Elemente – ob fliegende Kinder oder tragende Eltern. Keine Vorkenntnisse nötig, für Kinder von 3–6 Jahren.",
     },
-    "Clownspiele": {
+    Clownspiele: {
       wer: "Florian (Artistik Calimbaro, ausgebildeter Clown)",
       foto: "clownspiele.png",
-      web: "artistik-calimbaro.de", insta: "@artistik_calimbaro",
-      beschreibung: "Lachen, spielen und gemeinsam kreativ sein! Mit lustigen Clownspielen entdecken Kinder ab 6 Jahren spielerisch Ausdruck, Fantasie und Bewegung – und stärken nebenbei Selbstvertrauen und Teamgeist. Begrenzte Plätze, bitte pünktlich kommen."
+      web: "artistik-calimbaro.de",
+      insta: "@artistik_calimbaro",
+      beschreibung: "Lachen, spielen und gemeinsam kreativ sein! Mit lustigen Clownspielen entdecken Kinder ab 6 Jahren spielerisch Ausdruck, Fantasie und Bewegung – und stärken nebenbei Selbstvertrauen und Teamgeist. Begrenzte Plätze, bitte pünktlich kommen.",
     },
     "Hirnhopsen für Alle": {
       wer: "Florian (Artistik Calimbaro)",
       foto: "hirnhopsen.png",
-      web: "artistik-calimbaro.de", insta: "@artistik_calimbaro",
-      beschreibung: "Jede:r bekommt zwei Bälle: Durch rhythmische Koordinationsübungen werden beide Gehirnhälften aktiviert – Konzentration, Reaktion und Motorik spielerisch gefördert, mit viel Spaß und Bewegung."
+      web: "artistik-calimbaro.de",
+      insta: "@artistik_calimbaro",
+      beschreibung: "Jede:r bekommt zwei Bälle: Durch rhythmische Koordinationsübungen werden beide Gehirnhälften aktiviert – Konzentration, Reaktion und Motorik spielerisch gefördert, mit viel Spaß und Bewegung.",
     },
-    "Tribubu": {
+    Tribubu: {
       foto: "tribubu.png",
-      web: "tribubu.com", insta: "@tribubumusic",
-      beschreibung: "Weltmusik in einer fesselnden Rumba-Afro-Folk-Fusion. Mit Mitgliedern aus Spanien, England und der Elfenbeinküste verbindet TRIBUBU seit 2018 Kulturen und Talente über Sprachgrenzen hinweg – ein unverwechselbarer, mitreißender Sound."
+      web: "tribubu.com",
+      insta: "@tribubumusic",
+      beschreibung: "Weltmusik in einer fesselnden Rumba-Afro-Folk-Fusion. Mit Mitgliedern aus Spanien, England und der Elfenbeinküste verbindet TRIBUBU seit 2018 Kulturen und Talente über Sprachgrenzen hinweg – ein unverwechselbarer, mitreißender Sound.",
     },
     "Weiden-Zauberstäbe": {
       wer: "Tina (Naturgestalterin & Weidenflechterin)",
       foto: "weiden.png",
-      beschreibung: "Aus frischen Weidenruten gestalten wir wunderschöne Weidenzauberstäbe oder dekorative Weidenfische. Für Groß und Klein, ganz ohne Vorkenntnisse – kreative Kunst aus der Natur."
+      beschreibung: "Aus frischen Weidenruten gestalten wir wunderschöne Weidenzauberstäbe oder dekorative Weidenfische. Für Groß und Klein, ganz ohne Vorkenntnisse – kreative Kunst aus der Natur.",
     },
     "5 Minuten Feuer & Wilde Küche": {
       wer: "Lena (Wildnispädagogin)",
       foto: "feuermachen.png",
-      beschreibung: "Groß und Klein lernen verschiedene Techniken des Feuermachens mit Magnesiumstab und Feuerstein. Wir entzünden ein Feuer, erfahren Wissenswertes über Zunder und bereiten anschließend eine einfache Leckerei über der Glut zu."
+      beschreibung: "Groß und Klein lernen verschiedene Techniken des Feuermachens mit Magnesiumstab und Feuerstein. Wir entzünden ein Feuer, erfahren Wissenswertes über Zunder und bereiten anschließend eine einfache Leckerei über der Glut zu.",
     },
     "Vortrag LAVI – erleb es": {
       wer: "Anouk & Regina (erLEBes Familie)",
       foto: "lavi.png",
       web: "lavi-schule.de/Wer-wir-sind",
-      beschreibung: "erLEBes Familie öffnet Räume für Eltern und Familien: Wie wirkt meine innere Welt auf meine Beziehungen? Wie gestalte ich Verbindung im Familienalltag bewusst? Ein Impuls rund um Kommunikation, Bedürfnisse und das WIR in der Familie."
+      beschreibung: "erLEBes Familie öffnet Räume für Eltern und Familien: Wie wirkt meine innere Welt auf meine Beziehungen? Wie gestalte ich Verbindung im Familienalltag bewusst? Ein Impuls rund um Kommunikation, Bedürfnisse und das WIR in der Familie.",
     },
     "Schnitzen (Schnitzführerschein)": {
       wer: "Andreas Eckl (Natur-, Umwelt- & Erlebnispädagoge)",
@@ -348,53 +356,55 @@ const WUNDA = {
       mitbringen: "Schnitzmesser (kann vor Ort ausgeliehen werden), wetterfeste Kleidung, geschlossene Schuhe, lange Hose",
       hinweis: "Kinder ab 8 Jahren, jüngere nur mit Begleitperson · max. 16 Kinder",
       web: "naturnase.de/referenten.html",
-      beschreibung: "Im Outdoor-Schnitzkurs lernt ihr den sicheren Umgang mit dem Taschen- oder Kinderschnitzmesser und schnitzt eigene kleine Kreationen aus Frischholz. Zum Abschluss gibt's den „Messerführer:innenschein“."
+      beschreibung: "Im Outdoor-Schnitzkurs lernt ihr den sicheren Umgang mit dem Taschen- oder Kinderschnitzmesser und schnitzt eigene kleine Kreationen aus Frischholz. Zum Abschluss gibt's den „Messerführer:innenschein“.",
     },
     "Contact Kids": {
       wer: "Natalie Zeitler",
       foto: "contakids.jpg",
-      beschreibung: "„ContaKids“ ist eine spielerische Bewegungsmethode für Eltern und Kinder (2–5 Jahre). Durch Bewegung, Berührung und gemeinsames Spiel entsteht eine neue Form körperlicher Kommunikation – Kinder stärken Motorik und Selbstvertrauen, Eltern das Vertrauen in sich und ihr Kind."
+      beschreibung: "„ContaKids“ ist eine spielerische Bewegungsmethode für Eltern und Kinder (2–5 Jahre). Durch Bewegung, Berührung und gemeinsames Spiel entsteht eine neue Form körperlicher Kommunikation – Kinder stärken Motorik und Selbstvertrauen, Eltern das Vertrauen in sich und ihr Kind.",
     },
     "Baumpilze & Pilzpapier": {
       wer: "Larissa & Corinna (ausgebildete Pilzcoaches)",
       foto: "pilzpapier.png",
-      beschreibung: "Faszination Baumpilze: Wir lernen, was Baumpilze sind, wie man sie erkennt und welche Rolle sie im Wald spielen – und schöpfen dann gemeinsam Papier aus Pilzen, wahlweise mit getrockneten Blüten und Samen. Ein Workshop für die ganze Familie."
+      beschreibung: "Faszination Baumpilze: Wir lernen, was Baumpilze sind, wie man sie erkennt und welche Rolle sie im Wald spielen – und schöpfen dann gemeinsam Papier aus Pilzen, wahlweise mit getrockneten Blüten und Samen. Ein Workshop für die ganze Familie.",
     },
     "Ton brennen": {
       wer: "Amelie & Matthias",
       foto: "ton-brennen.png",
-      beschreibung: "Kinder ab 6 Jahren gestalten gemeinsam mit einem Elternteil eigene kleine Objekte aus Ton. Anschließend brennen wir die Werke im Feuer und beobachten, wie der Ton fest und zum Werkstück wird."
+      beschreibung: "Kinder ab 6 Jahren gestalten gemeinsam mit einem Elternteil eigene kleine Objekte aus Ton. Anschließend brennen wir die Werke im Feuer und beobachten, wie der Ton fest und zum Werkstück wird.",
     },
     "Baumpilze & Naturkosmetik": {
       wer: "Larissa & Corinna (ausgebildete Pilzcoaches)",
       foto: "deo-salbe.png",
-      beschreibung: "Baumpilze – das stille Wunder des Waldes: Wir lernen sie kennen, verstehen ihre Rolle im Wald und nutzen die Kraft des Zunderschwamms, um gemeinsam eine Salbe und ein Deo herzustellen. Natur pur zum Mitnehmen."
+      beschreibung: "Baumpilze – das stille Wunder des Waldes: Wir lernen sie kennen, verstehen ihre Rolle im Wald und nutzen die Kraft des Zunderschwamms, um gemeinsam eine Salbe und ein Deo herzustellen. Natur pur zum Mitnehmen.",
     },
     "Funkenflug Band": {
       foto: "funkenflug.png",
-      web: "funkenflugmusik.de", insta: "@funkenflugmusik",
-      beschreibung: "Die Münchner Band Funkenflug bringt mit ihrem Album „Durch die Blume“ das Gefühl eines ewigen Sommerabends auf die Bühne – eine lebendige Mischung aus Folk, Swing und Pop mit Gitarre, Geige, Kontrabass und mehrstimmigem Gesang."
+      web: "funkenflugmusik.de",
+      insta: "@funkenflugmusik",
+      beschreibung: "Die Münchner Band Funkenflug bringt mit ihrem Album „Durch die Blume“ das Gefühl eines ewigen Sommerabends auf die Bühne – eine lebendige Mischung aus Folk, Swing und Pop mit Gitarre, Geige, Kontrabass und mehrstimmigem Gesang.",
     },
     "Kids Singen, Tanzen, Bewegen": {
       wer: "Amelie (Stimmtherapeutin)",
       foto: "singen-bewegen.png",
-      web: "akademie-rueckenwind.de", insta: "@akademie_rueckenwind",
-      beschreibung: "Musikalischer Mitmach-Workshop für Kinder von 3 bis 6 Jahren: Wir singen kindgerechte Lieder und erwecken sie mit Bewegungen, Gesten und kleinen Rollenspielen zum Leben. Freude, Fantasie und gemeinsames Erleben stehen im Mittelpunkt."
+      web: "akademie-rueckenwind.de",
+      insta: "@akademie_rueckenwind",
+      beschreibung: "Musikalischer Mitmach-Workshop für Kinder von 3 bis 6 Jahren: Wir singen kindgerechte Lieder und erwecken sie mit Bewegungen, Gesten und kleinen Rollenspielen zum Leben. Freude, Fantasie und gemeinsames Erleben stehen im Mittelpunkt.",
     },
-    "Wetterkunde": {
+    Wetterkunde: {
       wer: "Laurenz (Wildnis- & Erlebnispädagoge)",
       foto: "wetterkunde.png",
-      beschreibung: "Grundkurs Wetterkunde – Natur lesen lernen: Wolkenbilder, Windveränderungen und typische Wetterlagen werden verständlich erklärt. Ein sicherer Einstieg, um zu verstehen, was Wolken, Wind und Atmosphäre über kommendes Wetter verraten."
+      beschreibung: "Grundkurs Wetterkunde – Natur lesen lernen: Wolkenbilder, Windveränderungen und typische Wetterlagen werden verständlich erklärt. Ein sicherer Einstieg, um zu verstehen, was Wolken, Wind und Atmosphäre über kommendes Wetter verraten.",
     },
     "Clown Malab Show": {
       wer: "Clown Malab",
       foto: "clownsshow.png",
-      beschreibung: "Señor Malab betritt die Bühne und lässt mit clownesker Artistik Keulen und Bälle durch die Luft tanzen. Nicht alles bleibt in der Luft – aber garantiert wird viel gelacht. Ein magisches Erlebnis für die ganze Familie."
+      beschreibung: "Señor Malab betritt die Bühne und lässt mit clownesker Artistik Keulen und Bälle durch die Luft tanzen. Nicht alles bleibt in der Luft – aber garantiert wird viel gelacht. Ein magisches Erlebnis für die ganze Familie.",
     },
     "Clan Show": {
       foto: "clan-open-stage.png",
-      beschreibung: "Bühne frei für die Clans! In bunter, unterstützender Atmosphäre zeigen die Clans, was in ihnen steckt – lustig, kreativ, wild oder überraschend. Es geht nicht um Perfektion, sondern um Freude, Mut und gemeinsames Erleben."
-    }
+      beschreibung: "Bühne frei für die Clans! In bunter, unterstützender Atmosphäre zeigen die Clans, was in ihnen steckt – lustig, kreativ, wild oder überraschend. Es geht nicht um Perfektion, sondern um Freude, Mut und gemeinsames Erleben.",
+    },
   },
 
   verpflegung: {
@@ -458,7 +468,7 @@ const WUNDA = {
       { tag:"Samstag 08.08.", mittag:"Spaghetti mit Linsenbolognese", abend:"Bratlinge & Reis mit süß-sauer Paprikasauce" },
     ],
     laedle: "Laura's Lädle Sulzbrunn ist Mittwoch und Freitag jeweils 10:00 – 11:00 Uhr geöffnet. Angebot u.a.: Bio Gemüse und Obst, Müsli, Hafermilch, Milch, Eier, Pasta, Käse, Butter. (Hinweis: Im Infoheft wird zusätzlich ein „Hoflädle“ am Dienstag und Donnerstag 13:30–14:30 Uhr genannt – beides sind getrennte Verkaufsstände/Zeiten.)",
-    snacks: "Snacks und Gebäck gibt es jeden Tag am Kiosk im Seminarhaus. Dienstag und Samstag Kuchenverkauf durch den Verein NATÜRLICH.MITEINANDER. Waffeln: mit Puderzucker 2,00 €, mit Apfelmus 2,50 €, Stockbrot/Pizzateig 1,00 €. Öffnungszeiten Waffeln & Kaffeebar: Mo–So 08:00–10:30 Uhr und Mo–So 14:30–17:00 Uhr."
+    snacks: "Snacks und Gebäck gibt es jeden Tag am Kiosk im Seminarhaus. Dienstag und Samstag Kuchenverkauf durch den Verein NATÜRLICH.MITEINANDER. Waffeln: mit Puderzucker 2,00 €, mit Apfelmus 2,50 €, Stockbrot/Pizzateig 1,00 €. Öffnungszeiten Waffeln & Kaffeebar: Mo–So 08:00–10:30 Uhr und Mo–So 14:30–17:00 Uhr.",
   },
 
   gelaende: {
@@ -485,13 +495,13 @@ const WUNDA = {
       { name:"Spielbereich / Sandkasten", hinweis:"Sandkasten und Spielfläche für Kinder (Sandspielzeug mitbringen)." },
       { name:"Richtung Sulzberg / B309", hinweis:"Orientierung: Pfeil nach Sulzberg (unten links); die Bundesstraße B309 trennt die Geländeseiten." },
     ],
-    privat: ["Bauwägen privat (BewohnerInnen-/Bauwagenplatz)", "Garten privat", "Kreisbeet privat", "Parkplatz privat für Bewohner*innen", "Dorf privat (Dorfplatz)"]
+    privat: ["Bauwägen privat (BewohnerInnen-/Bauwagenplatz)", "Garten privat", "Kreisbeet privat", "Parkplatz privat für Bewohner*innen", "Dorf privat (Dorfplatz)"],
   },
 
   kontakt: {
     mail: "gaeste@seminarhaus-sulzbrunn.de",
     notruf: "Feuerwehr/Rettung 112 · Polizei 110",
-    klinik: "Krankenhaus Kempten, Robert-Weixler-Str. 50, Tel. 0831 530-0"
-  }
+    klinik: "Krankenhaus Kempten, Robert-Weixler-Str. 50, Tel. 0831 530-0",
+  },
 };
 if (typeof module !== "undefined") module.exports = WUNDA;
