@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "12.07.2026, 23:05 Uhr",
+    stand: "12.07.2026, 23:13 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -62,7 +62,7 @@ const WUNDA = {
     { tag:"mo", zeit:"13:30 – 16:00", titel:"Waffeln / Kaffee", wer:"", wo:"Bar", wen:["alle"] },
     { tag:"mo", zeit:"14:00", titel:"Eröffnung", wer:"Wundaplunda Team", wo:"Feuerstelle", wen:["alle"] },
     { tag:"mo", zeit:"14:30 – 16:00", titel:"Geländeführung", wo:"Treffpunkt Zirkuszelt", wen:["alle"] },
-    { tag:"mo", zeit:"14:30 – 16:00", titel:"Bienenführung", wer:"Josef", wo:"Kinderjurte", wen:["alle"] },
+    { tag:"mo", zeit:"14:30 – 16:00", titel:"Bienenlehrgang für Groß und Klein", wo:"Kinderjurte", wen:["alle"] },
     { tag:"mo", zeit:"14:30 – 16:00", titel:"Seifenblasen", wer:"Patrick", wo:"Wundazelt", wen:["kinder_0_4","kinder_ab_5"] },
     { tag:"mo", zeit:"16:30 – 17:30", titel:"Impro Show Kids", wer:"", wo:"Zirkuszelt", wen:["alle"] },
     { tag:"mo", zeit:"17:30 – 18:00", titel:"Kinderkreis mit Clown Malab", wer:"Clown Malab, Wundaplunda Team, Amelie", wo:"Zirkuszelt", wen:["kinder_0_4","kinder_ab_5"] },
@@ -76,7 +76,7 @@ const WUNDA = {
     { tag:"di", zeit:"09:20 – 09:40", titel:"Morgenkreis mit dem Wundaplunda Team", wer:"Wundaplunda Team", wo:"Zirkuszelt", wen:["alle"] },
     { tag:"di", zeit:"09:45 – 10:30", titel:"Clanzeit", wer:"", wo:"Treff Zirkuszelt", wen:["alle"] },
     { tag:"di", zeit:"ab 10:30", titel:"Pois basteln", wer:"Barbara & Patty", wo:"Kinderjurte", wen:["kinder_0_4","kinder_ab_5"] },
-    { tag:"di", zeit:"10:30 – 12:30", titel:"Wir entdecken den Wald", wer:"Kristina Wolf", wo:"Treff Zirkuszelt", wen:["alle"] },
+    { tag:"di", zeit:"10:30 – 12:30", titel:"Wir entdecken den Wald", wo:"Treff Zirkuszelt", wen:["alle"] },
     { tag:"di", zeit:"10:30 – 12:30", titel:"Knotenkunde & Tarpaufbau", wer:"", wo:"Wundazelt", wen:["erwachsene"] },
     { tag:"di", zeit:"12:15 – 13:45", titel:"Mittagessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
     { tag:"di", zeit:"14:00 – 16:00", titel:"Kuchen Pappelkinder & Hoflädle", wer:"", wo:"Dorfplatz", wen:["alle"], hinweis:"Kaffee & Kuchen (NATÜRLICH.MITEINANDER) + Hoflädle + kleiner Markt: Kinderschminken (Pappelkinder), Töpfern (Ayshe), Weiden (Tina), Schmuck (Fabienne), Karten (Lena), Kerzen (Birgit), Honig (Josef)" },
@@ -239,10 +239,10 @@ const WUNDA = {
       beschreibung: "Passend zu den selbstgebastelten Pois schwingen wir die an Schnüren geführten Bälle und üben Beweglichkeit, Koordination und Kraft – Spiel und Bewegung aus der Māori-Kultur Neuseelands.",
     },
     "Wir entdecken den Wald": {
-      wer: "Kristina Wolf (Pilzfreunde Altusried e.V.)",
+      wer: "Kristina",
       foto: "walderlebnis.png",
       insta: "@mykorrhina",
-      beschreibung: "Bei dieser familiengerechten Waldexkursion erleben Kinder und Erwachsene den Wald mit allen Sinnen. Spielerisch entdecken wir, welche Baumarten heimisch sind und warum der Wald für Mensch, Tier und Klima so wichtig ist – mit Lupen, Waldbingo und Entdeckerkarten.",
+      beschreibung: "Bei dieser familiengerechten Waldexkursion erleben Kinder und Erwachsene den Wald mit allen Sinnen. Spielerisch entdecken wir, welche Baumarten heimisch sind und warum der Wald für Mensch, Tier und Klima so wichtig ist – mit Lupen, Waldbingo und Entdeckerkarten.\nKristina Wolf ist Vorstand der Pilzfreunde Altusried e.V.",
     },
     "Knotenkunde & Tarpaufbau": {
       wer: "Laurenz (Wildnispädagoge)",
@@ -403,6 +403,10 @@ const WUNDA = {
     "Clan Show": {
       foto: "clan-open-stage.png",
       beschreibung: "Bühne frei für die Clans! In bunter, unterstützender Atmosphäre zeigen die Clans, was in ihnen steckt – lustig, kreativ, wild oder überraschend. Es geht nicht um Perfektion, sondern um Freude, Mut und gemeinsames Erleben.",
+    },
+    "Bienenlehrgang für Groß und Klein": {
+      wer: "Josef",
+      beschreibung: "Josef lebt und arbeitet in der Gemeinschaft Sulzbrunn. Mit seinen Bienenvölkern produziert er den Sulzbrunner Honig und gibt spannende Einblicke in die faszinierende Welt der Bienen.\n\nIn diesem Workshop erfahrt ihr, wie ein Bienenvolk lebt, wie Honig entsteht und warum Bienen für unsere Natur unverzichtbar sind. Gemeinsam werfen wir einen Blick hinter die Kulissen der Imkerei und entdecken Wissenswertes rund um das Leben im Bienenstock.\n\nBringt eure Fragen mit – ob klein oder groß! Alles, was ihr schon immer über Bienen, Honig und die Arbeit eines Imkers wissen wolltet, ist willkommen.\n\nWir freuen uns auf einen lebendigen Austausch und viele spannende Entdeckungen rund um die Bienen der Gemeinschaft Sulzbrunn.",
     },
   },
 
