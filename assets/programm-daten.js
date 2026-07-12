@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "12.07.2026, 23:04 Uhr",
+    stand: "12.07.2026, 23:05 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -61,7 +61,7 @@ const WUNDA = {
     { tag:"mo", zeit:"12:15 – 13:45", titel:"Mittagessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
     { tag:"mo", zeit:"13:30 – 16:00", titel:"Waffeln / Kaffee", wer:"", wo:"Bar", wen:["alle"] },
     { tag:"mo", zeit:"14:00", titel:"Eröffnung", wer:"Wundaplunda Team", wo:"Feuerstelle", wen:["alle"] },
-    { tag:"mo", zeit:"14:30 – 16:00", titel:"Geländeführung", wer:"", wo:"Treffpunkt Zirkuszelt", wen:["alle"] },
+    { tag:"mo", zeit:"14:30 – 16:00", titel:"Geländeführung", wo:"Treffpunkt Zirkuszelt", wen:["alle"] },
     { tag:"mo", zeit:"14:30 – 16:00", titel:"Bienenführung", wer:"Josef", wo:"Kinderjurte", wen:["alle"] },
     { tag:"mo", zeit:"14:30 – 16:00", titel:"Seifenblasen", wer:"Patrick", wo:"Wundazelt", wen:["kinder_0_4","kinder_ab_5"] },
     { tag:"mo", zeit:"16:30 – 17:30", titel:"Impro Show Kids", wer:"", wo:"Zirkuszelt", wen:["alle"] },
@@ -165,7 +165,8 @@ const WUNDA = {
     "Geländeführung": {
       wer: "Oliver, Carmen & Fabienne (Gemeinschaft Sulzbrunn)",
       foto: "gelaendefuehrung.png",
-      beschreibung: "Bei der Tour über das rund 15,5 Hektar große Gelände zeigen euch Sulzbrunn-Bewohner:innen Wald, Wiesen und die zehn Gebäude des kleinen Dorfs – inklusive der Geschichte rund um die Sulzbrunner Jodquelle (Kurbetrieb seit 1852).",
+      beschreibung: "Bei der Tour über das rund 15,5 Hektar große Gelände zeigen euch Sulzbrunn-Bewohner:innen Wald, Wiesen und die zehn Gebäude des kleinen Dorfs – inklusive der Geschichte rund um die Sulzbrunner Jodquelle (Kurbetrieb seit 1852). Mittlerweile leben 50 Erwachsene und 20 Kinder zusammen an diesem besonderen Ort.",
+      web: "https://sulzbrunn.org/gemeinschaft/",
     },
     Seifenblasen: {
       foto: "riesenseifenblasen.png",
