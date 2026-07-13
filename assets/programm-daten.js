@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "13.07.2026, 19:00 Uhr",
+    stand: "13.07.2026, 19:01 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -100,7 +100,7 @@ const WUNDA = {
     { tag:"mi", zeit:"10:30 – 12:30", titel:"Slackline Workshop", wer:"Daniel", wo:"Treffpunkt Zirkuszelt", wen:["alle"] },
     { tag:"mi", zeit:"10:30 – 12:30", titel:"Wahrnehmungs- / Sinnesübungen in der Natur", wer:"", wo:"Treffpunkt Kinderjurte", wen:["erwachsene"] },
     { tag:"mi", zeit:"12:15 – 13:45", titel:"Mittagessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
-    { tag:"mi", zeit:"14:00 – 16:00", titel:"Bogenbau", wer:"Laurenz", wo:"Wundazelt", wen:["alle"] },
+    { tag:"mi", zeit:"14:00 – 16:00", titel:"Bogenbau", wo:"Wundazelt", wen:["alle"] },
     { tag:"mi", zeit:"14:00 – 16:00", titel:"Baumklettern", wer:"Stefan", wo:"Treffpunkt Zirkuszelt", wen:["kinder_ab_5"] },
     { tag:"mi", zeit:"15:00 – 16:00", titel:"Eltern-Kind-Akrobatik", wer:"Susanne", wo:"Turnhalle", wen:["kinder_0_4"] },
     { tag:"mi", zeit:"15:00 – 16:00", titel:"Clownspiele", wer:"Florian", wo:"Yogaraum", wen:["kinder_ab_5"], anmeldung:"begrenzt" },
@@ -322,11 +322,11 @@ const WUNDA = {
       beschreibung: "Wie können bewusste Wahrnehmung und intuitive Zugänge unser Erleben in der Natur vertiefen? Durch Übungen und Spiele aus der Wildnispädagogik schärfen wir die Sinne, stärken die Aufmerksamkeit für feine Signale und erleben unsere Intuition. Nur für Erwachsene.",
     },
     Bogenbau: {
-      wer: "Laurenz (Wildnispädagoge)",
+      wer: "Laurenz & Lena",
       foto: "bogenbau.png",
       web: "wild-und-weiter.de",
       mitbringen: "eigenes Schnitzmesser",
-      beschreibung: "Wie entsteht aus einem Stück Holz ein Bogen? Mit Schnitzmesser und Geduld gestalten wir kleine funktionsfähige Bögen und entdecken, wie Form, Spannung und Funktion vom Holz abhängen.",
+      beschreibung: "Wie entsteht aus einem Stück Holz ein Bogen? Mit Schnitzmesser und Geduld gestalten wir kleine funktionsfähige Bögen und entdecken, wie Form, Spannung und Funktion vom Holz abhängen.\n\nHallo, mein Name ist Laurenz Verweyen. \nDie vier Elemente sind ein roter Faden in meinem Leben. Ob in den Bergen, auf dem Wasser, in der Luft oder am Feuer – als Wildnispädagoge und leidenschaftlicher Natursportler durfte ich jedem von ihnen auf besondere Weise begegnen. Diese Erfahrungen haben meinen Blick auf die Natur geprägt und wecken immer wieder die Freude, draußen zu lernen, zu staunen und Wissen weiterzugeben. Ich freue mich darauf, euch auf dem Festival zu begegnen!\n\nLena: \nLena Maucher, Jahrgang 1986, langjährige Wildnispädagogin, lebt mit ihrer Familien im Allgäu. Ich liebe besonders das Draußen-unterwegs-sein und staune leidenschaftlich gerne über die Weisheit der Natur. Mich fasziniert das alte Wissen über das Leben in und mit der Wildnis sowie die Frage, wie wir innerhalb unserer modernen Welt wieder eine tiefere Verbindung zu unserer natürlichen Umwelt finden können.\nMehr infos unter: www.wild-und-weiter.de",
     },
     Baumklettern: {
       wer: "Stefan (Baumkletterer & Erlebnispädagoge)",
