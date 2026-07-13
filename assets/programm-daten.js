@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "13.07.2026, 18:27 Uhr",
+    stand: "13.07.2026, 18:33 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -108,7 +108,7 @@ const WUNDA = {
     { tag:"mi", zeit:"16:30 – 17:30", titel:"Hirnhopsen für Alle", wer:"Florian", wo:"Turnhalle", wen:["alle"] },
     { tag:"mi", zeit:"17:30 – 18:00", titel:"Lisa liest Geschichte", wer:"Lisa", wo:"Wundazelt", wen:["kinder_0_4","kinder_ab_5"] },
     { tag:"mi", zeit:"17:45 – 19:15", titel:"Abendessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
-    { tag:"mi", zeit:"19:30 – 20:30", titel:"Tribubu", wer:"", wo:"Zirkuszelt", wen:["alle"] },
+    { tag:"mi", zeit:"19:30 – 20:30", titel:"Tribubu - World Music Band", wo:"Zirkuszelt", wen:["alle"] },
     { tag:"mi", zeit:"Ganztags", titel:"Waldrallye · Spielewagen · Flying Fox", wer:"", wo:"", wen:["alle"] },
     // Donnerstag
     { tag:"do", zeit:"07:30 – 08:15", titel:"Yoga am Morgen", wo:"Zirkuszelt", wen:["erwachsene"] },
@@ -171,6 +171,11 @@ const WUNDA = {
     { tag:"di", zeit:"ganztags", titel:"Waldrallye - Spielewagen - Flying Fox", wo:"", wen:["alle"] },
     // Samstag
     { tag:"sa", zeit:"Ganztags", titel:"Waldrallye - Spielewagen - Flying Fox", wo:"", wen:["alle"] },
+    // Dienstag
+    { tag:"di", zeit:"08:00 - 11:00", titel:"Unsere Bar hat geöffnet!", wo:"Bar", wen:["alle"] },
+    // Mittwoch
+    { tag:"mi", zeit:"19:00 - 21:30", titel:"Unsere Bar hat geöffnet!", wo:"", wen:["alle"] },
+    { tag:"mi", zeit:"14:00 - 17:00", titel:"Unsere Bar hat geöffnet!", wo:"", wen:["alle"] },
   ],
 
   katalog: {
@@ -513,6 +518,12 @@ const WUNDA = {
       beschreibung: "Mitreißende Musik, strahlende Kinderaugen und ganz viel gute Laune: Das Rockquartett „Leicht Verschwitzt Und Zwergig“ spielt tanzbare (Kinder-)Lieder für alle – egal ob mit Maxi-Cosi, Retro-Rennrad oder neuer Hüfte.",
       foto: "zwergig.png",
       insta: "@leichtverschwitztundzwergig",
+    },
+    "Tribubu - World Music Band": {
+      beschreibung: "Weltmusik in einer fesselnden Rumba-Afro-Folk-Fusion. Mit Mitgliedern aus Spanien, England und der Elfenbeinküste verbindet TRIBUBU seit 2018 Kulturen und Talente über Sprachgrenzen hinweg – ein unverwechselbarer, mitreißender Sound.",
+      foto: "tribubu.png",
+      web: "tribubu.com",
+      insta: "@tribubumusic",
     },
   },
 
