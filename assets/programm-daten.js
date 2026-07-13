@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "13.07.2026, 19:30 Uhr",
+    stand: "13.07.2026, 19:38 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -142,7 +142,7 @@ const WUNDA = {
     { tag:"fr", zeit:"12:15 – 13:45", titel:"Mittagessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
     { tag:"fr", zeit:"14:00 – 16:00", titel:"Bogenbau", wer:"Laurenz", wo:"Wundazelt", wen:["alle"] },
     { tag:"fr", zeit:"14:00 – 16:00", titel:"Baumklettern", wer:"Stefan", wo:"Treffpunkt Zirkuszelt", wen:["kinder_ab_5"] },
-    { tag:"fr", zeit:"14:00 – 16:00", titel:"Baumpilze & Naturkosmetik", wer:"", wo:"Kinderjurte", wen:["erwachsene"] },
+    { tag:"fr", zeit:"14:00 – 16:00", titel:"Faszination Baumpilze & Naturkosmetik", wo:"Kinderjurte", wen:["erwachsene"] },
     { tag:"fr", zeit:"15:00 – 16:00", titel:"Contact Kids", wer:"", wo:"Yogaraum", wen:["kinder_0_4"] },
     { tag:"fr", zeit:"15:00 – 16:00", titel:"Seifenblasen", wer:"Patrick", wo:"Feuerstelle", wen:["kinder_0_4","kinder_ab_5"] },
     { tag:"fr", zeit:"16:00 – 18:00", titel:"Open Space - Gestalte das Programm mit!", wo:"", wen:["alle"], hinweis:"Alle, die etwas anbieten möchten · u. a. bietet Amelie Jodeln an" },
@@ -576,6 +576,11 @@ const WUNDA = {
       beschreibung: "Bewusst wachsen als Familie - vom ICH zum WIR\n\nDeine innere Haltung und deine Werte prägen dein Sein und dein Handeln – und damit das Miteinander in deiner Familie.\nWas du in dir veränderst, wirkt nach außen und kann euer Familienleben nachhaltig wandeln.\n\nWir geben 2 Workshops auf dem Wundaplunda und laden ein, beide in Kombination zu besuchen und auch unabhängig voneinander.\n\nDie Workshops bieten Raum für Entwicklung und persönliches Wachstum – für dich als Mensch und damit für deine Beziehungen in der Familie. Es geht darum in die Themenfelder hinein zu spüren, sie zu bewegen und zu erLEBen.\n\nDie Workshop- Begleiterinnen sind Anouk und Regina – die Initiatorinnen von erLEBes Familie.\nGemeinsam öffnen wir Räume für Eltern und Familien, die sich entwickeln und ihr Bewusstsein erweitern wollen, um ihr Familienleben authentischer, klarer und friedvoller\ngestalten zu können.\n\nerLEBes Workshop 2: Vom ICH zum WIR – Beziehung in Familie leben\nWie wirkt meine innere Welt auf meine Beziehungen in der Familie?\nWie kann ich Verbindung im Alltag bewusst gestalten?\nIn diesem Teil geht es um unsere Begegnungen im Familienalltag und darum, wie ich das\nWIR in meiner Familie lebe. Wir bewegen im Gespräch und auf spielerische Weise die\nThemen Persönliche Sprache, Kommunikation und Bedürfnisse im Familiensystem.",
       foto: "lavi.png",
       web: "lavi-schule.de/Wer-wir-sind",
+    },
+    "Faszination Baumpilze & Naturkosmetik": {
+      wer: "Larissa & Corinna (ausgebildete Pilzcoaches)",
+      beschreibung: "Entdeckt mit uns die Welt der Baumpilze! Wir starten gemeinsam mit einer Einführung: Was sind Baumpilze? Wie erkenne ich sie? Welche Rolle spielen sie im Wald - und was steckt alles in ihnen? \n\nWir nutzen die Wirkung des Zunderschwamms und stellen gemeinsam eine Salbe und ein Deo her. \n\nWir sind Larissa und Corinna, ausgebildete PilzCoaches aus dem Allgäu – und wir glauben, dass Pilze viel mehr können, als nur auf dem Teller zu landen. In diesem Workshop zeigen wir euch zwei faszinierende Baumpilze von einer ganz anderen Seite",
+      foto: "deo-salbe.png",
     },
   },
 
