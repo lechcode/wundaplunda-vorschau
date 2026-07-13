@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "13.07.2026, 17:10 Uhr",
+    stand: "13.07.2026, 17:21 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -60,7 +60,7 @@ const WUNDA = {
     { tag:"mo", zeit:"11:00 – 14:00", titel:"Anreise & Ankommen", wo:"", wen:["alle"] },
     { tag:"mo", zeit:"12:15 – 13:45", titel:"Mittagessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
     { tag:"mo", zeit:"13:30 – 16:00", titel:"Waffeln / Kaffee", wer:"", wo:"Bar", wen:["alle"] },
-    { tag:"mo", zeit:"14:00", titel:"Eröffnung", wer:"Wundaplunda Team", wo:"Feuerstelle", wen:["alle"] },
+    { tag:"mo", zeit:"14:00", titel:"Eröffnung", wo:"Feuerstelle", wen:["alle"] },
     { tag:"mo", zeit:"14:30 – 16:00", titel:"Geländeführung", wo:"Treffpunkt Zirkuszelt", wen:["alle"] },
     { tag:"mo", zeit:"14:30 – 16:00", titel:"Bienenlehrgang für Groß und Klein", wo:"Kinderjurte", wen:["alle"] },
     { tag:"mo", zeit:"14:30 – 16:00", titel:"Seifenblasen", wer:"Patrick", wo:"Wundazelt", wen:["kinder_0_4","kinder_ab_5"] },
@@ -407,11 +407,17 @@ const WUNDA = {
     "Bienenlehrgang für Groß und Klein": {
       wer: "Josef",
       beschreibung: "Josef lebt und arbeitet in der Gemeinschaft Sulzbrunn. Mit seinen Bienenvölkern produziert er den Sulzbrunner Honig und gibt spannende Einblicke in die faszinierende Welt der Bienen.\n\nIn diesem Workshop erfahrt ihr, wie ein Bienenvolk lebt, wie Honig entsteht und warum Bienen für unsere Natur unverzichtbar sind. Gemeinsam werfen wir einen Blick hinter die Kulissen der Imkerei und entdecken Wissenswertes rund um das Leben im Bienenstock.\n\nBringt eure Fragen mit – ob klein oder groß! Alles, was ihr schon immer über Bienen, Honig und die Arbeit eines Imkers wissen wolltet, ist willkommen.\n\nWir freuen uns auf einen lebendigen Austausch und viele spannende Entdeckungen rund um die Bienen der Gemeinschaft Sulzbrunn.",
+      foto: "bienenlehrgang-fuer-gross-und-klein-mrjddv42.jpg",
     },
     "Anreise & Ankommen": {
       beschreibung: "Willkommen zum Wundaplunda! Schaut doch gerne unter ALLE INFOS A-Z. Hier findet ihr alle wichtigen Infos zur Anreise und eurem Ankommen. Wir wünschen dir eine gute Fahrt und freuen uns riesig, dass du mit dabei bist!",
       web: "www.wundaplunda.de",
       insta: "@wundaplunda",
+    },
+    "Eröffnung": {
+      wer: "Wundaplunda Team",
+      foto: "eroeffnung-mrjd0hzc.jpg",
+      beschreibung: "Wir freuen uns riesig, gemeinsam mit euch in diese wunda-schöne Woche zu starten!\n\nWir sind Fabienne, Carmen und Oliver – das Wundaplunda-Team und laden euch ein, den Alltag hinter euch zu lassen und ganz hier bei uns anzukommen.\nEs wäre toll, wenn möglichst alle dabei sind, denn dieser gemeinsame Auftakt ist für uns ein ganz besonderer Moment. Wir freuen uns auf euch!",
     },
   },
 
