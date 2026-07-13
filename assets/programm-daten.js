@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "13.07.2026, 17:40 Uhr",
+    stand: "13.07.2026, 17:47 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -161,6 +161,7 @@ const WUNDA = {
     { tag:"sa", zeit:"16:00", titel:"Abreise / Ende des Camps", wer:"", wo:"", wen:["alle"] },
     // Dienstag
     { tag:"di", zeit:"14:00 - 16:00", titel:"Sulzbrunner Markt", wo:"Dorfplatz", wen:["alle"] },
+    { tag:"di", zeit:"08:00-11:00", titel:"Waffeln/Kaffee/Eis", wo:"", wen:["alle"] },
   ],
 
   katalog: {
@@ -434,6 +435,12 @@ const WUNDA = {
       wer: "Handwerk & Kunst",
       beschreibung: "Auf dem Sulzbrunner Markt findet ihr viele schöne, handgemachte Schätze: kunstvolle Weidenflechterei, Getöpfertes, Kunst, Schmuck, Kerzen aus Sulzbrunn und Kinderschminken für die Kleinen.\n\nAlle Produkte sind mit viel Liebe und Sorgfalt hergestellt und sorgfältig ausgewählt. Wir freuen uns, wenn ihr die Menschen unterstützt, die mit Herzblut und handwerklichem Können hinter ihren Produkten stehen. Viel Freude beim Stöbern und Entdecken!",
       foto: "sulzbrunner-markt-mrjdr9ov.jpg",
+    },
+    "Die Bar hat geöffnet!": {
+      beschreibung: "An unserer Bar erwarten euch lecker Kaffee aus der Siebträgermaschine, frische Waffeln,  kühle, alkoholfreie Getränke und Eis. Alles bio! \nBringt gerne eure eigene Tasse für den Kaffee mit. Falls ihr keine dabeihabt, könnt ihr euch in der Draußenküche eine Leihtasse ausleihen. \nBitte stellt die Leihtassen nach dem Spülen wieder dort ab, damit sie für die Nächsten bereitstehen.\n\nWir verkaufen nachmittags zusätzlich Stockbrot sowie Calzone-Teig zum Selbermachen über dem Lagerfeuer oder auf unserer Murrikka Pfanne.\n\nBitte bringt außerdem Bargeld mit, wir haben keine Kartenzahlung an der Bar.\nKommt vorbei und lasst es euch schmecken!",
+    },
+    "Waffeln/Kaffee/Eis": {
+      beschreibung: "An unserer Bar erwarten euch lecker Kaffee aus der Siebträgermaschine, frische Waffeln,  kühle, alkoholfreie Getränke und Eis. Alles bio! \nBringt gerne eure eigene Tasse für den Kaffee mit. Falls ihr keine dabeihabt, könnt ihr euch in der Draußenküche eine Leihtasse ausleihen. \nBitte stellt die Leihtassen nach dem Spülen wieder dort ab, damit sie für die Nächsten bereitstehen.\n\nWir verkaufen nachmittags zusätzlich Stockbrot sowie Calzone-Teig zum Selbermachen über dem Lagerfeuer oder auf unserer Murrikka Pfanne.\n\nBitte bringt außerdem Bargeld mit, wir haben keine Kartenzahlung an der Bar.\nKommt vorbei und lasst es euch schmecken!",
     },
   },
 
