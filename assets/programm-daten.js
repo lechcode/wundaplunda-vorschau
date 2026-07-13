@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "13.07.2026, 18:11 Uhr",
+    stand: "13.07.2026, 18:27 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -68,8 +68,8 @@ const WUNDA = {
     { tag:"mo", zeit:"17:30 – 18:00", titel:"Kinderkreis mit Clown Malab", wo:"Zirkuszelt", wen:["kinder_0_4","kinder_ab_5"] },
     { tag:"mo", zeit:"17:45 – 19:15", titel:"Abendessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
     { tag:"mo", zeit:"19:30 – 20:30", titel:"Jodruf Sulzbrunn", wer:"", wo:"Wundazelt", wen:["alle"] },
-    { tag:"mo", zeit:"ab 20:30", titel:"Lagerfeuerabend", wer:"", wo:"Feuerstelle", wen:["alle"] },
-    { tag:"mo", zeit:"Ganztags", titel:"Waldrallye · Spielewagen · Flying Fox", wo:"", wen:["alle"] },
+    { tag:"mo", zeit:"ab 20:30", titel:"Lagerfeuerabend", wo:"Feuerstelle", wen:["alle"] },
+    { tag:"mo", zeit:"Ganztags", titel:"Spielewagen · Flying Fox", wo:"", wen:["alle"] },
     // Dienstag
     { tag:"di", zeit:"07:30 – 08:15", titel:"Yoga am Morgen", wo:"Zirkuszelt", wen:["erwachsene"] },
     { tag:"di", zeit:"07:45 – 09:00", titel:"Frühstück", wo:"Seminarhaus", wen:["alle"], hinweis:"Nur vorgebucht" },
@@ -77,13 +77,13 @@ const WUNDA = {
     { tag:"di", zeit:"09:45 – 10:30", titel:"Clanzeit", wer:"", wo:"Treff Zirkuszelt", wen:["alle"] },
     { tag:"di", zeit:"10:30 - 11:30", titel:"Pois basteln", wo:"Kinderjurte", wen:["kinder_0_4","kinder_ab_5"] },
     { tag:"di", zeit:"10:30 – 12:30", titel:"Wir entdecken den Wald", wo:"Treff Zirkuszelt", wen:["alle"] },
-    { tag:"di", zeit:"10:30 – 12:30", titel:"Knotenkunde & Tarpaufbau", wer:"", wo:"Wundazelt", wen:["erwachsene"] },
+    { tag:"di", zeit:"10:30 – 12:30", titel:"Knotenkunde & Tarpaufbau", wo:"Wundazelt", wen:["erwachsene"] },
     { tag:"di", zeit:"12:15 – 13:45", titel:"Mittagessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
-    { tag:"di", zeit:"14:00 – 16:00", titel:"Kuchen Pappelkinder & Hoflädle", wer:"", wo:"Dorfplatz", wen:["alle"], hinweis:"Kaffee & Kuchen (NATÜRLICH.MITEINANDER) + Hoflädle + kleiner Markt: Kinderschminken (Pappelkinder), Töpfern (Ayshe), Weiden (Tina), Schmuck (Fabienne), Karten (Lena), Kerzen (Birgit), Honig (Josef)" },
+    { tag:"di", zeit:"14:00 – 16:00", titel:"Kaffee & Kuchen & Hoflädle", wo:"Dorfplatz", wen:["alle"], hinweis:"Kaffee & Kuchen (Verein Füreinander Miteinander e.V.) + Hoflädle" },
     { tag:"di", zeit:"14:15 – 15:00", titel:"Singen – Jodruf Sulzbrunn", wer:"", wo:"Dorfplatz", wen:["alle"] },
     { tag:"di", zeit:"15:00 – 16:00", titel:"Poi-Workshop", wer:"Susanne & Paty", wo:"Wundazelt", wen:["kinder_0_4","kinder_ab_5"] },
-    { tag:"di", zeit:"16:00 – 18:00", titel:"Frauenkreis", wer:"Fabienne", wo:"Yogaraum", wen:["erwachsene"] },
-    { tag:"di", zeit:"16:30 – 17:30", titel:"Kinderband 'Die leicht verschwitzten Zwerge'", wer:"", wo:"Zirkuszelt", wen:["alle"] },
+    { tag:"di", zeit:"16:00 – 18:00", titel:"Frauenkreis", wo:"Yogaraum", wen:["erwachsene"] },
+    { tag:"di", zeit:"16:30 – 17:30", titel:"Kinderband \"Leicht Verschwitzt Und Zwergig\"", wo:"Zirkuszelt", wen:["alle"] },
     { tag:"di", zeit:"17:30 – 18:00", titel:"Lisa liest Geschichte", wer:"Lisa", wo:"Wundazelt", wen:["kinder_0_4","kinder_ab_5"] },
     { tag:"di", zeit:"17:45 – 19:15", titel:"Abendessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
     { tag:"di", zeit:"19:00 – 20:30", titel:"Männerkreis", wer:"Oliver", wo:"Yogaraum", wen:["erwachsene"] },
@@ -168,13 +168,16 @@ const WUNDA = {
     { tag:"di", zeit:"08:00-11:00", titel:"Unsere Bar hat geöffnet!", wo:"", wen:["alle"] },
     { tag:"di", zeit:"16:00 - 18:00 Uhr", titel:"Unsere Bar hat geöffnet!", wo:"", wen:["alle"] },
     { tag:"di", zeit:"19:30  - 21:00", titel:"Unser Seminarhaus Kiosk hat geöffnet!", wo:"", wen:["alle"] },
+    { tag:"di", zeit:"ganztags", titel:"Waldrallye - Spielewagen - Flying Fox", wo:"", wen:["alle"] },
+    // Samstag
+    { tag:"sa", zeit:"Ganztags", titel:"Waldrallye - Spielewagen - Flying Fox", wo:"", wen:["alle"] },
   ],
 
   katalog: {
     "Geländeführung": {
-      wer: "Oliver, Carmen & Fabienne (Gemeinschaft Sulzbrunn)",
+      wer: "2 Menschen aus der Gemeinschaft",
       foto: "gelaendefuehrung.png",
-      beschreibung: "Bei der Tour über das rund 15,5 Hektar große Gelände zeigen euch Sulzbrunn-Bewohner:innen Wald, Wiesen und die zehn Gebäude des kleinen Dorfs – inklusive der Geschichte rund um die Sulzbrunner Jodquelle (Kurbetrieb seit 1852). Mittlerweile leben 50 Erwachsene und 20 Kinder zusammen an diesem besonderen Ort.",
+      beschreibung: "Bei der Tour über das rund 15,5 Hektar große Gelände zeigen euch Sulzbrunn-Bewohner:innen Wald, Wiesen und die zehn Gebäude des kleinen Dorfs – inklusive der Geschichte rund um die Sulzbrunner Jodquelle (Kurbetrieb seit 1852). Mittlerweile leben 50 Erwachsene und 20 Kinder zusammen an diesem besonderen Ort, teilen Ressourcen und üben sich in einer sehr verbundenen Nachbarschaft.",
       web: "https://sulzbrunn.org/gemeinschaft/",
     },
     Seifenblasen: {
@@ -209,7 +212,7 @@ const WUNDA = {
     },
     Lagerfeuerabend: {
       foto: "lagerfeuerabende.png",
-      beschreibung: "Wenn die Nacht hereinbricht, versammeln wir uns am knisternden Feuer. Mitgebrachte Instrumente – Trommel, Gitarre, Rassel – sind herzlich willkommen. Gemeinsam singen, musizieren und erzählen wir Geschichten unter dem Sternenhimmel.",
+      beschreibung: "Wenn die Nacht hereinbricht, versammeln wir uns am knisternden Feuer. Mitgebrachte Instrumente sind herzlich willkommen. \nWIr freuen uns über Mitgestaltung! Wenn du spielen/singen magst fühl dich herzlich eingeladen. Du kannst auch gerne vorher auf uns zu kommen!",
     },
     "Waldrallye · Spielewagen · Flying Fox": {
       foto: "waldrallye.jpg",
@@ -236,11 +239,11 @@ const WUNDA = {
       beschreibung: "Generalprobe für die Clan-Show: Zeit, in eurem Clan die letzten Ideen zu proben und euch gemeinsam auf den großen Auftritt am Nachmittag vorzubereiten.",
     },
     "Pois basteln": {
-      wer: "Barbara & Patty",
+      wer: "Barbara & Paty",
       foto: "poi.png",
       web: "barbaraburstall.com",
       insta: "@patyk.liebe",
-      beschreibung: "Wir basteln Pois aus Upcycling-Materialien. Die an Schnüren geschwungenen Bälle aus der Māori-Kultur Neuseelands machen Spaß und fördern Beweglichkeit, Koordination und Kraft. Nachmittags gibt es den passenden Workshop dazu.",
+      beschreibung: "Wir basteln Pois aus Upcycling-Materialien. Die an Schnüren geschwungenen Bälle aus der Māori-Kultur Neuseelands machen Spaß und fördern Beweglichkeit, Koordination und Kraft. Nachmittags gibt es den passenden Workshop dazu.\n\nPaty spielt seit vielen Jahren hobbymässig Poi in allen möglichen Variante.  Barbara & Paty sind  allround kreative Köpfeund haben sehr viel Spaß mit Kindern zu basteln und Neues zu zeigen.",
     },
     "Poi-Workshop": {
       wer: "Susanne & Patty",
@@ -257,7 +260,7 @@ const WUNDA = {
     "Knotenkunde & Tarpaufbau": {
       wer: "Laurenz (Wildnispädagoge)",
       foto: "knoten.png",
-      beschreibung: "Wie entsteht aus einer Plane und ein paar Seilen ein wetterfester Unterschlupf? Wir lernen die Grundlagen des Tarpbaus und der Knotenkunde, üben verschiedene Knoten und bauen unterschiedliche Tarp-Konstruktionen auf. Praktisches Wissen für Outdoor und Bushcraft.",
+      beschreibung: "Wie entsteht aus einer Plane und ein paar Seilen ein wetterfester Unterschlupf? Wir lernen die Grundlagen des Tarpbaus und der Knotenkunde, üben verschiedene Knoten und bauen unterschiedliche Tarp-Konstruktionen auf. Praktisches Wissen für Outdoor und Bushcraft.\n\nHallo, mein Name ist Laurenz Verweyen. \nDie vier Elemente sind ein roter Faden in meinem Leben. Ob in den Bergen, auf dem Wasser, in der Luft oder am Feuer – als Wildnispädagoge und leidenschaftlicher Natursportler durfte ich jedem von ihnen auf besondere Weise begegnen. Diese Erfahrungen haben meinen Blick auf die Natur geprägt und wecken immer wieder die Freude, draußen zu lernen, zu staunen und Wissen weiterzugeben. Ich freue mich darauf, euch auf dem Festival zu begegnen!",
     },
     "Kuchen Pappelkinder & Hoflädle": {
       foto: "markt.png",
@@ -267,7 +270,7 @@ const WUNDA = {
     Frauenkreis: {
       wer: "Fabienne (Gemeinschaft Sulzbrunn)",
       foto: "frauenkreis.png",
-      beschreibung: "Wir legen bewusst die vielen Alltagsrollen ab – Mutter, Partnerin, Tochter – und kommen zur Essenz des Frauseins. Durch Körperübungen, Austausch, Singen und Energiearbeit verbinden wir uns miteinander und mit uns selbst. Ein Raum für dich – komm so, wie du bist.",
+      beschreibung: "Frau und Natur – Zyklisches Sein, Verbundenheit und innere Jahreszeiten\nDie Natur lebt in Rhythmen. Sie kennt Zeiten des Wachsens und Blühens ebenso wie Zeiten des Rückzugs und der Regeneration. Auch wir Frauen bewegen uns durch innere Jahreszeiten – Phasen der Fülle, der Wandlung, des Loslassens und des Neubeginns. Oft vergessen wir im Alltag, wie natürlich und kraftvoll dieses zyklische Sein ist.\nIn diesem Frauenkreis erforschen wir die Verbindung zwischen der Natur und unserer eigenen inneren Landschaft. Durch achtsame Körperübungen, Reflexion, Austausch sowie kleine Rituale lassen wir uns von den Qualitäten der Jahreszeiten inspirieren und lauschen den Rhythmen, die in uns wirken.\nGemeinsam schaffen wir einen Raum, um langsamer zu werden, zu spüren und uns mit dem zu verbinden, was gerade lebendig ist. Eine Einladung, der eigenen Natur näherzukommen und die Schönheit des Wandels neu zu entdecken.\n \nIch bin Fabienne.\nEine naturverbundene Abenteurerin, die das Kind in sich noch nicht vergessen hat. Neben dem Kind in mir finden meine Wurzeln immer mehr ihren Weg und schenken mir Ruhe in meinem Leben, um daraus wundervolle Schätze entstehen lassen zu können.\nMein Wunsch ist es, Menschen auf ihrem natürlichen Weg zu begleiten und zu inspirieren und sie dort abzuholen, wo sie in ihrem Leben stehen. Ich möchte gemeinsam Schritte gehen – eingebunden in eine Gemeinschaft, die uns Menschen und die Natur gleichermaßen umfasst. In den von mir gestalteten Räumen begegnen wir uns selbst, dem anderen, der Natur und erfahren uns als Ganzes in einem lebendigen Beziehungsgeflecht mit dem Leben.  \nSo gestaltet sich auch mein Sein im Naturkindergarten und der Wildnispädagogik - ursprünglich, verbunden und bindungsorientiert. Ich liebe es am Feuer zusammen zu kommen, zu singen und in ehrlicher und authentischer Begegnung zu sein. Neben und innerhalb der Naturarbeit weitet sich mein Wirken in Räume die geprägt sind von Beziehung, Sinnlichkeit, Tanz und  wahrhaftiger Kommunikation.",
     },
     "Kinderband 'Die leicht verschwitzten Zwerge'": {
       foto: "zwergig.png",
@@ -493,6 +496,23 @@ const WUNDA = {
       wer: "Amelie & Matthias",
       beschreibung: "Kinder ab 6 Jahren gestalten gemeinsam mit einem Elternteil eigene kleine Objekte aus Ton. Anschließend brennen wir die Werke im Feuer und beobachten, wie der Ton fest und zum Werkstück wird.\nmit Amelie & Matze",
       foto: "ton-brennen.png",
+    },
+    "Waldrallye - Spielewagen - Flying Fox": {
+      beschreibung: "Ganztägige Entdecker-Angebote: Auf der Waldrallye zieht ihr mit Entdeckerrucksäcken (Hase, Eule, Fuchs …) los und löst spannende Aufgaben in der Natur. \nDazu der Spielewagen des Kreisjugendrings mit vielen Fahrzeugen und Spielen – und die Flying Fox für ein kleines Abenteuer mit Schwung.\n\nRucksackverleih\nDie Rucksäcke können zu folgenden Zeiten gegen 10 € Pfand an der Bar ausgeliehen werden:\n\n08:00 – 10:00 Uhr \n10:00 – 12:00 Uhr \n\nSamstags nur bis mittags! \n\nBitte holt die Rucksäcke zu Beginn des jeweiligen Zeitfensters an der Bar ab und bringt sie spätestens zum Ende des Zeitfensters wieder zurück, damit sie den nächsten Ausleihenden zur Verfügung stehen.",
+    },
+    "Spielewagen · Flying Fox": {
+      beschreibung: "Juchuh wir lieben diese Fahrzeuge. Der Spielewagen des Kreisjugendrings mit vielen Fahrzeugen und Spielen steht wieder zur Verfügung– und die Flying Fox für ein kleines Abenteuer mit Schwung.",
+      foto: "waldrallye.jpg",
+    },
+    "Kaffee & Kuchen & Hoflädle": {
+      beschreibung: "Kaffee, Kuchen und ein kleiner, feiner Wundaplunda-Markt mit liebevoll ausgewähltem Kunsthandwerk aus Sulzbrunn: Honig, Bienenwachskerzen, Weidenkörbe, Getöpfertes, Schmuck und mehr. Mit Kinderschminken und Kuchen des Vereins Füreinander Miteinander e.V., die die ganzjährige Spielgruppe Pappelkinder in der Sulzbrunner Kinderjurte ins Leben gerufen haben. Die Kuchenspenden fließen direkt in dieses Projekt!",
+      foto: "markt.png",
+      web: "natuerlich-miteinander.net",
+    },
+    "Kinderband \"Leicht Verschwitzt Und Zwergig\"": {
+      beschreibung: "Mitreißende Musik, strahlende Kinderaugen und ganz viel gute Laune: Das Rockquartett „Leicht Verschwitzt Und Zwergig“ spielt tanzbare (Kinder-)Lieder für alle – egal ob mit Maxi-Cosi, Retro-Rennrad oder neuer Hüfte.",
+      foto: "zwergig.png",
+      insta: "@leichtverschwitztundzwergig",
     },
   },
 
