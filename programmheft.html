@@ -911,7 +911,13 @@ footer h4{color:#fff;font-size:1.05rem;margin-bottom:.3rem;font-family:var(--dis
   </div>
 </div>
 
-<script src="assets/programm-daten.js"></script>
+<script>
+/* Programmdaten IMMER frisch laden (Cache-Bust). Sonst liefert der Browser nach einer
+   Veröffentlichung bis zu 10 Minuten (Cache-Control: max-age=600) den ALTEN Stand,
+   obwohl das Redaktionstool schon „live“ meldet (es prüft über eine cache-freie URL).
+   document.write hängt das Daten-Script synchron VOR das Init-Script unten. */
+document.write('<script src="assets/programm-daten.js?v=' + Date.now() + '"><\/script>');
+</script>
 <script>
 (function(){
   "use strict";
