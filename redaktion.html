@@ -77,7 +77,9 @@ textarea{min-height:60px;resize:vertical}
 .actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem;align-items:center}
 .ok{color:var(--gruen-tief);font-weight:700}
 .foto-upload{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
-.foto-preview{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--line);flex:none;background:#fff}
+.foto-preview{width:132px;height:132px;border-radius:50%;object-fit:cover;object-position:50% 50%;border:2px solid var(--line);flex:none;background:#fff;cursor:grab;touch-action:none;user-select:none;-webkit-user-drag:none}
+.foto-preview.grabbing{cursor:grabbing}
+#foto-pos-hint{font-size:.82rem;color:var(--ink-mute,#6b5f4e);margin:.25rem 0 0}
 .foto-btns{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
 #foto-hint{font-weight:700;font-size:.85rem}
 #foto-hint.err{color:var(--rot)}
@@ -285,6 +287,7 @@ dialog#key-dialog::backdrop{background:rgba(16,29,41,.45)}
             <span id="foto-hint" class="ok"></span>
           </div>
         </div>
+        <p id="foto-pos-hint" hidden>↔ Bild im Kreis verschieben, um den Ausschnitt zu wählen (so erscheint es später im Programm).</p>
 
         <div class="actions">
           <button type="submit" class="btn gruen" id="btn-save">Punkt hinzufügen</button>
@@ -704,6 +707,8 @@ dialog#key-dialog::backdrop{background:rgba(16,29,41,.45)}
     put("foto", $("f-foto").value);
     put("web", $("f-web").value);
     put("insta", $("f-insta").value);
+    // Fokuspunkt nur speichern, wenn ein Bild da ist und der Ausschnitt von der Mitte abweicht
+    if($("f-foto").value.trim() && (Math.round(fotoPosX)!==50 || Math.round(fotoPosY)!==50)) e.fotopos=fotoPosStr(); else delete e.fotopos;
     if(Object.keys(e).length) workKatalog[titel]=e; else delete workKatalog[titel];
   }
   function readForm(){
@@ -730,7 +735,7 @@ dialog#key-dialog::backdrop{background:rgba(16,29,41,.45)}
     $("f-hinweis").value=(p&&p.hinweis)||""; $("f-info").value=eff("beschreibung","info");
     $("f-web").value=eff("web","web"); $("f-insta").value=eff("insta","insta"); $("f-status").value=(p&&p.status)||"";
     var foto=eff("foto","foto");
-    $("f-foto").value=foto; showFotoPreview(foto||null);
+    $("f-foto").value=foto; showFotoPreview(foto||null, (k&&k.fotopos)||"50% 50%");
     setFotoHint(foto?"✓ Bild vorhanden":"Noch kein Bild hinterlegt", false);
     $("tip-geaendert").style.display="none";
   }
@@ -901,11 +906,21 @@ dialog#key-dialog::backdrop{background:rgba(16,29,41,.45)}
 
   /* ---- Foto/Icon: auswählen -> verkleinern -> zu GitHub hochladen -> Vorschau ---- */
   function setFotoHint(msg, isErr){ var h=$("foto-hint"); h.textContent=msg||""; h.classList.toggle("err",!!isErr); }
-  function showFotoPreview(srcOrName){
-    var img=$("f-foto-preview"), rm=$("btn-foto-remove");
-    if(!srcOrName){ img.hidden=true; img.removeAttribute("src"); rm.hidden=true; return; }
+  // Fokuspunkt des Fotos im runden Ausschnitt (object-position, 0–100 %). 50/50 = mittig.
+  var fotoPosX=50, fotoPosY=50;
+  function fotoPosStr(){ return Math.round(fotoPosX)+"% "+Math.round(fotoPosY)+"%"; }
+  function applyFotoPos(posStr){
+    var m=/(-?\d+(?:\.\d+)?)%\s+(-?\d+(?:\.\d+)?)%/.exec(posStr||"");
+    fotoPosX = m ? Math.max(0,Math.min(100,parseFloat(m[1]))) : 50;
+    fotoPosY = m ? Math.max(0,Math.min(100,parseFloat(m[2]))) : 50;
+    $("f-foto-preview").style.objectPosition = fotoPosStr();
+  }
+  function showFotoPreview(srcOrName, posStr){
+    var img=$("f-foto-preview"), rm=$("btn-foto-remove"), ph=$("foto-pos-hint");
+    if(!srcOrName){ img.hidden=true; img.removeAttribute("src"); rm.hidden=true; ph.hidden=true; return; }
     img.src = /^(data:|https?:)/.test(srcOrName) ? srcOrName : ("assets/img/programm/"+srcOrName);
-    img.hidden=false; rm.hidden=false;
+    img.hidden=false; rm.hidden=false; ph.hidden=false;
+    applyFotoPos(posStr);
   }
   function slugify(s){
     return (s||"").toLowerCase()
@@ -950,7 +965,7 @@ dialog#key-dialog::backdrop{background:rgba(16,29,41,.45)}
       setFotoHint("Bild wird hochgeladen …",false);
       ghPutBinary(token,"assets/img/programm/"+name,b64,"Redaktion: Workshop-Bild "+name)
         .then(function(){
-          $("f-foto").value=name; showFotoPreview(dataUrl); setFotoHint("✓ Bild hochgeladen – jetzt Punkt speichern & veröffentlichen.",false);
+          $("f-foto").value=name; showFotoPreview(dataUrl, "50% 50%"); setFotoHint("✓ Bild hochgeladen – Ausschnitt im Kreis wählen, dann Punkt speichern & veröffentlichen.",false);
         })
         .catch(function(er){ setFotoHint(fotoErrMsg(er),true); });
     });
@@ -958,6 +973,28 @@ dialog#key-dialog::backdrop{background:rgba(16,29,41,.45)}
   $("btn-foto-remove").addEventListener("click",function(){
     $("f-foto").value=""; showFotoPreview(null); setFotoHint("Bild entfernt (Datei bleibt im Repo).",false);
   });
+  /* ---- Foto im Kreis verschieben (Fokuspunkt setzen) ---- */
+  (function(){
+    var img=$("f-foto-preview"), dragging=false, lastX=0, lastY=0;
+    function setPos(x,y){ fotoPosX=Math.max(0,Math.min(100,x)); fotoPosY=Math.max(0,Math.min(100,y)); img.style.objectPosition=fotoPosStr(); }
+    img.addEventListener("pointerdown",function(e){
+      if(img.hidden) return;
+      dragging=true; lastX=e.clientX; lastY=e.clientY;
+      img.classList.add("grabbing");
+      try{ img.setPointerCapture(e.pointerId); }catch(_){}
+      e.preventDefault();
+    });
+    img.addEventListener("pointermove",function(e){
+      if(!dragging) return;
+      var r=img.getBoundingClientRect();
+      // Bild folgt dem Finger -> sichtbarer Ausschnitt wandert entgegengesetzt (Panning).
+      setPos(fotoPosX-(e.clientX-lastX)/r.width*100, fotoPosY-(e.clientY-lastY)/r.height*100);
+      lastX=e.clientX; lastY=e.clientY;
+    });
+    function end(e){ if(!dragging) return; dragging=false; img.classList.remove("grabbing"); try{ img.releasePointerCapture(e.pointerId); }catch(_){} }
+    img.addEventListener("pointerup",end);
+    img.addEventListener("pointercancel",end);
+  })();
   ["f-tag","f-zeit","f-titel","f-wer","f-wo","f-anmeldung","f-status","f-hinweis","f-info"].forEach(function(id){
     $(id).addEventListener("input",livePreview); $(id).addEventListener("change",livePreview);
   });
