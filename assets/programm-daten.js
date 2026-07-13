@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "13.07.2026, 17:49 Uhr",
+    stand: "13.07.2026, 18:09 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -71,7 +71,7 @@ const WUNDA = {
     { tag:"mo", zeit:"ab 20:30", titel:"Lagerfeuerabend", wer:"", wo:"Feuerstelle", wen:["alle"] },
     { tag:"mo", zeit:"Ganztags", titel:"Waldrallye · Spielewagen · Flying Fox", wer:"", wo:"", wen:["alle"] },
     // Dienstag
-    { tag:"di", zeit:"07:30 – 08:15", titel:"Yoga", wer:"", wo:"Zirkuszelt", wen:["erwachsene"] },
+    { tag:"di", zeit:"07:30 – 08:15", titel:"Yoga am Morgen", wo:"Zirkuszelt", wen:["erwachsene"] },
     { tag:"di", zeit:"07:45 – 09:00", titel:"Frühstück", wo:"Seminarhaus", wen:["alle"], hinweis:"Nur vorgebucht" },
     { tag:"di", zeit:"09:20 – 09:40", titel:"Morgenkreis mit dem Wundaplunda Team", wer:"Wundaplunda Team", wo:"Zirkuszelt", wen:["alle"] },
     { tag:"di", zeit:"09:45 – 10:30", titel:"Clanzeit", wer:"", wo:"Treff Zirkuszelt", wen:["alle"] },
@@ -87,14 +87,16 @@ const WUNDA = {
     { tag:"di", zeit:"17:30 – 18:00", titel:"Lisa liest Geschichte", wer:"Lisa", wo:"Wundazelt", wen:["kinder_0_4","kinder_ab_5"] },
     { tag:"di", zeit:"17:45 – 19:15", titel:"Abendessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
     { tag:"di", zeit:"19:00 – 20:30", titel:"Männerkreis", wer:"Oliver", wo:"Yogaraum", wen:["erwachsene"] },
-    { tag:"di", zeit:"20:00", titel:"Trommeln auf dem Dorfplatz", wer:"", wo:"Dorfplatz", wen:["alle"] },
-    { tag:"di", zeit:"ab 21:00", titel:"Feuershow & Akrobatik mit Trommelbegleitung", wer:"", wo:"Dorfplatz", wen:["alle"] },
+    { tag:"di", zeit:"20:00", titel:"Allikée Trommelgruppe", wo:"Dorfplatz", wen:["alle"] },
+    { tag:"di", zeit:"ab 21:00", titel:"Artistik Calimbaro: Feuershow & Akrobatik mit Trommelbegleitung", wo:"Dorfplatz", wen:["alle"] },
     // Mittwoch
-    { tag:"mi", zeit:"07:30 – 08:15", titel:"Yoga am Morgen", wer:"Anna Elisabeth", wo:"Yogaraum", wen:["erwachsene"] },
+    { tag:"mi", zeit:"07:30 – 08:15", titel:"Klang & Qigong – Entspannt in den Tag starten", wo:"Yogaraum", wen:["erwachsene"] },
     { tag:"mi", zeit:"07:30 – 08:15", titel:"Morgen-Workout – Kraftvoll in den Tag", wer:"Matthias Zech", wo:"Zirkuszelt", wen:["erwachsene"] },
     { tag:"mi", zeit:"07:45 – 09:00", titel:"Frühstück", wer:"", wo:"Seminarhaus", wen:["alle"], hinweis:"Nur vorgebucht" },
     { tag:"mi", zeit:"09:20 – 09:40", titel:"Morgenkreis mit dem Wundaplunda Team", wer:"Wundaplunda Team", wo:"Zirkuszelt", wen:["alle"] },
-    { tag:"mi", zeit:"10:30 – 12:30", titel:"Schlangen & Zauberei filzen mit Fee", wer:"Fee", wo:"Wundazelt", wen:["kinder_0_4","kinder_ab_5"] },
+    // Freitag
+    { tag:"fr", zeit:"10:30 – 12:30", titel:"Schlangen & Zauberei filzen", wo:"Wundazelt", wen:["kinder_0_4","kinder_ab_5"] },
+    // Mittwoch
     { tag:"mi", zeit:"10:30 – 12:30", titel:"Slackline Workshop", wer:"Daniel", wo:"Treffpunkt Zirkuszelt", wen:["alle"] },
     { tag:"mi", zeit:"10:30 – 12:30", titel:"Wahrnehmungs- / Sinnesübungen in der Natur", wer:"", wo:"Treffpunkt Kinderjurte", wen:["erwachsene"] },
     { tag:"mi", zeit:"12:15 – 13:45", titel:"Mittagessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
@@ -109,7 +111,7 @@ const WUNDA = {
     { tag:"mi", zeit:"19:30 – 20:30", titel:"Tribubu", wer:"", wo:"Zirkuszelt", wen:["alle"] },
     { tag:"mi", zeit:"Ganztags", titel:"Waldrallye · Spielewagen · Flying Fox", wer:"", wo:"", wen:["alle"] },
     // Donnerstag
-    { tag:"do", zeit:"07:30 – 08:15", titel:"Yoga", wer:"", wo:"Zirkuszelt", wen:["erwachsene"] },
+    { tag:"do", zeit:"07:30 – 08:15", titel:"Yoga am Morgen", wo:"Zirkuszelt", wen:["erwachsene"] },
     { tag:"do", zeit:"07:45 – 09:00", titel:"Frühstück", wer:"", wo:"Seminarhaus", wen:["alle"], hinweis:"Nur vorgebucht" },
     { tag:"do", zeit:"09:20 – 09:40", titel:"Morgenkreis mit dem Wundaplunda Team", wer:"Wundaplunda Team", wo:"Zirkuszelt", wen:["alle"] },
     { tag:"do", zeit:"09:45 – 10:30", titel:"Clanzeit", wer:"", wo:"Treff Zirkuszelt", wen:["alle"] },
@@ -129,11 +131,13 @@ const WUNDA = {
     { tag:"do", zeit:"ab 20:30", titel:"Lagerfeuerabend", wer:"", wo:"Feuerstelle", wen:["kinder_ab_5","erwachsene"], hinweis:"Instrumente mitbringen" },
     { tag:"do", zeit:"Ganztags", titel:"Waldrallye · Spielewagen · Flying Fox", wer:"", wo:"", wen:["alle"] },
     // Freitag
-    { tag:"fr", zeit:"07:30 – 08:15", titel:"Yoga am Morgen", wer:"Anna Elisabeth", wo:"Yogaraum", wen:["erwachsene"] },
+    { tag:"fr", zeit:"07:30 – 08:15", titel:"Klang & Qigong – Entspannt in den Tag starten", wo:"Yogaraum", wen:["erwachsene"] },
     { tag:"fr", zeit:"07:45 – 09:00", titel:"Frühstück", wer:"", wo:"Seminarhaus", wen:["alle"], hinweis:"Nur vorgebucht" },
     { tag:"fr", zeit:"09:20 – 09:40", titel:"Morgenkreis mit dem Wundaplunda Team", wer:"Wundaplunda Team", wo:"Zirkuszelt", wen:["alle"] },
     { tag:"fr", zeit:"10:30 – 12:30", titel:"Baumpilze & Pilzpapier", wer:"", wo:"Wundazelt", wen:["alle"] },
-    { tag:"fr", zeit:"10:30 – 12:30", titel:"Ton brennen", wer:"", wo:"Feuerstelle", wen:["kinder_ab_5"] },
+    // Mittwoch
+    { tag:"mi", zeit:"10:30 – 12:30", titel:"Ton brennen & Lehmgeister", wo:"Feuerstelle", wen:["kinder_ab_5"] },
+    // Freitag
     { tag:"fr", zeit:"10:30 – 12:30", titel:"Vortrag LAVI – erleb es", wer:"", wo:"Yogaraum", wen:["erwachsene"] },
     { tag:"fr", zeit:"12:15 – 13:45", titel:"Mittagessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
     { tag:"fr", zeit:"14:00 – 16:00", titel:"Bogenbau", wer:"Laurenz", wo:"Wundazelt", wen:["alle"] },
@@ -162,6 +166,8 @@ const WUNDA = {
     // Dienstag
     { tag:"di", zeit:"14:00 - 16:00", titel:"Sulzbrunner Markt", wo:"Dorfplatz", wen:["alle"] },
     { tag:"di", zeit:"08:00-11:00", titel:"Unsere Bar hat geöffnet!", wo:"", wen:["alle"] },
+    { tag:"di", zeit:"16:00 - 18:00 Uhr", titel:"Unsere Bar hat geöffnet!", wo:"", wen:["alle"] },
+    { tag:"di", zeit:"19:30  - 21:00", titel:"Unser Seminarhaus Kiosk hat geöffnet!", wo:"", wen:["alle"] },
   ],
 
   katalog: {
@@ -447,6 +453,46 @@ const WUNDA = {
     },
     "Unsere Bar hat geöffnet!": {
       beschreibung: "An unserer Bar erwarten euch lecker Kaffee aus der Siebträgermaschine, frische Waffeln,  kühle, alkoholfreie Getränke und Eis. Alles bio! \nBringt gerne eure eigene Tasse für den Kaffee mit. Falls ihr keine dabeihabt, könnt ihr euch in der Draußenküche eine Leihtasse ausleihen. \nBitte stellt die Leihtassen nach dem Spülen wieder dort ab, damit sie für die Nächsten bereitstehen.\n\nWir verkaufen nachmittags zusätzlich Stockbrot sowie Calzone-Teig zum Selbermachen über dem Lagerfeuer oder auf unserer Murrikka Pfanne.\n\nBitte bringt außerdem Bargeld mit, wir haben keine Kartenzahlung an der Bar.\nKommt vorbei und lasst es euch schmecken!",
+    },
+    "Unser Seminarhaus Kiosk hat geöffnet!": {
+      beschreibung: "Brauchst du noch ein kühles Getränk vor Allikée und der Feuershow? Dann schau bei uns vorbei!",
+    },
+    "Allikée Trommelgruppe": {
+      wer: "Alex & Trommelgruppe (Allikée)",
+      beschreibung: "„Allikée“ heißt so viel wie „Auf geht's!“ – westafrikanische Trommelmusik, gewürzt mit europäischen und lateinamerikanischen Einflüssen. Mal traditionell, mal modern, immer mit Freude und Groove.",
+      foto: "allikee.png",
+      web: "kakilambe.de",
+    },
+    "Artistik Calimbaro: Feuershow & Akrobatik mit Trommelbegleitung": {
+      wer: "Artistik Calimbaro",
+      beschreibung: "Artistik Calimbaro ist seit 2019 fester Bestandteil des Wundaplunda. Freut euch auf die bezaubernde Feuer-Akrobatikshow von Florian & Susanne – Leidenschaft, Energie und pure Magie in der Nacht, begleitet von der Trommelgruppe.",
+      foto: "feuer-akrobatikshow.jpg",
+      web: "artistik-calimbaro.de",
+      insta: "@artistik_calimbaro",
+    },
+    "Yoga am Morgen": {
+      wer: "Amelie Zech (Stimmtherapeutin & Yogalehrerin)",
+      beschreibung: "Beim Yoga am Morgen mobilisieren wir den ganzen Körper, entspannen und lassen die Gedanken los – kraftvoll und entspannt in den Wundaplunda-Tag mit Amelie Zech.",
+      foto: "yoga.png",
+      web: "akademie-rueckenwind.de",
+      insta: "@akademie_rueckenwind",
+    },
+    "Klang & Qigong – Entspannt in den Tag starten": {
+      wer: "Anna-Elisabeth (Yogalehrerin)",
+      beschreibung: "Beginne den Tag mit einer wohltuenden Kombination aus sanften Qigong-Übungen und entspannenden Klängen. Durch achtsame Bewegung, bewusstes Atmen und die harmonischen Schwingungen der Instrumente kannst du zur Ruhe kommen, neue Energie tanken und gestärkt in den Tag starten. Es sind keine Vorkenntnisse erforderlich – alle sind herzlich willkommen.",
+      web: "akademie-rueckenwind.de",
+      insta: "@akademie_rueckenwind",
+    },
+    "Schlangen & Zauberei filzen": {
+      wer: "Fee",
+      beschreibung: "Im Nassfilz-Workshop entstehen bunte Filzkugeln mit funkelndem Muggelstein im Inneren und eine charmante Filzschlange – zwei Projekte zum Mitnehmen. Keine Vorkenntnisse nötig, alle Materialien werden gestellt.",
+      foto: "filzen.jpg",
+      insta: "@fees_musikgaertchen",
+    },
+    "Ton brennen & Lehmgeister": {
+      wer: "Amelie & Matthias",
+      beschreibung: "Kinder ab 6 Jahren gestalten gemeinsam mit einem Elternteil eigene kleine Objekte aus Ton. Anschließend brennen wir die Werke im Feuer und beobachten, wie der Ton fest und zum Werkstück wird.\nmit Amelie & Matze",
+      foto: "ton-brennen.png",
     },
   },
 
