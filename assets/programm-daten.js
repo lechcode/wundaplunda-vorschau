@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "12.07.2026, 23:13 Uhr",
+    stand: "13.07.2026, 17:10 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -57,7 +57,7 @@ const WUNDA = {
   // --- ALLE PROGRAMMPUNKTE (eine Zeile = ein Punkt) ---
   programm: [
     // Montag
-    { tag:"mo", zeit:"11:00 – 14:00", titel:"Anreise & Ankommen", wer:"", wo:"", wen:["alle"] },
+    { tag:"mo", zeit:"11:00 – 14:00", titel:"Anreise & Ankommen", wo:"", wen:["alle"] },
     { tag:"mo", zeit:"12:15 – 13:45", titel:"Mittagessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
     { tag:"mo", zeit:"13:30 – 16:00", titel:"Waffeln / Kaffee", wer:"", wo:"Bar", wen:["alle"] },
     { tag:"mo", zeit:"14:00", titel:"Eröffnung", wer:"Wundaplunda Team", wo:"Feuerstelle", wen:["alle"] },
@@ -407,6 +407,11 @@ const WUNDA = {
     "Bienenlehrgang für Groß und Klein": {
       wer: "Josef",
       beschreibung: "Josef lebt und arbeitet in der Gemeinschaft Sulzbrunn. Mit seinen Bienenvölkern produziert er den Sulzbrunner Honig und gibt spannende Einblicke in die faszinierende Welt der Bienen.\n\nIn diesem Workshop erfahrt ihr, wie ein Bienenvolk lebt, wie Honig entsteht und warum Bienen für unsere Natur unverzichtbar sind. Gemeinsam werfen wir einen Blick hinter die Kulissen der Imkerei und entdecken Wissenswertes rund um das Leben im Bienenstock.\n\nBringt eure Fragen mit – ob klein oder groß! Alles, was ihr schon immer über Bienen, Honig und die Arbeit eines Imkers wissen wolltet, ist willkommen.\n\nWir freuen uns auf einen lebendigen Austausch und viele spannende Entdeckungen rund um die Bienen der Gemeinschaft Sulzbrunn.",
+    },
+    "Anreise & Ankommen": {
+      beschreibung: "Willkommen zum Wundaplunda! Schaut doch gerne unter ALLE INFOS A-Z. Hier findet ihr alle wichtigen Infos zur Anreise und eurem Ankommen. Wir wünschen dir eine gute Fahrt und freuen uns riesig, dass du mit dabei bist!",
+      web: "www.wundaplunda.de",
+      insta: "@wundaplunda",
     },
   },
 
