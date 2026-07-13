@@ -184,9 +184,11 @@ main{padding:clamp(1.6rem,4vw,2.8rem) 0 1rem}
 .card-chev{flex:none;align-self:flex-start;margin-top:.15rem;color:var(--koralle);width:1.35rem;height:1.35rem;transition:transform .2s}
 .card-chev svg{width:100%;height:100%}
 .card[aria-expanded="true"] .card-chev{transform:rotate(180deg)}
-/* Mahlzeiten/Pausen dezenter */
-.slot.meal .card{background:var(--creme);border-style:dashed;box-shadow:none}
-.slot.meal h3{color:var(--ink-soft);font-weight:600}
+/* Mahlzeiten/Pausen: eigene warme „Essen"-Farbe, abgehoben vom übrigen Programm */
+.slot.meal .card{background:#FBEFD5;border-color:var(--gold-hell);border-left:5px solid var(--gold);box-shadow:none}
+.slot.meal .card.has-info:hover{border-color:var(--gold)}
+.slot.meal h3{color:#8A5A00;font-weight:700}
+.slot.meal .card-chev{color:var(--gold)}
 .card.cancelled{background:#FBF1EB;border-color:#E6C9BC}
 .card.cancelled h3{text-decoration:line-through;color:var(--ink-soft)}
 
@@ -1137,6 +1139,7 @@ document.write('<script src="assets/programm-daten.js?v=' + Date.now() + '"><\/s
     if(p.status==="geaendert") hinweise.push("Programmänderung – bitte aktuelle Hinweise beachten.");
     if(p.status==="entfaellt") hinweise.push("Dieser Programmpunkt entfällt.");
     if(p.hinweis) hinweise.unshift(p.hinweis.trim().replace(/\.?$/,"."));
+    if(isMeal(p)) hinweise.push("Essenszeiten, Preise & Buchung: siehe Reiter „Versorgung & Verpflegung“.");
     var web=(kat&&kat.web)?kat.web:p.web;
     var insta=(kat&&kat.insta)?kat.insta:p.insta;
     return { kat:kat, wer:werTxt, woMain:(woParts[0]||"").trim(), woAlt:woParts.slice(1).join(" / ").trim(),
@@ -1148,7 +1151,6 @@ document.write('<script src="assets/programm-daten.js?v=' + Date.now() + '"><\/s
     return w.map(function(k){return ZG[k]?ZG[k].label:k;}).join(" · ");
   }
   function hasDetail(p){
-    if(isMeal(p)) return false;
     var d=detail(p);
     return !!(d.desc || d.wer || d.woMain || d.mitbringen || d.foto || d.woAlt || d.hinweise.length);
   }
@@ -1181,6 +1183,14 @@ document.write('<script src="assets/programm-daten.js?v=' + Date.now() + '"><\/s
     if(d.woMain) meta.innerHTML += '<span>'+svgUse("i-pin")+esc(d.woMain)+'</span>';
     if(!meal) meta.innerHTML += '<span class="fuerwen">'+svgUse("i-gruppe")+esc(wenLabel(p.wen))+'</span>';
     if(meta.innerHTML) card.appendChild(meta);
+
+    // Mahlzeiten: Buchungs-/Anmelde-Hinweis direkt sichtbar (z. B. Frühstück „Nur vorgebucht")
+    if(meal){
+      var mbadges = el("div","badges");
+      if(p.hinweis) mbadges.innerHTML += '<span class="badge begrenzt">'+esc(p.hinweis)+'</span>';
+      else if(p.anmeldung==="offen") mbadges.innerHTML += '<span class="badge offen">Ohne Anmeldung</span>';
+      if(mbadges.innerHTML) card.appendChild(mbadges);
+    }
 
     if(isParallel){
       var badges = el("div","badges");
