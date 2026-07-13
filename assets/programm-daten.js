@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "13.07.2026, 19:38 Uhr",
+    stand: "13.07.2026, 19:39 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -134,7 +134,7 @@ const WUNDA = {
     { tag:"fr", zeit:"07:30 – 08:15", titel:"Klang & Qigong – Entspannt in den Tag starten", wo:"Yogaraum", wen:["erwachsene"] },
     { tag:"fr", zeit:"07:45 – 09:00", titel:"Frühstück", wer:"", wo:"Seminarhaus", wen:["alle"], hinweis:"Nur vorgebucht" },
     { tag:"fr", zeit:"09:20 – 09:40", titel:"Morgenkreis mit dem Wundaplunda Team", wer:"Wundaplunda Team", wo:"Zirkuszelt", wen:["alle"] },
-    { tag:"fr", zeit:"10:30 – 12:30", titel:"Baumpilze & Pilzpapier", wer:"", wo:"Wundazelt", wen:["alle"] },
+    { tag:"fr", zeit:"10:30 – 12:30", titel:"Faszination Baumpilze & Pilzpapier", wo:"Wundazelt", wen:["alle"] },
     // Mittwoch
     { tag:"mi", zeit:"10:30 – 12:30", titel:"Ton brennen & Lehmgeister", wo:"Feuerstelle", wen:["kinder_0_4","kinder_ab_5"] },
     // Freitag
@@ -392,7 +392,7 @@ const WUNDA = {
     "Baumpilze & Pilzpapier": {
       wer: "Larissa & Corinna (ausgebildete Pilzcoaches)",
       foto: "pilzpapier.png",
-      beschreibung: "Faszination Baumpilze: Wir lernen, was Baumpilze sind, wie man sie erkennt und welche Rolle sie im Wald spielen – und schöpfen dann gemeinsam Papier aus Pilzen, wahlweise mit getrockneten Blüten und Samen. Ein Workshop für die ganze Familie.",
+      beschreibung: "Faszination Baumpilze: Wir lernen, was Baumpilze sind, wie man sie erkennt und welche Rolle sie im Wald spielen – und schöpfen dann gemeinsam Papier aus Pilzen, wahlweise mit getrockneten Blüten und Samen. Ein Workshop für die ganze Familie.\n\nWir sind Larissa und Corinna, ausgebildete PilzCoaches aus dem Allgäu – und wir glauben, dass Pilze viel mehr können, als nur auf dem Teller zu landen. In diesem Workshop zeigen wir euch zwei faszinierende Baumpilze von einer ganz anderen Seite",
     },
     "Ton brennen": {
       wer: "Amelie & Matthias",
@@ -581,6 +581,11 @@ const WUNDA = {
       wer: "Larissa & Corinna (ausgebildete Pilzcoaches)",
       beschreibung: "Entdeckt mit uns die Welt der Baumpilze! Wir starten gemeinsam mit einer Einführung: Was sind Baumpilze? Wie erkenne ich sie? Welche Rolle spielen sie im Wald - und was steckt alles in ihnen? \n\nWir nutzen die Wirkung des Zunderschwamms und stellen gemeinsam eine Salbe und ein Deo her. \n\nWir sind Larissa und Corinna, ausgebildete PilzCoaches aus dem Allgäu – und wir glauben, dass Pilze viel mehr können, als nur auf dem Teller zu landen. In diesem Workshop zeigen wir euch zwei faszinierende Baumpilze von einer ganz anderen Seite",
       foto: "deo-salbe.png",
+    },
+    "Faszination Baumpilze & Pilzpapier": {
+      wer: "Larissa & Corinna (ausgebildete Pilzcoaches)",
+      beschreibung: "Entdeckt mit uns die Welt der Baumpilze! Wir starten gemeinsam mit einer Einführung: Was sind Baumpilze? Wie erkenne ich sie? Welche Rolle spielen sie im Wald - und was steckt alles in ihnen? \nIm zweiten Teil wird`s praktisch: Wir schöpfen Papier aus Pilzen mit oder ohne getrockneten Blüten und Samen - wir lassen unserer Kreativität freien Lauf. \n\nWir sind Larissa und Corinna, ausgebildete PilzCoaches aus dem Allgäu – und wir glauben, dass Pilze viel mehr können, als nur auf dem Teller zu landen. In diesem Workshop zeigen wir euch zwei faszinierende Baumpilze von einer ganz anderen Seite",
+      foto: "pilzpapier.png",
     },
   },
 
