@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "13.07.2026, 19:49 Uhr",
+    stand: "13.07.2026, 19:51 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -185,7 +185,7 @@ const WUNDA = {
     { tag:"fr", zeit:"14:00 - 17:00", titel:"Unsere Bar hat geöffnet!", wo:"Bar", wen:["alle"] },
     { tag:"fr", zeit:"19:00 - 22:00", titel:"Unsere Bar hat geöffnet!", wo:"", wen:["alle"] },
     // Samstag
-    { tag:"sa", zeit:"08 -11:00", titel:"Unsere Bar hat geöffnet!", wo:"Bar", wen:["alle"] },
+    { tag:"sa", zeit:"08:00-11:00", titel:"Unsere Bar hat geöffnet!", wo:"Bar", wen:["alle"] },
   ],
 
   katalog: {
