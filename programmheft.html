@@ -1019,6 +1019,13 @@ document.write('<script src="assets/programm-daten.js?v=' + Date.now() + '"><\/s
   function el(tag, cls, html){ var e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
   function svgUse(id){ return '<svg aria-hidden="true"><use href="#'+id+'"/></svg>'; }
   function esc(s){ return (s==null?"":String(s)).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  // Zeilenumbrüche aus dem Redaktionstool erhalten: Leerzeile = neuer Absatz, einzelner Umbruch = Zeilenwechsel
+  function descAbsaetze(text){
+    return String(text==null?"":text).replace(/\r\n?/g,"\n").split(/\n{2,}/)
+      .map(function(p){return p.trim();}).filter(Boolean)
+      .map(function(p){ return "<p>"+esc(p).replace(/\n/g,"<br>")+"</p>"; }).join("");
+  }
+  function textMitUmbruch(text){ return esc(String(text==null?"":text).replace(/\r\n?/g,"\n")).replace(/\n{2,}/g,"<br><br>").replace(/\n/g,"<br>"); }
   function isMeal(p){ return /essen|frühstück|fruehstueck|pause|kiosk/i.test(p.titel); }
   // Punkte, die KEINE Druck-Beschreibungskachel brauchen (selbsterklärend/Routine)
   var SKIP_PRINTCARD = {"Morgenkreis mit dem Wundaplunda Team":1,"Clanzeit":1,"Probe Clanzeit":1,"Anreise & Ankommen":1,"Abreise / Ende des Camps":1,"Abschlussrunde":1,"Open Space":1,"Kuchen Pappelkinder & Hoflädle":1};
@@ -1242,7 +1249,7 @@ document.write('<script src="assets/programm-daten.js?v=' + Date.now() + '"><\/s
       extLink("Instagram","i-instagram",ih,"@"+handle); }
     // Beschreibung + Hinweise
     var descEl=document.getElementById("dm-desc"); descEl.innerHTML="";
-    if(d.desc) descEl.appendChild(el("p",null,esc(d.desc)));
+    if(d.desc) descEl.innerHTML = descAbsaetze(d.desc);
     if(d.hinweise.length) descEl.appendChild(el("p",null,esc(d.hinweise.join(" "))));
 
     lastFocus=document.activeElement;
@@ -1314,7 +1321,7 @@ document.write('<script src="assets/programm-daten.js?v=' + Date.now() + '"><\/s
       pkItems.forEach(function(x){
         var p=x.p, inf=x.inf, wo=(p.wo||"").split(/\s\/\s/)[0].trim();
         var c=el("div","pk-card"+(inf.foto?" has-foto":""));
-        var txt='<h3>'+esc(p.titel)+'</h3><p class="pk-meta">'+esc(p.zeit)+(inf.wer?(' · '+esc(inf.wer)):'')+(wo?(' · '+esc(wo)):'')+'</p><p class="pk-desc">'+esc(inf.desc)+'</p>';
+        var txt='<h3>'+esc(p.titel)+'</h3><p class="pk-meta">'+esc(p.zeit)+(inf.wer?(' · '+esc(inf.wer)):'')+(wo?(' · '+esc(wo)):'')+'</p><p class="pk-desc">'+textMitUmbruch(inf.desc)+'</p>';
         var notes=[];
         if(p.anmeldung==="begrenzt") notes.push("Begrenzte Plätze");
         if(inf.mitbringen) notes.push("Mitbringen: "+inf.mitbringen);
