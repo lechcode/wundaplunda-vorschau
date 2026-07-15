@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "15.07.2026, 08:09 Uhr",
+    stand: "15.07.2026, 08:14 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -81,7 +81,7 @@ const WUNDA = {
     { tag:"di", zeit:"12:15 – 13:45", titel:"Mittagessen", wer:"", wo:"Seminarhaus", wen:["alle"], anmeldung:"offen" },
     { tag:"di", zeit:"14:00 – 16:00", titel:"Kaffee & Kuchen & Hoflädle", wo:"Dorfplatz", wen:["alle"], hinweis:"Kaffee & Kuchen (Verein Füreinander Miteinander e.V.) + Hoflädle" },
     { tag:"di", zeit:"14:15 – 15:00", titel:"Singen – Jodruf Sulzbrunn", wer:"", wo:"Dorfplatz", wen:["alle"] },
-    { tag:"di", zeit:"15:00 – 16:00", titel:"Poi-Workshop", wer:"Susanne & Paty", wo:"Wundazelt", wen:["kinder_0_4","kinder_ab_5"] },
+    { tag:"di", zeit:"15:00 – 16:00", titel:"Poi-Workshop", wo:"Wundazelt", wen:["kinder_0_4","kinder_ab_5"] },
     { tag:"di", zeit:"16:00 – 18:00", titel:"Frauenkreis", wo:"Yogaraum", wen:["erwachsene"] },
     { tag:"di", zeit:"16:30 – 17:30", titel:"Kinderband \"Leicht Verschwitzt Und Zwergig\"", wo:"Zirkuszelt", wen:["alle"] },
     { tag:"di", zeit:"17:30 – 18:00", titel:"Lisa liest Geschichte", wer:"Lisa", wo:"Wundazelt", wen:["kinder_0_4","kinder_ab_5"] },
@@ -167,8 +167,8 @@ const WUNDA = {
     { tag:"sa", zeit:"16:00", titel:"Abreise / Ende des Camps", wer:"", wo:"", wen:["alle"] },
     // Dienstag
     { tag:"di", zeit:"14:00 - 16:00", titel:"Sulzbrunner Markt", wo:"Dorfplatz", wen:["alle"] },
-    { tag:"di", zeit:"08:00-11:00", titel:"Unsere Bar hat geöffnet!", wo:"", wen:["alle"] },
-    { tag:"di", zeit:"16:00 - 18:00 Uhr", titel:"Unsere Bar hat geöffnet!", wo:"", wen:["alle"] },
+    { tag:"di", zeit:"08:00-11:00", titel:"Unsere Bar hat geöffnet!", wo:"Bar", wen:["alle"] },
+    { tag:"di", zeit:"16:00 - 18:00 Uhr", titel:"Unsere Bar hat geöffnet!", wo:"Bar", wen:["alle"] },
     { tag:"di", zeit:"19:30  - 21:00", titel:"Unser Seminarhaus Kiosk hat geöffnet!", wo:"", wen:["alle"] },
     { tag:"di", zeit:"ganztags", titel:"Waldrallye - Spielewagen - Flying Fox", wo:"", wen:["alle"] },
     // Samstag
@@ -262,7 +262,7 @@ const WUNDA = {
       beschreibung: "Wir basteln Pois aus Upcycling-Materialien. Die an Schnüren geschwungenen Bälle aus der Māori-Kultur Neuseelands machen Spaß und fördern Beweglichkeit, Koordination und Kraft. Nachmittags gibt es den passenden Workshop dazu.\n\nPaty spielt seit vielen Jahren hobbymässig Poi in allen möglichen Variante.  Barbara & Paty sind  allround kreative Köpfeund haben sehr viel Spaß mit Kindern zu basteln und Neues zu zeigen.",
     },
     "Poi-Workshop": {
-      wer: "Susanne & Patty",
+      wer: "Susanne & Paty",
       foto: "poi.png",
       insta: "@patyk.liebe",
       beschreibung: "Passend zu den selbstgebastelten Pois schwingen wir die an Schnüren geführten Bälle und üben Beweglichkeit, Koordination und Kraft – Spiel und Bewegung aus der Māori-Kultur Neuseelands.",
