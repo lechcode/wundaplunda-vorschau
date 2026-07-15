@@ -36,7 +36,7 @@ const WUNDA = {
     ort: "Gemeinschaft Sulzbrunn · Allgäu",
     adresse: "Sulzbrunn 1–8, 87477 Sulzberg",
     hinweis_jahr: "Stand Juli 2026 – Änderungen möglich",
-    stand: "15.07.2026, 08:16 Uhr",
+    stand: "15.07.2026, 09:53 Uhr",
     tage: [
       { key:"mo", wochentag:"Montag", datum:"03.08." },
       { key:"di", wochentag:"Dienstag", datum:"04.08." },
@@ -190,7 +190,7 @@ const WUNDA = {
 
   katalog: {
     "Geländeführung": {
-      wer: "2 Menschen aus der Gemeinschaft",
+      wer: "mit Beate & Rolf",
       foto: "gelaendefuehrung.png",
       beschreibung: "Bei der Tour über das rund 15,5 Hektar große Gelände zeigen euch Sulzbrunn-Bewohner:innen Wald, Wiesen und die zehn Gebäude des kleinen Dorfs – inklusive der Geschichte rund um die Sulzbrunner Jodquelle (Kurbetrieb seit 1852). Mittlerweile leben 50 Erwachsene und 20 Kinder zusammen an diesem besonderen Ort, teilen Ressourcen und üben sich in einer sehr verbundenen Nachbarschaft.",
       web: "https://sulzbrunn.org/gemeinschaft/",
